@@ -263,6 +263,9 @@ function renderReader(article, analysis) {
   const vocabWords = (analysis.vocabulary || []).map(v => v.form_found || v.word);
   const phrases = (analysis.phrases || []).map(p => p.phrase);
 
+  const bodyEl = document.getElementById('reader-body');
+  const paragraphs = (article.full_text || '').split(/\n{2,}/).filter(p => p.trim());
+
   let html = '';
   paragraphs.forEach((para, idx) => {
     let p = escapeHtml(para.trim());
