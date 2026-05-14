@@ -6,9 +6,11 @@ foreign publications, with vocabulary and expression analysis.
 
 import json
 import os
+import time
 import threading
 from datetime import datetime, date, timezone, timedelta
 from pathlib import Path
+import urllib.request
 
 from flask import Flask, render_template, jsonify, request
 
@@ -234,6 +236,25 @@ def review_vocabulary(index):
         _write_json("vocabulary.json", vocab)
         return jsonify({"success": True, "entry": vocab[index]})
     return jsonify({"success": False, "error": "Index out of range"}), 404
+
+
+# ─── Keep-alive: prevent Render free tier from sleeping ──────────
+
+def _keep_alive():
+    """Ping self every 10 minutes to prevent Render free tier sleep."""
+    url = os.environ.get("RENDER_EXTERNAL_URL", "")
+    if not url:
+        return  # Not on Render, skip
+    while True:
+        time.sleep(600)  # 10 minutes
+        try:
+            urllib.request.urlopen(url, timeout=10)
+        except Exception:
+            pass
+
+# Start keep-alive thread on Render
+if os.environ.get("RENDER"):
+    threading.Thread(target=_keep_alive, daemon=True).start()
 
 
 if __name__ == "__main__":

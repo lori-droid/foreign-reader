@@ -9,3 +9,7 @@ services:
         value: 3.11.0
       - key: TZ
         value: Asia/Shanghai
+      - key: RENDER
+        value: "true"
+      - key: RENDER_EXTERNAL_URL
+        value: https://foreign-reader.onrender.com
