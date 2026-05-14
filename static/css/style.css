@@ -96,7 +96,7 @@ body {
 
 /* ─── ARTICLES GRID ─── */
 .articles-section { max-width: 1280px; margin: 0 auto; padding: var(--space-xl); }
-.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: var(--space-lg); }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--space-lg); }
 
 .article-card {
   background: #fff; border: 1px solid var(--border); border-radius: 8px;

@@ -49,30 +49,19 @@ def _write_json(filename, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-# ─── Daily article selection (3 articles, rotates daily at CST midnight) ───
+# ─── Daily article selection (all articles, rotates daily at CST midnight) ───
 
 def get_daily_articles():
-    """Select exactly 3 articles for today, one per category, rotating daily."""
-    day_ord = today_cst().toordinal()
-
-    # Group articles by category
-    by_cat = {"politics_economics": [], "editorial": [], "literature": []}
-    for i, a in enumerate(CLASSIC_ARTICLES):
-        cat = a.get("category", "editorial")
-        if cat in by_cat:
-            by_cat[cat].append((i, a))
-
+    """Return all available articles for today's reading.
+    With 2 real articles, both are shown daily. If more are added later,
+    a daily rotation can be implemented based on day_ordinal.
+    """
     selected = []
-    for cat in ["politics_economics", "editorial", "literature"]:
-        pool = by_cat.get(cat, [])
-        if pool:
-            idx = day_ord % len(pool)
-            orig_idx, article = pool[idx]
-            art = article.copy()
-            art["source_type"] = "classic"
-            art["_classic_index"] = orig_idx
-            selected.append(art)
-
+    for i, article in enumerate(CLASSIC_ARTICLES):
+        art = article.copy()
+        art["source_type"] = "classic"
+        art["_classic_index"] = i
+        selected.append(art)
     return selected
 
 
@@ -107,7 +96,7 @@ def index():
 
 @app.route("/api/daily-articles")
 def daily_articles():
-    """Get today's 3 recommended articles (one per category)."""
+    """Get today's recommended articles for intensive reading."""
     articles = get_daily_articles()
     record_daily_articles(articles)
 

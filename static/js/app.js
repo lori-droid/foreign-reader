@@ -48,7 +48,7 @@ function showView(viewName) {
 
 function goBack() { showView(previousView || 'home'); }
 
-// ═══ DAILY ARTICLES (exactly 3, no RSS) ═══
+// ═══ DAILY ARTICLES ═══
 async function loadDailyArticles() {
   const grid = document.getElementById('articles-grid');
   try {
@@ -276,9 +276,12 @@ function renderReader(article, analysis) {
     // 1. Highlight complex sentences first (longest first to avoid partial matches)
     sentenceKeys.sort((a, b) => b.key.length - a.key.length).forEach(({ key, idx: sIdx }) => {
       const escaped = escapeHtml(key);
-      if (p.includes(escaped.substring(0, 40))) {
-        // Find and wrap the sentence
-        const sentenceRegex = new RegExp('(' + escapeRegExp(escaped).substring(0, 80) + '[^<]*?' + ')', 'i');
+      // Use a longer prefix for more accurate matching
+      const matchPrefix = escaped.substring(0, Math.min(120, escaped.length));
+      if (p.includes(matchPrefix.substring(0, 40))) {
+        // Find and wrap the sentence — match from the key prefix to the end of the sentence
+        const regexStr = escapeRegExp(matchPrefix) + (escaped.length > 120 ? '[^<]*?' : '');
+        const sentenceRegex = new RegExp('(' + regexStr + ')', 'i');
         p = p.replace(sentenceRegex, '<span class="highlight-sentence" data-sentence-idx="' + sIdx + '">$1</span>');
       }
     });
@@ -369,7 +372,7 @@ function showTooltipAtElement(el, key, type) {
   const tooltip = document.getElementById('word-tooltip');
   let info = null;
   if (type === 'vocab' && currentAnalysis) {
-    info = currentAnalysis.vocabulary.find(v => v.form_found.toLowerCase() === key || v.word.toLowerCase() === key);
+    info = currentAnalysis.vocabulary.find(v => (v.form_found || v.word).toLowerCase() === key || v.word.toLowerCase() === key);
     if (info) {
       document.getElementById('tooltip-word').textContent = info.word;
       document.getElementById('tooltip-phonetic').textContent = info.phonetic || '';
