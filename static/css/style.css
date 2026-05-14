@@ -237,6 +237,14 @@ body {
   padding: 0 2px; border-bottom: 2px dashed var(--green);
   cursor: help;
 }
+.reader-body .highlight-sentence {
+  background: linear-gradient(180deg, transparent 65%, var(--purple-soft) 65%);
+  padding: 0 2px; border-bottom: 2px dotted var(--purple);
+  cursor: pointer; transition: all 0.2s;
+}
+.reader-body .highlight-sentence:hover {
+  background: var(--purple-soft); border-radius: 3px; border-bottom-color: transparent;
+}
 
 /* ─── ANALYSIS SIDEBAR ─── */
 .reader-analysis {

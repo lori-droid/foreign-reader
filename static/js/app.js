@@ -266,18 +266,38 @@ function renderReader(article, analysis) {
   const bodyEl = document.getElementById('reader-body');
   const paragraphs = (article.full_text || '').split(/\n{2,}/).filter(p => p.trim());
 
+  // Collect sentence highlight keys
+  const sentenceKeys = complexSentences
+    .filter(s => s.highlight_key)
+    .map(s => ({ key: s.highlight_key, idx: complexSentences.indexOf(s) }));
+
   let html = '';
   paragraphs.forEach((para, idx) => {
     let p = escapeHtml(para.trim());
+
+    // 1. Highlight complex sentences first (longest first to avoid partial matches)
+    sentenceKeys.sort((a, b) => b.key.length - a.key.length).forEach(({ key, idx: sIdx }) => {
+      const escaped = escapeHtml(key);
+      if (p.includes(escaped.substring(0, 40))) {
+        // Find and wrap the sentence
+        const sentenceRegex = new RegExp('(' + escapeRegExp(escaped).substring(0, 80) + '[^<]*?' + ')', 'i');
+        p = p.replace(sentenceRegex, '<span class="highlight-sentence" data-sentence-idx="' + sIdx + '">$1</span>');
+      }
+    });
+
+    // 2. Highlight phrases (longest first)
     const sortedPhrases = [...phrases].sort((a, b) => b.length - a.length);
     sortedPhrases.forEach(phrase => {
       const regex = new RegExp('(' + escapeRegExp(phrase) + ')', 'gi');
       p = p.replace(regex, '<span class="highlight-phrase" data-phrase="$1">$1</span>');
     });
+
+    // 3. Highlight vocab words
     vocabWords.forEach(word => {
       const regex = new RegExp('(?<![\\w">])(' + escapeRegExp(word) + ')(?![\\w<])', 'gi');
       p = p.replace(regex, '<span class="highlight-vocab" data-word="' + word.toLowerCase() + '">$1</span>');
     });
+
     html += `<div class="para-wrapper"><span class="para-number">${idx + 1}</span><p>${p}</p></div>`;
   });
   bodyEl.innerHTML = html;
@@ -305,6 +325,24 @@ function bindHighlightClicks() {
       const phrase = el.dataset.phrase.toLowerCase();
       showTooltipAtElement(el, phrase, 'phrase');
       scrollToCard(phrase, 'phrases');
+    });
+  });
+
+  // Sentence click → jump to sentence breakdown in sidebar
+  document.querySelectorAll('.highlight-sentence').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hideTooltip();
+      const sIdx = el.dataset.sentenceIdx;
+      switchTab('patterns');
+      setTimeout(() => {
+        const card = document.getElementById('sentence-card-' + sIdx);
+        if (card) {
+          card.classList.add('focused');
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => card.classList.remove('focused'), 3000);
+        }
+      }, 100);
     });
   });
 }
@@ -546,9 +584,10 @@ function renderVocabTab(vocab) {
       </div>
       <div class="vocab-chinese">${v.chinese}</div>
       <div class="vocab-def">${v.definition}</div>
-      ${(v.context_in_article || v.context) ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(v.context_in_article || v.context)}</div>` : ''}
+      ${v.linguistics ? `<div class="pattern-desc" style="margin:var(--space-sm) 0;line-height:1.7;font-size:0.82rem"><strong style="color:var(--ink)">语言学解析：</strong>${escapeHtml(v.linguistics)}</div>` : ''}
+      ${v.usage ? `<div class="pattern-tip" style="margin:var(--space-sm) 0"><strong>用法与替换：</strong>${escapeHtml(v.usage)}</div>` : ''}
       <div class="vocab-examples">
-        <div class="vocab-examples-title">权威例句 Examples</div>
+        <div class="vocab-examples-title">例句</div>
         ${v.examples.map(ex => {
           const text = typeof ex === 'string' ? ex : ex.text;
           const source = typeof ex === 'string' ? '' : (ex.source || '');
@@ -575,10 +614,10 @@ function renderPhrasesTab(phrases) {
       </div>
       <div class="vocab-chinese">${p.chinese}</div>
       <div class="vocab-def">${p.definition}</div>
-      ${(p.context_in_article || p.context) ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(p.context_in_article || p.context)}</div>` : ''}
-      ${p.explanation ? `<div class="pattern-desc" style="margin:var(--space-sm) 0">${escapeHtml(p.explanation)}</div>` : ''}
+      ${p.linguistics ? `<div class="pattern-desc" style="margin:var(--space-sm) 0;line-height:1.7;font-size:0.82rem"><strong style="color:var(--ink)">语言学解析：</strong>${escapeHtml(p.linguistics)}</div>` : ''}
+      ${p.usage ? `<div class="pattern-tip" style="margin:var(--space-sm) 0"><strong>用法与替换：</strong>${escapeHtml(p.usage)}</div>` : ''}
       <div class="vocab-examples">
-        <div class="vocab-examples-title">权威例句 Examples</div>
+        <div class="vocab-examples-title">例句</div>
         ${p.examples.map(ex => {
           const text = typeof ex === 'string' ? ex : ex.text;
           const source = typeof ex === 'string' ? '' : (ex.source || '');
@@ -601,7 +640,7 @@ function renderSentencesTab(sentences) {
     // New deep-reading format
     if (s.sentence) {
       return `
-        <div class="pattern-card" style="margin-bottom:1.2rem">
+        <div class="pattern-card" id="sentence-card-${i}" style="margin-bottom:1.2rem">
           <div class="pattern-found" style="border-left-color:var(--accent);font-style:normal;font-size:0.92rem;color:var(--ink);line-height:1.8;margin:0 0 var(--space-sm) 0">
             <span class="pattern-found-label" style="color:var(--accent)">长难句 #${i + 1}</span>
             ${escapeHtml(s.sentence)}
