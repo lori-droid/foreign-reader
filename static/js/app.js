@@ -223,7 +223,7 @@ async function openArticle(article) {
     const res = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: article.full_text, title: article.title })
+      body: JSON.stringify({ text: article.full_text, title: article.title, article_index: article._classic_index })
     });
     const data = await res.json();
     if (data.success) {
@@ -246,18 +246,21 @@ function clearTabs() {
 // ═══ RENDER READER ═══
 function renderReader(article, analysis) {
   const da = analysis.difficulty_assessment;
+  const complexSentences = analysis.complex_sentences || analysis.sentence_patterns || [];
+  const articleLink = analysis.article_link || article.link || '';
+
   document.getElementById('reader-meta').innerHTML = `
     <span class="meta-badge difficulty">${da.level}</span>
     <span class="meta-badge words">${da.total_words} 词 &middot; 平均词长 ${da.avg_word_length}</span>
-    <span class="meta-badge vocab-count">发现 ${analysis.vocabulary.length} 个核心词汇 &middot; ${analysis.phrases.length} 个高级词组</span>
+    <span class="meta-badge vocab-count">${analysis.vocabulary.length} 个核心词汇 &middot; ${analysis.phrases.length} 个高级词组 &middot; ${complexSentences.length} 个长难句</span>
+    ${articleLink ? `<a class="meta-badge" href="${articleLink}" target="_blank" style="text-decoration:none;background:var(--blue-soft);color:var(--blue)">原文链接 &rarr;</a>` : ''}
   `;
   document.getElementById('count-vocab').textContent = analysis.vocabulary.length;
   document.getElementById('count-phrases').textContent = analysis.phrases.length;
-  document.getElementById('count-patterns').textContent = analysis.sentence_patterns.length;
+  document.getElementById('count-patterns').textContent = complexSentences.length;
 
-  const bodyEl = document.getElementById('reader-body');
-  const paragraphs = (article.full_text || '').split(/\n{2,}/).filter(p => p.trim());
-  const vocabWords = (analysis.vocabulary || []).map(v => v.form_found);
+  // Collect vocab words for highlighting — support both form_found (old) and word (new)
+  const vocabWords = (analysis.vocabulary || []).map(v => v.form_found || v.word);
   const phrases = (analysis.phrases || []).map(p => p.phrase);
 
   let html = '';
@@ -278,7 +281,7 @@ function renderReader(article, analysis) {
 
   renderVocabTab(analysis.vocabulary || []);
   renderPhrasesTab(analysis.phrases || []);
-  renderPatternsTab(analysis.sentence_patterns || []);
+  renderSentencesTab(complexSentences);
   switchTab('vocab');
   bindHighlightClicks();
 }
@@ -530,7 +533,7 @@ function renderVocabTab(vocab) {
   const container = document.getElementById('tab-vocab');
   if (vocab.length === 0) { container.innerHTML = '<div class="analysis-empty">未发现已收录的高级词汇</div>'; return; }
   container.innerHTML = vocab.map((v, i) => `
-    <div class="vocab-card" id="vocab-card-${i}" data-key="${v.form_found.toLowerCase()}">
+    <div class="vocab-card" id="vocab-card-${i}" data-key="${(v.form_found || v.word).toLowerCase()}">
       <div class="vocab-card-header">
         <span class="vocab-word">${v.word}</span>
         <span class="vocab-pos">${v.pos}</span>
@@ -540,7 +543,7 @@ function renderVocabTab(vocab) {
       </div>
       <div class="vocab-chinese">${v.chinese}</div>
       <div class="vocab-def">${v.definition}</div>
-      ${v.context_in_article ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(v.context_in_article)}</div>` : ''}
+      ${(v.context_in_article || v.context) ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(v.context_in_article || v.context)}</div>` : ''}
       <div class="vocab-examples">
         <div class="vocab-examples-title">权威例句 Examples</div>
         ${v.examples.map(ex => {
@@ -569,7 +572,8 @@ function renderPhrasesTab(phrases) {
       </div>
       <div class="vocab-chinese">${p.chinese}</div>
       <div class="vocab-def">${p.definition}</div>
-      ${p.context_in_article ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(p.context_in_article)}</div>` : ''}
+      ${(p.context_in_article || p.context) ? `<div class="vocab-context"><span class="vocab-context-label">文中语境 Context</span>${escapeHtml(p.context_in_article || p.context)}</div>` : ''}
+      ${p.explanation ? `<div class="pattern-desc" style="margin:var(--space-sm) 0">${escapeHtml(p.explanation)}</div>` : ''}
       <div class="vocab-examples">
         <div class="vocab-examples-title">权威例句 Examples</div>
         ${p.examples.map(ex => {
@@ -585,19 +589,46 @@ function renderPhrasesTab(phrases) {
   `).join('');
 }
 
-function renderPatternsTab(patterns) {
+function renderSentencesTab(sentences) {
   const container = document.getElementById('tab-patterns');
-  if (patterns.length === 0) { container.innerHTML = '<div class="analysis-empty">未发现已收录的句式结构</div>'; return; }
-  container.innerHTML = patterns.map(p => `
-    <div class="pattern-card">
-      <div class="pattern-name">${p.pattern}</div>
-      <div class="pattern-chinese">${p.chinese}</div>
-      <div class="pattern-desc">${p.description}</div>
-      ${p.found_sentence ? `<div class="pattern-found"><span class="pattern-found-label">文中实例</span>${escapeHtml(p.found_sentence)}</div>` : ''}
-      <div class="pattern-model"><span class="pattern-model-label">范例</span>${escapeHtml(p.model_example)}</div>
-      <div class="pattern-tip">${p.usage_tip}</div>
-    </div>
-  `).join('');
+  if (!sentences || sentences.length === 0) { container.innerHTML = '<div class="analysis-empty">暂无长难句解读</div>'; return; }
+
+  // Support both old format (sentence_patterns) and new format (complex_sentences)
+  container.innerHTML = sentences.map((s, i) => {
+    // New deep-reading format
+    if (s.sentence) {
+      return `
+        <div class="pattern-card" style="margin-bottom:1.2rem">
+          <div class="pattern-found" style="border-left-color:var(--accent);font-style:normal;font-size:0.92rem;color:var(--ink);line-height:1.8;margin:0 0 var(--space-sm) 0">
+            <span class="pattern-found-label" style="color:var(--accent)">长难句 #${i + 1}</span>
+            ${escapeHtml(s.sentence)}
+          </div>
+          <div class="vocab-chinese" style="margin:var(--space-sm) 0;font-size:0.88rem">翻译：${escapeHtml(s.translation)}</div>
+          <div class="pattern-desc" style="line-height:1.7">
+            <strong style="color:var(--ink)">句子拆解：</strong>${escapeHtml(s.breakdown)}
+          </div>
+          ${s.grammar_points && s.grammar_points.length > 0 ? `
+            <div style="margin-top:var(--space-sm)">
+              <div class="vocab-examples-title">语法要点</div>
+              ${s.grammar_points.map(gp => `<div class="vocab-example">${escapeHtml(gp)}</div>`).join('')}
+            </div>
+          ` : ''}
+          ${s.writing_tip ? `<div class="pattern-tip" style="margin-top:var(--space-sm);line-height:1.7"><strong>写作借鉴：</strong>${escapeHtml(s.writing_tip)}</div>` : ''}
+        </div>
+      `;
+    }
+    // Old format fallback
+    return `
+      <div class="pattern-card">
+        <div class="pattern-name">${s.pattern || ''}</div>
+        <div class="pattern-chinese">${s.chinese || ''}</div>
+        <div class="pattern-desc">${s.description || ''}</div>
+        ${s.found_sentence ? `<div class="pattern-found"><span class="pattern-found-label">文中实例</span>${escapeHtml(s.found_sentence)}</div>` : ''}
+        ${s.model_example ? `<div class="pattern-model"><span class="pattern-model-label">范例</span>${escapeHtml(s.model_example)}</div>` : ''}
+        ${s.usage_tip ? `<div class="pattern-tip">${s.usage_tip}</div>` : ''}
+      </div>
+    `;
+  }).join('');
 }
 
 // ═══ PASTE & ANALYZE ═══

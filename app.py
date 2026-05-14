@@ -139,12 +139,39 @@ def get_article(article_id):
 
 @app.route("/api/analyze", methods=["POST"])
 def analyze_article():
-    """Analyze an article for intensive reading."""
+    """Analyze an article for intensive reading.
+    If article_index is provided and the article has embedded annotations, use those.
+    Otherwise fall back to the pattern-matching analyzer.
+    """
     data = request.get_json()
     text = data.get("text", "")
     title = data.get("title", "")
+    article_index = data.get("article_index")
+
     if not text:
         return jsonify({"success": False, "error": "No text provided"}), 400
+
+    # Check for embedded deep-reading annotations
+    if article_index is not None and 0 <= article_index < len(CLASSIC_ARTICLES):
+        article = CLASSIC_ARTICLES[article_index]
+        if article.get("annotations_vocab"):
+            # Use the hand-crafted deep reading annotations
+            words = text.lower().split()
+            analysis = {
+                "title": title,
+                "word_count": len(words),
+                "unique_words": len(set(words)),
+                "vocabulary": article.get("annotations_vocab", []),
+                "phrases": article.get("annotations_phrases", []),
+                "complex_sentences": article.get("annotations_sentences", []),
+                "difficulty_assessment": analyzer._assess_difficulty(
+                    words, {}
+                ),
+                "article_link": article.get("link", ""),
+            }
+            return jsonify({"success": True, "analysis": analysis})
+
+    # Fallback: use the pattern-matching analyzer (for pasted articles)
     analysis = analyzer.analyze(text, title)
     return jsonify({"success": True, "analysis": analysis})
 
