@@ -9,7 +9,6 @@ let previousView = 'home';
 let currentArticles = [];
 let currentAnalysis = null;
 let currentArticleText = '';
-let isSpeaking = false;
 let tooltipWord = '';
 
 // ═══ INIT ═══
@@ -32,7 +31,6 @@ function setTodayDate() {
 function showView(viewName) {
   previousView = currentView;
   currentView = viewName;
-  stopReadAloud();
 
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + viewName).classList.add('active');
@@ -414,147 +412,6 @@ function handleGlobalClick(e) {
   if (!tooltip.contains(e.target) && !e.target.closest('.highlight-vocab, .highlight-phrase')) hideTooltip();
 }
 
-// ═══ TTS — FREE DICTIONARY API REAL HUMAN AUDIO ═══
-
-// Cache fetched audio URLs to avoid repeated API calls
-const audioCache = {};
-
-/**
- * Speak a word using real human pronunciation from Free Dictionary API.
- * Fallback chain: 1) Cached audio  2) Free Dictionary API  3) Google Oxford  4) Browser TTS
- */
-async function speakWord(word) {
-  const cleanWord = word.trim().toLowerCase().replace(/[^a-z\s-]/g, '');
-  if (!cleanWord) return;
-
-  // 1) Check cache first
-  if (audioCache[cleanWord]) {
-    playAudioUrl(audioCache[cleanWord]);
-    return;
-  }
-
-  // 2) Try Free Dictionary API (best quality, real human recordings)
-  try {
-    const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(cleanWord)}`);
-    if (res.ok) {
-      const data = await res.json();
-      let audioUrl = '';
-      // Prefer US pronunciation
-      for (const entry of data) {
-        for (const ph of (entry.phonetics || [])) {
-          if (ph.audio) {
-            if (ph.audio.includes('-us')) { audioUrl = ph.audio; break; }
-            if (!audioUrl) audioUrl = ph.audio;
-          }
-        }
-        if (audioUrl && audioUrl.includes('-us')) break;
-      }
-      if (audioUrl) {
-        audioCache[cleanWord] = audioUrl;
-        playAudioUrl(audioUrl);
-        return;
-      }
-    }
-  } catch (e) { /* API failed, try next source */ }
-
-  // 3) Fallback: Google Oxford dictionary audio
-  const oxfordUrl = `https://ssl.gstatic.com/dictionary/static/sounds/oxford/${cleanWord}--_us_1.mp3`;
-  try {
-    const audio = new Audio(oxfordUrl);
-    audio.volume = 1.0;
-    await audio.play();
-    audioCache[cleanWord] = oxfordUrl;
-    return;
-  } catch (e) { /* Oxford failed too */ }
-
-  // 4) Final fallback: browser TTS
-  speakWordTTS(cleanWord);
-}
-
-function playAudioUrl(url) {
-  const audio = new Audio(url);
-  audio.volume = 1.0;
-  audio.play().catch(() => {});
-}
-
-function speakWordTTS(word) {
-  if (!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(word);
-  u.lang = 'en-US';
-  u.rate = 0.82;
-  u.pitch = 1;
-  const voices = window.speechSynthesis.getVoices();
-  const v = voices.find(v => v.lang === 'en-US' && v.localService)
-    || voices.find(v => v.lang.startsWith('en-US'))
-    || voices.find(v => v.lang.startsWith('en'));
-  if (v) u.voice = v;
-  window.speechSynthesis.speak(u);
-}
-
-function speakTooltipWord() {
-  if (tooltipWord) speakWord(tooltipWord);
-}
-
-// ═══ Full article read-aloud — sentence-by-sentence for natural pacing ═══
-let readAloudQueue = [];
-let readAloudIndex = 0;
-
-function toggleReadAloud() {
-  if (!('speechSynthesis' in window)) { notify('您的浏览器不支持语音朗读', 'error'); return; }
-  if (isSpeaking) { stopReadAloud(); return; }
-  if (!currentArticleText) return;
-
-  isSpeaking = true;
-  const btn = document.getElementById('btn-read-aloud');
-  btn.classList.add('active');
-  btn.innerHTML = '<span class="tts-icon">&#9724;</span> 停止';
-
-  window.speechSynthesis.cancel();
-
-  // Split into sentences for more natural reading and to avoid browser length limits
-  readAloudQueue = currentArticleText
-    .replace(/\n+/g, ' ')
-    .split(/(?<=[.!?])\s+/)
-    .filter(s => s.trim().length > 0);
-  readAloudIndex = 0;
-
-  speakNextSentence();
-}
-
-function speakNextSentence() {
-  if (!isSpeaking || readAloudIndex >= readAloudQueue.length) {
-    stopReadAloud();
-    return;
-  }
-
-  const sentence = readAloudQueue[readAloudIndex];
-  readAloudIndex++;
-
-  const u = new SpeechSynthesisUtterance(sentence);
-  u.lang = 'en-US';
-  u.rate = 0.9;
-  u.pitch = 1;
-
-  const voices = window.speechSynthesis.getVoices();
-  const voice = voices.find(v => v.lang === 'en-US' && v.localService)
-    || voices.find(v => v.lang.startsWith('en-US'))
-    || voices.find(v => v.lang.startsWith('en'));
-  if (voice) u.voice = voice;
-
-  u.onend = () => speakNextSentence();
-  u.onerror = () => speakNextSentence(); // skip errors, read next sentence
-
-  window.speechSynthesis.speak(u);
-}
-
-function stopReadAloud() {
-  isSpeaking = false;
-  window.speechSynthesis.cancel();
-  const btn = document.getElementById('btn-read-aloud');
-  if (btn) { btn.classList.remove('active'); btn.innerHTML = '<span class="tts-icon">&#9655;</span> 朗读'; }
-}
-
 // ═══ READING PROGRESS ═══
 function updateReadingProgress() {
   if (currentView !== 'reader') return;
@@ -579,7 +436,6 @@ function renderVocabTab(vocab) {
         <span class="vocab-word">${v.word}</span>
         <span class="vocab-pos">${v.pos}</span>
         <span class="vocab-phonetic">${v.phonetic || ''}</span>
-        <button class="vocab-speak" onclick="speakWord('${escapeAttr(v.word)}')" title="发音">&#128264;</button>
         <span class="vocab-level">${v.level}</span>
       </div>
       <div class="vocab-chinese">${v.chinese}</div>
@@ -609,7 +465,6 @@ function renderPhrasesTab(phrases) {
     <div class="phrase-card" data-key="${p.phrase.toLowerCase()}">
       <div class="vocab-card-header">
         <span class="phrase-text">${p.phrase}</span>
-        <button class="vocab-speak" onclick="speakWord('${escapeAttr(p.phrase)}')" title="发音">&#128264;</button>
         <span class="vocab-level">${p.level}</span>
       </div>
       <div class="vocab-chinese">${p.chinese}</div>
@@ -730,9 +585,7 @@ function renderVocabularyList(vocab) {
   container.innerHTML = vocab.map((v, i) => `
     <div class="vocab-saved-card" id="saved-vocab-${i}">
       <div class="vocab-saved-info">
-        <div class="vocab-saved-word">${escapeHtml(v.word)}
-          <button class="vocab-speak" onclick="speakWord('${escapeAttr(v.word)}')" title="发音" style="margin-left:6px">&#128264;</button>
-        </div>
+        <div class="vocab-saved-word">${escapeHtml(v.word)}</div>
         <div class="vocab-saved-def">${escapeHtml(v.definition)}</div>
         ${v.example ? `<div class="vocab-saved-def" style="font-style:italic;margin-top:4px;">"${escapeHtml(v.example)}"</div>` : ''}
         <div class="vocab-saved-source">来源: ${escapeHtml(v.source || '未知')} · 已复习 ${v.review_count || 0} 次</div>
@@ -770,4 +623,4 @@ function escapeAttr(str) { if (!str) return ''; return str.replace(/'/g, "\\'").
 function escapeRegExp(str) { return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
 // Pre-load voices
-if ('speechSynthesis' in window) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }

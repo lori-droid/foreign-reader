@@ -109,9 +109,6 @@
       <div class="reader-toolbar">
         <button class="back-btn" onclick="goBack()">← 返回</button>
         <div class="toolbar-actions">
-          <button class="toolbar-btn" id="btn-read-aloud" onclick="toggleReadAloud()" title="朗读全文">
-            <span class="tts-icon">&#9655;</span> 朗读
-          </button>
           <button class="toolbar-btn" id="btn-reading-progress" title="阅读进度">
             <span class="progress-text" id="reading-progress-text">0%</span>
           </button>
@@ -168,7 +165,6 @@
   <div class="word-tooltip" id="word-tooltip" style="display:none">
     <div class="tooltip-header">
       <span class="tooltip-word" id="tooltip-word"></span>
-      <button class="tooltip-speak" onclick="speakTooltipWord()" title="发音">&#128264;</button>
       <span class="tooltip-phonetic" id="tooltip-phonetic"></span>
     </div>
     <div class="tooltip-chinese" id="tooltip-chinese"></div>

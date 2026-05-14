@@ -18,7 +18,7 @@ CLASSIC_ARTICLES = [
         "category": "politics_economics",
         "category_label": "政治经济",
         "summary": "For decades, free trade was an article of faith among economists. Now a rethinking is under way — not to abandon openness, but to acknowledge its costs and complications.",
-        "link": "https://www.economist.com/leaders/",
+        "link": "",
         "published": "2025-01-15",
         "has_full_text": True,
         "full_text": """For decades, free trade was an article of faith among economists. The logic seemed irrefutable: countries should specialise in what they do best, and exchange goods freely. Everyone would be better off. Yet the world has changed in ways that have exacerbated the shortcomings of this paradigm.
@@ -281,7 +281,7 @@ The conundrum facing policymakers is acute. They must ameliorate the genuine har
         "category": "editorial",
         "category_label": "社论评论",
         "summary": "We have never been more connected, yet loneliness has become a public-health crisis. How did the tools meant to bring us together end up driving us apart?",
-        "link": "https://www.theatlantic.com/ideas/",
+        "link": "",
         "published": "2025-02-10",
         "has_full_text": True,
         "full_text": """We live in an age of ubiquitous connectivity. Smartphones, social media, and instant messaging have made it possible to reach anyone, anywhere, at any time. Yet paradoxically, loneliness has burgeoned into what some researchers call a modern epidemic. The tools designed to bring us together have, in many cases, driven us further apart.
@@ -403,7 +403,7 @@ The path forward hinges on our willingness to be honest about what we have lost 
         "category": "literature",
         "category_label": "文学小说",
         "summary": "In a world where physical books have become relics, one woman guards the last public library — and the memories it holds.",
-        "link": "https://www.newyorker.com/fiction",
+        "link": "",
         "published": "2025-03-05",
         "has_full_text": True,
         "full_text": """The library stood at the corner of Maple and Fifth, its limestone facade weathered but unbowed, a relic of an era that had passed so gradually that few had noticed its departure. Margaret Chen had been its sole librarian for eleven years, and in that time, the number of daily visitors had dwindled from a modest stream to a barely perceptible trickle.
@@ -516,7 +516,7 @@ Margaret never asked his name. To name him would have been to fix him in time, a
         "category": "politics_economics",
         "category_label": "政治经济",
         "summary": "As AI transforms industries, the real question is not whether jobs will disappear, but how societies will manage the transition.",
-        "link": "https://www.economist.com/leaders/",
+        "link": "",
         "published": "2025-04-20",
         "has_full_text": True,
         "full_text": """The proliferation of artificial intelligence in the workplace has precipitated a debate that, by and large, generates more heat than light. Apocalyptic predictions of mass unemployment vie with utopian visions of a leisure society. The truth, as is often the case, is more nuanced — and more interesting — than either extreme.
@@ -545,7 +545,7 @@ Despite these challenges, there are reasons for cautious optimism. A burgeoning 
         "category": "literature",
         "category_label": "文学小说",
         "summary": "An exploration of how abandoned buildings, empty rooms, and forgotten places speak volumes about the societies that created — and left — them.",
-        "link": "https://www.newyorker.com/culture",
+        "link": "",
         "published": "2025-05-01",
         "has_full_text": True,
         "full_text": """There is an eloquence to emptiness that the crowded world finds difficult to hear. Walk through an abandoned factory, a decommissioned church, or a shuttered school, and you will encounter a form of narrative that no living voice could replicate. These spaces speak not in the language of what they contain, but in the grammar of what has been removed.
@@ -572,7 +572,7 @@ Rarely has a society been forced to confront so directly the gap between its sel
         "category": "editorial",
         "category_label": "社论评论",
         "summary": "Developing nations need trillions to adapt to climate change, but the money is not flowing. The gap between promise and reality threatens global cooperation.",
-        "link": "https://www.theatlantic.com/science/",
+        "link": "",
         "published": "2025-03-28",
         "has_full_text": True,
         "full_text": """At the expense of their own development, the world's poorest nations are being asked to bear the brunt of a crisis they did little to create. The exorbitant cost of adapting to climate change — estimated at trillions of dollars — falls disproportionately on countries with the fewest resources to meet it. This is not merely an injustice; it is a conundrum that threatens the entire architecture of international climate cooperation.
