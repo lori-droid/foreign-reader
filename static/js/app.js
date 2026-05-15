@@ -278,7 +278,7 @@ function renderReader(article, analysis) {
       const escaped = escapeHtml(key);
       // Use a longer prefix for more accurate matching
       const matchPrefix = escaped.substring(0, Math.min(120, escaped.length));
-      if (p.includes(matchPrefix.substring(0, 40))) {
+      if (p.toLowerCase().includes(matchPrefix.substring(0, 40).toLowerCase())) {
         // Find and wrap the sentence — match from the key prefix to the end of the sentence
         const regexStr = escapeRegExp(matchPrefix) + (escaped.length > 120 ? '[^<]*?' : '');
         const sentenceRegex = new RegExp('(' + regexStr + ')', 'i');

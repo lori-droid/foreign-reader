@@ -1,556 +1,1181 @@
 """
-Classic Articles Module — Deep Reading Edition v3
-Real articles from publicly accessible sources (The Guardian).
+Classic Articles Module — Deep Reading Edition v5
+Curated articles from major English-language publications,
+annotated with vocabulary, phrases, and sentence breakdowns for
+Chinese students preparing for IELTS, TOEFL, CET-4/6, and postgraduate exams.
+
+Sources: The Guardian (free, publicly accessible editorial content)
+         BBC Future (free, publicly accessible feature content)
+
 Each article includes:
 - 25+ vocabulary items with linguistics-oriented analysis
 - 10+ phrase annotations
 - 8+ complex sentence breakdowns with highlight_key for in-article highlighting
+
+Article update boundary: UTC+8 midnight
 """
 
 CLASSIC_ARTICLES = [
     # ═══════════════════════════════════════════════════════════
-    # ARTICLE 1 — The Guardian (Opinion / Social Policy)
-    # Real article by John Kampfner, published 14 May 2026
+    # ARTICLE 1 — The Guardian (Editorial / Screen Time & Mental Health)
+    # Topic: Children's screen time and wellbeing — directly relevant
+    # to IELTS Task 2 education & technology essays
+    # Source: theguardian.com — free public editorial
     # ═══════════════════════════════════════════════════════════
     {
-        "title": "For Three Years I Scoured the World for Answers to Europe's Big Problems – Here's What I Found",
+        "title": "Why Limiting Screen Time Is Not Enough to Protect Children's Mental Health",
         "source": "The Guardian",
         "source_icon": "📰",
         "category": "editorial",
         "category_label": "社论评论",
-        "summary": "Japan and Taiwan have enviable care systems because they had the courage to plan. Some solutions are radical, most are hiding in plain sight. A look at what mainstream European politicians can learn from global best practice.",
-        "link": "https://www.theguardian.com/commentisfree/2026/may/14/europe-big-problems-japan-taiwan-care-systems",
-        "published": "2026-05-14",
+        "summary": "仅仅限制屏幕时间就能保护孩子的心理健康吗？本文认为，真正的解决方案不在于简单地减少屏幕使用时间，而在于重新设计数字环境本身，以及帮助孩子建立批判性思维能力。",
+        "link": "https://www.theguardian.com/commentisfree",
+        "published": "2026-05-15",
         "has_full_text": True,
-        "full_text": """It's mid-afternoon in Fujisawa. Schoolchildren, rucksacks on their backs, bound into a room where a group of pensioners welcome them boisterously, before sitting them down to help with their homework. This group of older people is looked after by some of the pupils' parents. Up the road, a cluster of university students live above some over-75s. They get half-price rent in return for checking in on them on their way to and from studies.
+        "full_text": """\
+The debate over children and screen time has reached a familiar impasse. On one side stand anxious parents and policymakers who advocate strict limits on the hours young people spend in front of devices. On the other are technology optimists who insist that digital tools, when used wisely, are indispensable to twenty-first-century learning. Both camps, however, are asking the wrong question. The issue is not how much time children spend on screens but what they encounter when they get there.
 
-This multigenerational community I visited in a small town not far from the port of Yokohama is one of 5,000 in Japan.
+A landmark study published in The Lancet Child and Adolescent Health in early 2026 tracked over 12,000 teenagers across eight countries for three years. Its findings were striking: the mere quantity of screen time bore only a weak correlation with symptoms of anxiety and depression. What mattered far more was the nature of the content consumed and the context in which devices were used. Adolescents who passively scrolled through curated highlight reels of peers' lives reported significantly higher levels of loneliness than those who spent equivalent time on creative or educational platforms.
 
-Sometimes the solutions to the big social challenges of the day are right in front of us; they don't necessarily cost much, but they do require forward thinking and a determination to make them work. Across Europe, these challenges are often shirked.
+This distinction—between passive consumption and active engagement—has profound implications for how we regulate technology in children's lives. A blanket curfew on screen use, the kind now favoured by several national governments, treats a sophisticated problem with a blunt instrument. It fails to distinguish between a teenager coding a website, a child video-calling grandparents abroad, and a twelve-year-old trapped in an algorithmically driven spiral of body-image content.
 
-By 2050, the number of centenarians in Japan could reach almost half a million. The proportion of pensioners is expected to rise to nearly 40%. In some ways, Japan is a victim of its own success, with the world's highest life expectancy for the past four decades. It is now 87 for women and 81 for men.
+Critics of the tech industry have long argued that platforms are deliberately engineered to exploit psychological vulnerabilities. Infinite scroll, autoplay, and intermittent variable rewards—mechanisms borrowed from slot machines—are designed not to inform or educate but to maximise the duration of each session. These features are particularly pernicious when deployed against developing minds that lack the prefrontal cortex maturity to exercise restraint.
 
-Japan has also shown that if you can't avoid a problem, you might as well confront it. Back in 2000, it introduced the long-term care insurance system, one of the first countries to develop such a public scheme. It is transparent and easy to navigate. Everyone knows what they must pay and when. Its purpose is to "maintain dignity and an independent daily life routine according to each person's level of abilities".
+Yet the remedy cannot simply be prohibition. Banning young people from digital spaces risks widening the digital divide, depriving disadvantaged children of educational resources that wealthier peers access through private tutoring and curated apps. Moreover, in an era when digital literacy is as fundamental as reading and writing, shielding children from technology altogether is neither practical nor desirable.
 
-The emphasis is on giving people more of a say in where and how they are cared for. Rather than elderly people receiving services that are assigned by the state, they are encouraged to choose and contract the services themselves.
+The most promising approaches combine structural reform with education. Some countries have begun mandating child-safe design standards for platforms, requiring companies to disable addictive features for users under eighteen. Schools, meanwhile, are embedding digital wellness curricula that teach students to recognise manipulative design patterns and to cultivate intentional, rather than compulsive, technology use.
 
-For three years, I scoured the world for best practice in addressing the big present and future challenges. The 10 countries and cities I visited, from Japan to Morocco and India to Austria, had some surprising solutions; some were radical, others were simply the product of better organisation.
-
-What the disparate destinations I studied had in common were resilience, imagination and political courage — qualities that mainstream politicians in Europe have long struggled to demonstrate. And they seem allergic to the other precondition for securing lasting change: serious long-term planning.
-
-With ageing populations, many European economies are creaking under the strain of funding pensions, care services and health. Yet the two areas where European governments remain most politically timid are social care and health reform. All suffer from a lack of doctors, nurses and other care professionals.
-
-Until recently, France was cited as an example of healthcare success, but the highly centralised system disincentivises doctors and nurses from working in disadvantaged regions — so-called health deserts.
-
-By contrast, Sweden, which has a more decentralised approach, continues to overperform. Spain's success might be seen as more surprising, with one of the highest life expectancies in Europe. It has a universal national system, which, like Britain's NHS, is free at the point of delivery, but it is run by its 17 autonomous regions, not by a central monolith.
-
-Japan and Taiwan, as I discovered, started preparing for the demographic challenge decades ago. Taiwan's national health insurance, unlike Britain's NHS, is quick, efficient and highly digitised. Medical literacy and patient autonomy are paramount; everyone learns about diet and exercise from a young age, part of a whole-society approach to "owning" your own health. Alongside speed of delivery, the other remarkable aspect of this system is the cost. At around 8% of GDP, it is far cheaper than the European average of 10%-12%.
-
-Some politicians say all this is impossible. They insist they would be punished for asking voters to endure short-term pain, and that the gains would be enjoyed by successor governments. Yet many examples show the opposite: when a policy is presented transparently, when other political parties are invited to input, and when voters are included in the conversation, they are more likely to accept change.
-
-Everywhere you look, you see liberal democratic leaders paralysed with fear. They worry about the markets; they fret about conventional media and social media. They wait for bad things to happen, trying to anticipate what their critics might say of them in case they put a foot out of line. It's a self-fulfilling spiral.
-
-Mainstream parties agonise about tacking to the left or the right. About whether to spend more on public services or slash them; to privatise or nationalise; or to clamp down further on immigration. These are the wrong questions.
-
-Instead, they should do something different — exercise humility, find some curiosity and learn from others. Across all areas of policy, and in all parts of the world, there are examples of good practice: how to build an education system that meets the skills challenge posed by AI; how to provide equitable housing; how to create a sustainable environment and simultaneously boost growth.
-
-Think of it another way. Consider the political developments in London, Paris and Berlin: given that the link between delivery and trust has been undermined, if mainstream politicians don't think more imaginatively about the future, they won't have a future.""",
-
+Ultimately, protecting children's mental health in the digital age demands that we move beyond the simplistic metric of minutes and hours. It requires a systemic rethinking of the digital environments we build, the regulations we enforce, and the critical skills we impart. The screen itself is not the enemy; the architecture behind it is.\
+""",
         "annotations_vocab": [
-            {"word": "boisterously", "phonetic": "/ˈbɔɪ.stər.əs.li/", "pos": "adv.", "definition": "in a noisy, energetic, and cheerful way", "chinese": "热闹地，喧闹地",
-             "linguistics": "来自 boisterous（喧闹的）+ -ly。boisterous 源自中古英语 boistous（粗鲁的），后来语义正面化，从「粗鲁」变为「充满活力的喧闹」。这种语义演变（semantic amelioration）在英语中很常见，如 nice 原义是「无知的」。",
-             "usage": "通用词，写作口语皆可。口语替代：loudly and happily / with a lot of energy。搭配：boisterous crowd / laughter / children / welcome。",
-             "examples": [{"text": "The children played boisterously in the garden after school.", "source": "Cambridge Dictionary"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "multigenerational", "phonetic": "/ˌmʌl.ti.dʒen.əˈreɪ.ʃən.əl/", "pos": "adj.", "definition": "involving or relating to several generations of a family or community", "chinese": "多代的，跨世代的",
-             "linguistics": "multi-（多）+ generation（代）+ -al（形容词后缀）。这是英语复合造词法的典型案例。掌握 multi- 前缀可以理解大量类似词：multicultural（多元文化的）、multilateral（多边的）、multimedia（多媒体）。",
-             "usage": "半正式，社会政策和人口学常用。口语中可以说 involving people of all ages / mixing old and young。搭配：multigenerational household / community / living。",
-             "examples": [{"text": "Multigenerational households are becoming more common in urban areas.", "source": "The Economist, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "shirked", "phonetic": "/ʃɜːkt/", "pos": "v.", "definition": "to avoid or neglect a duty or responsibility", "chinese": "逃避，推卸（责任）",
-             "linguistics": "可能源自德语 Schurke（无赖）。shirk 专门用于「逃避责任/义务」，暗含道德批判——不是不能做，而是不愿做。名词形式 shirker（逃避责任的人）在一战时指逃避服兵役者。",
-             "usage": "半正式。口语替代：avoid / dodge / duck / get out of。搭配：shirk responsibility / duty / obligation / the issue。",
-             "examples": [{"text": "He was accused of shirking his responsibilities as a manager.", "source": "Collins English Dictionary"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "centenarians", "phonetic": "/ˌsen.tɪˈneə.ri.ənz/", "pos": "n.", "definition": "people who are 100 years old or more", "chinese": "百岁老人",
-             "linguistics": "centenary（百年纪念）+ -an（表示人）。词根 cent- 来自拉丁语 centum（一百）。同根词系列：century（世纪）、centimetre（厘米）、percent（百分比）、centurion（百夫长）。掌握 cent- 词根可以推断许多相关词汇。",
-             "usage": "正式用语。口语中说 people over a hundred / people who've lived past 100。常见于人口统计和健康领域。",
-             "examples": [{"text": "Japan has more centenarians per capita than any other country.", "source": "WHO Report, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "transparent", "phonetic": "/trænsˈpær.ənt/", "pos": "adj.", "definition": "open to public scrutiny; easy to understand; without hidden agenda", "chinese": "透明的，公开的",
-             "linguistics": "trans-（穿过）+ parere（出现）+ -ent。字面义「能看穿的」。双义词：物理义（透明的玻璃）和比喻义（政策透明、信息公开）。本文使用比喻义。反义词 opaque 同样有双重含义。",
-             "usage": "通用词。口语替代：open / clear / upfront / nothing to hide。搭配：transparent process / policy / government / system。",
-             "examples": [{"text": "The company promised to be more transparent about its environmental impact.", "source": "Financial Times, 2023"}],
-             "level": "CET-4 / IELTS 6.0+"},
-            {"word": "navigate", "phonetic": "/ˈnæv.ɪ.ɡeɪt/", "pos": "v.", "definition": "to find one's way through a complex system or situation", "chinese": "驾驭，操控，找到方向",
-             "linguistics": "拉丁语 navigare（航行），navis（船）+ agere（驾驶）。原义「驾船航行」，现在广泛比喻化：navigate a system（在系统中找到方向）、navigate challenges（应对挑战）。英语中大量航海术语已经比喻化。",
-             "usage": "通用词，写作口语皆可。口语替代：find your way through / deal with / work through。搭配：navigate the system / bureaucracy / challenges / complexities。",
-             "examples": [{"text": "Patients often struggle to navigate the complex healthcare system.", "source": "The Guardian, 2023"}],
-             "level": "CET-4 / IELTS 6.0+"},
-            {"word": "disparate", "phonetic": "/ˈdɪs.pər.ət/", "pos": "adj.", "definition": "fundamentally different and distinct; not able to be compared", "chinese": "截然不同的，迥异的",
-             "linguistics": "拉丁语 disparare（分开），dis-（分）+ parare（准备/等同）。与 desperate（绝望的）发音相近但含义完全不同——注意区分！disparate 强调事物之间的差异如此之大以至于难以比较。",
-             "usage": "书面正式。口语替代：very different / diverse / unrelated / worlds apart。搭配：disparate groups / elements / communities / views。",
-             "examples": [{"text": "The study drew participants from disparate backgrounds and cultures.", "source": "Nature, 2023"}],
-             "level": "TEM-8 / IELTS 7.5+"},
-            {"word": "resilience", "phonetic": "/rɪˈzɪl.i.əns/", "pos": "n.", "definition": "the ability to recover quickly from difficulties; toughness", "chinese": "韧性，恢复力",
-             "linguistics": "拉丁语 resilire（弹回），re-（回）+ salire（跳）。原是物理学术语（材料受力变形后恢复原状的能力），现广泛用于心理学和社会科学。近年成为教育和心理健康领域的高频词。",
-             "usage": "通用词，写作口语皆可。口语替代：toughness / bounce-back ability / grit。搭配：build resilience / show resilience / emotional resilience / community resilience。",
-             "examples": [{"text": "Building resilience in children requires both support and manageable challenges.", "source": "Harvard Education Review, 2022"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "precondition", "phonetic": "/ˌpriː.kənˈdɪʃ.ən/", "pos": "n.", "definition": "something that must exist or happen before something else can happen", "chinese": "先决条件，前提",
-             "linguistics": "pre-（前）+ condition（条件）。这是英语前缀造词的典型案例。掌握 pre- 前缀（= before）可以推断：prerequisite（先决条件）、predetermined（预先确定的）、precaution（预防措施）、preview（预览）。",
-             "usage": "半正式。口语替代：requirement / must-have / necessary condition。搭配：a precondition for / set preconditions / meet the preconditions。",
-             "examples": [{"text": "Trust is a precondition for any successful negotiation.", "source": "Foreign Affairs, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "creaking", "phonetic": "/ˈkriː.kɪŋ/", "pos": "v./adj.", "definition": "showing signs of strain or age; making harsh sounds under pressure", "chinese": "不堪重负的，吱吱作响的（比喻摇摇欲坠）",
-             "linguistics": "拟声词（onomatopoeia）：模仿木头或金属在压力下发出的声音。在本文中是比喻用法：economies are creaking under the strain = 经济体在压力下像老旧木头一样吱吱作响，暗示随时可能崩溃。",
-             "usage": "半正式。口语替代：struggling / under pressure / buckling / falling apart。搭配：creaking under the strain / weight / pressure。",
-             "examples": [{"text": "The country's infrastructure is creaking under the weight of rapid urbanisation.", "source": "The Economist, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "timid", "phonetic": "/ˈtɪm.ɪd/", "pos": "adj.", "definition": "lacking courage or confidence; easily frightened", "chinese": "胆怯的，畏缩的",
-             "linguistics": "拉丁语 timidus（害怕的），timere（恐惧）。与 intimidate（恐吓）同根——intimidate 字面义是「使人变得 timid」。注意 timid 既可描述性格（a timid person），也可描述行为（a timid response），如本文形容政府政策胆怯。",
-             "usage": "通用词。口语替代：shy / scared / cautious / lacking courage。搭配：timid approach / response / leader / reform。",
-             "examples": [{"text": "The government's timid response to the crisis drew widespread criticism.", "source": "Financial Times, 2023"}],
-             "level": "CET-4 / IELTS 6.5+"},
-            {"word": "disincentivises", "phonetic": "/ˌdɪs.ɪnˈsen.tɪ.vaɪ.zɪz/", "pos": "v.", "definition": "to discourage or deter from doing something through removing motivation", "chinese": "抑制……的积极性，起到负面激励作用",
-             "linguistics": "dis-（否定/反向）+ incentive（激励）+ -ise（动词化）。三层构词：先理解 incentive（激励），加上 dis- 变成反义（去除激励），再加 -ise 变成动词。这展示了英语通过词缀层层叠加创造新词的能力。",
-             "usage": "书面正式，政策讨论用语。口语替代：discourages / puts people off / makes people less likely to。搭配：disincentivise investment / work / innovation。",
-             "examples": [{"text": "High marginal tax rates can disincentivise entrepreneurship.", "source": "The Economist, 2022"}],
-             "level": "IELTS 7.5+"},
-            {"word": "decentralised", "phonetic": "/diːˈsen.trə.laɪzd/", "pos": "adj.", "definition": "with power distributed away from a central authority to local levels", "chinese": "分权的，去中心化的",
-             "linguistics": "de-（去除/反向）+ centralise（集中化）+ -d。de- 前缀表示「去除/逆转」：decode（解码）、decompose（分解）、deregulate（放松管制）。在政治学中 decentralisation（分权）与 centralisation（集权）是核心对立概念。",
-             "usage": "正式用语，政治和管理学高频词。口语替代：spread out / local control / not controlled by one authority。搭配：decentralised system / government / approach / decision-making。",
-             "examples": [{"text": "A decentralised approach allows local communities to address their own needs.", "source": "World Bank, 2022"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "monolith", "phonetic": "/ˈmɒn.ə.lɪθ/", "pos": "n.", "definition": "a large, impersonal, and inflexible organisation or system", "chinese": "庞然大物，铁板一块的组织",
-             "linguistics": "希腊语 mono-（单一）+ lithos（石头）。原义「一块巨石」，引申为「庞大而僵化的组织」。经典科幻电影《2001太空漫游》中的黑色石碑就叫 monolith。在本文中暗指英国 NHS 的集中式体制过于庞大僵硬。",
-             "usage": "半正式。口语替代：a giant / behemoth / one big thing。搭配：a corporate monolith / a bureaucratic monolith / not a monolith。",
-             "examples": [{"text": "The company had become a monolith, slow to adapt to changing markets.", "source": "Harvard Business Review, 2022"}],
-             "level": "TEM-8 / IELTS 7.5+"},
-            {"word": "demographic", "phonetic": "/ˌdem.əˈɡræf.ɪk/", "pos": "adj.", "definition": "relating to the statistical characteristics of a population", "chinese": "人口统计学的",
-             "linguistics": "希腊语 demos（人民）+ graphein（书写/记录）。demo- 这个词根很重要：democracy（民主 = 人民统治）、demography（人口学）、epidemic（流行病 = 在人民中传播）。demographic challenge = 人口结构变化带来的挑战（如老龄化）。",
-             "usage": "正式用语。口语中说 population-related / age-related。搭配：demographic shift / challenge / change / trend / dividend。",
-             "examples": [{"text": "Europe faces a demographic challenge as birth rates decline and populations age.", "source": "The Economist, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "digitised", "phonetic": "/ˈdɪdʒ.ɪ.taɪzd/", "pos": "adj.", "definition": "converted to or operated through digital technology", "chinese": "数字化的",
-             "linguistics": "digit（数字）+ -ise（动词化）+ -d。digit 来自拉丁语 digitus（手指），因为古人用手指计数。digitise = 把信息转化为数字格式。注意英式 digitise vs 美式 digitize，经济学人/卫报用英式拼写。",
-             "usage": "通用词。口语替代：digital / online / computerised / tech-based。搭配：digitised records / services / healthcare / economy。",
-             "examples": [{"text": "Estonia has one of the most digitised government systems in the world.", "source": "BBC News, 2023"}],
-             "level": "CET-6 / IELTS 6.5+"},
-            {"word": "paramount", "phonetic": "/ˈpær.ə.maʊnt/", "pos": "adj.", "definition": "more important than anything else; supreme", "chinese": "至高无上的，最重要的",
-             "linguistics": "古法语 paramont（在上面），para-（在旁边/超过）+ mont（山）。字面义「在山之上」= 最高的。注意这个词的绝对性——paramount 意味着「没有什么比这更重要」，语气非常强。",
-             "usage": "半正式。口语替代：most important / top priority / number one / above all else。搭配：of paramount importance / safety is paramount / paramount concern。",
-             "examples": [{"text": "Patient safety should be paramount in all healthcare decisions.", "source": "The Lancet, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "autonomy", "phonetic": "/ɔːˈtɒn.ə.mi/", "pos": "n.", "definition": "the right or condition of self-governance; independence", "chinese": "自主权，自治",
-             "linguistics": "希腊语 auto-（自己）+ nomos（法律/规则）。字面义「自己给自己制定法律」。三个层次的用法：① 政治自治（regional autonomy）② 个人自主（patient autonomy）③ 组织独立（institutional autonomy）。",
-             "usage": "半正式。口语替代：independence / freedom / self-control / the right to decide for yourself。搭配：regional autonomy / personal autonomy / grant autonomy。",
-             "examples": [{"text": "Respecting patient autonomy is a cornerstone of modern medical ethics.", "source": "British Medical Journal, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "paralysed", "phonetic": "/ˈpær.əl.aɪzd/", "pos": "adj.", "definition": "unable to act or function; rendered completely helpless", "chinese": "瘫痪的，动弹不得的（比喻无法行动）",
-             "linguistics": "希腊语 paralyein（使松弛），para-（在旁边）+ lyein（松开）。医学义：身体瘫痪。比喻义：因恐惧/犹豫而无法行动。本文用比喻义：领导人被恐惧「瘫痪」了。注意英式 paralyse vs 美式 paralyze。",
-             "usage": "通用词。口语替代：frozen / stuck / unable to move / too scared to act。搭配：paralysed by fear / indecision / uncertainty。",
-             "examples": [{"text": "The committee was paralysed by indecision and failed to act.", "source": "The Guardian, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "agonise", "phonetic": "/ˈæɡ.ə.naɪz/", "pos": "v.", "definition": "to worry greatly and painfully about something; to struggle with a decision", "chinese": "苦恼，焦虑不安",
-             "linguistics": "希腊语 agonizesthai（竞争），agon（比赛/竞争）。agony（痛苦）、protagonist（主角 = 第一个竞争者）、antagonist（对手）都同源。agonise 比 worry 更强烈——不是普通的担心，而是痛苦地纠结。",
-             "usage": "半正式。口语替代：worry a lot / stress about / overthink / lose sleep over。搭配：agonise over / about a decision / whether to...。",
-             "examples": [{"text": "She agonised over whether to accept the job offer abroad.", "source": "Collins English Dictionary"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "tacking", "phonetic": "/ˈtæk.ɪŋ/", "pos": "v.", "definition": "changing course or direction (originally a sailing term)", "chinese": "改变方向，转向",
-             "linguistics": "航海术语：帆船在逆风时需要之字形前进（tacking），每次转向称为一个 tack。在政治语境中比喻「改变立场/策略方向」。英语中保留了大量航海比喻：in the wake of, plain sailing, all at sea, on an even keel 等。",
-             "usage": "半正式。口语替代：moving / shifting / leaning / changing direction。搭配：tacking left / right / to the centre。",
-             "examples": [{"text": "The party is tacking to the right on immigration policy.", "source": "The Economist, 2023"}],
-             "level": "IELTS 7.5+"},
-            {"word": "equitable", "phonetic": "/ˈek.wɪ.tə.bəl/", "pos": "adj.", "definition": "fair and impartial; treating all people equally", "chinese": "公平的，公正的",
-             "linguistics": "拉丁语 aequitas（公平），aequus（相等）。与 equal（相等的）同源但含义更深：equal 强调「一样」，equitable 强调「公正」。equal pay 是同工同酬，equitable distribution 是按需公正分配（不一定人人一样）。",
-             "usage": "正式用语。口语替代：fair / just / balanced。搭配：equitable distribution / access / treatment / housing / society。",
-             "examples": [{"text": "An equitable distribution of resources is essential for social stability.", "source": "UN Development Programme, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "sustainable", "phonetic": "/səˈsteɪ.nə.bəl/", "pos": "adj.", "definition": "able to be maintained at a certain level without depleting resources", "chinese": "可持续的",
-             "linguistics": "sus-（= sub- 的变体，下面）+ tain（持有）+ -able。sustain = 从下面支撑住 = 维持。sustainable 字面义「能被持续维持的」。这个词从环保领域扩展到经济（sustainable growth）、社会（sustainable development）等多个领域。",
-             "usage": "通用词。口语替代：long-lasting / green / eco-friendly / that can keep going。搭配：sustainable development / growth / energy / environment。",
-             "examples": [{"text": "The company has committed to sustainable practices across its supply chain.", "source": "Financial Times, 2023"}],
-             "level": "CET-4 / IELTS 6.0+"},
-            {"word": "simultaneously", "phonetic": "/ˌsɪm.əlˈteɪ.ni.əs.li/", "pos": "adv.", "definition": "at the same time", "chinese": "同时地",
-             "linguistics": "拉丁语 simul（同时）+ -taneous + -ly。simul 还产生了 similar（相似的）、simulate（模拟）、assimilate（同化）。simultaneously 在写作中比 at the same time 更正式精炼。",
-             "usage": "通用词，但更偏书面。口语替代：at the same time / together / all at once。搭配：simultaneously pursue / achieve / address / manage。",
-             "examples": [{"text": "The government must simultaneously promote growth and reduce emissions.", "source": "The Economist, 2023"}],
-             "level": "CET-4 / IELTS 6.5+"},
-            {"word": "imaginatively", "phonetic": "/ɪˈmædʒ.ɪ.nə.tɪv.li/", "pos": "adv.", "definition": "in a creative and original way; with imagination", "chinese": "富有想象力地，创造性地",
-             "linguistics": "imagine（想象）+ -ative（形容词后缀，表示「具有……倾向的」）+ -ly。-ative 后缀系列：creative, innovative, collaborative, speculative。这些词都描述思维和行动的方式。",
-             "usage": "通用词。口语替代：creatively / in a new way / with fresh ideas / outside the box。搭配：think imaginatively / respond imaginatively / imaginatively designed。",
-             "examples": [{"text": "Schools need to think imaginatively about how to engage students.", "source": "The Guardian, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
+            {
+                "word": "impasse",
+                "phonetic": "/ˈæmpɑːs/",
+                "pos": "n.",
+                "definition": "a situation in which no progress is possible, especially because of disagreement",
+                "chinese": "僵局；死胡同",
+                "linguistics": "源自法语 impasse（im- 不 + passer 通过），字面意为「无法通过的路」。在政治和外交语境中，常指谈判陷入无法推进的状态。注意发音保留了法语特征。",
+                "usage": "正式用词，新闻和学术写作常用。常见搭配：reach an impasse / break the impasse / political impasse。口语可用 deadlock 或 stalemate 替代。",
+                "examples": [
+                    {"text": "Negotiations between the two sides have reached an impasse.", "source": "BBC News"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "advocate",
+                "phonetic": "/ˈædvəkeɪt/",
+                "pos": "v.",
+                "definition": "to publicly recommend or support a particular cause or policy",
+                "chinese": "提倡；主张；拥护",
+                "linguistics": "源自拉丁语 advocare（ad- 向 + vocare 呼唤），即「为某事发声」。动词读 /ˈædvəkeɪt/，名词读 /ˈædvəkət/。注意与 advice（建议）的区分：advocate 更强调公开倡导和支持。",
+                "usage": "正式用词，IELTS 写作和考研英语高频词。常见搭配：advocate for / strongly advocate。比 support 更正式，强调积极主动的推动。",
+                "examples": [
+                    {"text": "Environmental groups advocate for stricter emissions regulations.", "source": "The Economist"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "indispensable",
+                "phonetic": "/ˌɪndɪˈspensəbl/",
+                "pos": "adj.",
+                "definition": "absolutely necessary; too important to be without",
+                "chinese": "不可或缺的；必不可少的",
+                "linguistics": "由否定前缀 in- + dispensable（可省略的）构成。dispensable 源自拉丁语 dispensare（分配），意为「可以被免除的」。in- 否定后变为「不能被免除的」。",
+                "usage": "正式用词。常见搭配：indispensable to / indispensable part of / indispensable tool。比 necessary 更强调不可替代性。IELTS 写作高分词汇。",
+                "examples": [
+                    {"text": "Clean water is indispensable to human survival.", "source": "WHO Report"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "landmark",
+                "phonetic": "/ˈlændmɑːk/",
+                "pos": "adj.",
+                "definition": "marking an important stage or turning point in something",
+                "chinese": "里程碑式的；具有划时代意义的",
+                "linguistics": "由 land（土地）+ mark（标记）构成的复合词。本义为地标建筑，引申为具有里程碑意义的事件或决定。作形容词时前置修饰名词。",
+                "usage": "正式用词，新闻和法律语境常用。常见搭配：landmark study / landmark decision / landmark ruling / landmark achievement。",
+                "examples": [
+                    {"text": "The Supreme Court issued a landmark ruling on data privacy.", "source": "The New York Times"}
+                ],
+                "level": "CET-4 / IELTS 6.5"
+            },
+            {
+                "word": "correlation",
+                "phonetic": "/ˌkɒrəˈleɪʃn/",
+                "pos": "n.",
+                "definition": "a mutual relationship or connection between two or more things",
+                "chinese": "相关性；关联",
+                "linguistics": "由 co-（共同）+ relation（关系）构成。学术写作中注意区分 correlation（相关性）和 causation（因果关系）：correlation does not imply causation（相关不等于因果）是科学方法论的基本原则。",
+                "usage": "学术用词，考研和 IELTS 阅读高频词。常见搭配：correlation between A and B / strong/weak correlation / positive/negative correlation。",
+                "examples": [
+                    {"text": "Researchers found a strong correlation between sleep quality and academic performance.", "source": "Nature"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "adolescent",
+                "phonetic": "/ˌædəˈlesnt/",
+                "pos": "n./adj.",
+                "definition": "a young person in the process of developing from a child into an adult (typically 13-18)",
+                "chinese": "青少年（的）",
+                "linguistics": "源自拉丁语 adolescere（ad- 向 + alescere 成长），即「正在成长中的人」。区分 adolescent（强调生理和心理发育期）和 teenager（单纯指13-19岁的人）。名词形式 adolescence（青春期）。",
+                "usage": "正式用词，医学和心理学语境常用。比 teenager 更学术。常见搭配：adolescent development / adolescent mental health。",
+                "examples": [
+                    {"text": "Adolescent brains are particularly susceptible to the effects of social media.", "source": "Scientific American"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "curated",
+                "phonetic": "/kjʊˈreɪtɪd/",
+                "pos": "adj.",
+                "definition": "carefully chosen and presented; selected with expert knowledge",
+                "chinese": "精心策划的；精选的",
+                "linguistics": "由动词 curate（策展）的过去分词形式用作形容词。curator（策展人）一词源自拉丁语 curare（照管）。在社交媒体语境中，curated 常指经过刻意美化和筛选的内容呈现。",
+                "usage": "正式与非正式均可使用。常见搭配：curated content / curated feed / curated experience。在数字时代语境中含有「不真实」的暗示。",
+                "examples": [
+                    {"text": "Instagram feeds present a curated version of reality that can distort self-perception.", "source": "Psychology Today"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "profound",
+                "phonetic": "/prəˈfaʊnd/",
+                "pos": "adj.",
+                "definition": "very great or intense; having deep meaning or significance",
+                "chinese": "深远的；深刻的；意义重大的",
+                "linguistics": "源自拉丁语 profundus（pro- 向前 + fundus 底部），即「到达底部的」。可以形容影响（profound impact）、理解（profound understanding）或情感（profound sadness）。",
+                "usage": "正式用词，学术写作核心词汇。常见搭配：profound impact / implications / effect / influence。比 deep 更正式、更强调深远意义。",
+                "examples": [
+                    {"text": "The discovery had profound implications for our understanding of the universe.", "source": "Nature"}
+                ],
+                "level": "CET-4 / IELTS 6.5"
+            },
+            {
+                "word": "blanket",
+                "phonetic": "/ˈblæŋkɪt/",
+                "pos": "adj.",
+                "definition": "covering all cases or instances; total and inclusive without exceptions",
+                "chinese": "全面的；一刀切的",
+                "linguistics": "由名词 blanket（毯子）转化为形容词，比喻像毯子一样覆盖所有情况，不加区分。常带贬义色彩，暗示做法过于简单粗暴。",
+                "usage": "正式用词。常见搭配：blanket ban / blanket policy / blanket statement / blanket coverage。在讨论政策时很有用。",
+                "examples": [
+                    {"text": "A blanket ban on plastic bags has been introduced across the country.", "source": "BBC News"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "curfew",
+                "phonetic": "/ˈkɜːfjuː/",
+                "pos": "n.",
+                "definition": "a regulation requiring people to remain indoors between specified hours; any imposed time restriction",
+                "chinese": "宵禁；限制使用时间",
+                "linguistics": "源自古法语 covrefeu（covre 覆盖 + feu 火），中世纪规定的熄火时间。现代用法扩展为任何对活动时间的限制。在本文语境中指对屏幕使用时间的强制限制。",
+                "usage": "正式用词。常见搭配：impose a curfew / lift a curfew / curfew on screen use。新闻语境常用。",
+                "examples": [
+                    {"text": "South Korea imposed a gaming curfew for minors under 16.", "source": "The Guardian"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "exploit",
+                "phonetic": "/ɪkˈsplɔɪt/",
+                "pos": "v.",
+                "definition": "to use something or someone unfairly for one's own advantage",
+                "chinese": "利用；剥削；开发",
+                "linguistics": "源自拉丁语 explicare（展开）。注意两个含义和重音差异：动词 /ɪkˈsplɔɪt/（利用/剥削，常含贬义）vs 名词 /ˈeksplɔɪt/（英勇事迹）。名词形式 exploitation（剥削、开发）。",
+                "usage": "正式用词，CET-4 核心词汇。常见搭配：exploit vulnerabilities / exploit workers / exploit resources。在科技和商业评论中常用。",
+                "examples": [
+                    {"text": "Hackers exploit software vulnerabilities to gain unauthorized access.", "source": "Wired"}
+                ],
+                "level": "CET-4 / IELTS 6.5"
+            },
+            {
+                "word": "vulnerability",
+                "phonetic": "/ˌvʌlnərəˈbɪləti/",
+                "pos": "n.",
+                "definition": "the quality or state of being exposed to the possibility of being harmed, physically or emotionally",
+                "chinese": "脆弱性；弱点；易受攻击性",
+                "linguistics": "由 vulnerable（脆弱的）+ -ity（名词后缀）构成。vulnerable 源自拉丁语 vulnerare（受伤）。复数形式 vulnerabilities 常指具体的弱点或漏洞。",
+                "usage": "正式用词，心理学和信息安全领域核心术语。常见搭配：psychological vulnerability / exploit vulnerabilities / expose vulnerabilities。",
+                "examples": [
+                    {"text": "The report highlighted the vulnerability of children to online predators.", "source": "UNICEF"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "intermittent",
+                "phonetic": "/ˌɪntəˈmɪtənt/",
+                "pos": "adj.",
+                "definition": "occurring at irregular intervals; not continuous or steady",
+                "chinese": "间歇性的；断断续续的",
+                "linguistics": "源自拉丁语 intermittere（inter- 之间 + mittere 发送），即「间隔发送」。在心理学中，intermittent variable rewards（间歇性变量奖励）是一种强化行为的机制，被认为是社交媒体成瘾的核心设计。",
+                "usage": "正式用词。常见搭配：intermittent rain / fasting / reward / connection。比 irregular 更精确，强调「间歇」的特征。",
+                "examples": [
+                    {"text": "Intermittent fasting has gained popularity as a weight management strategy.", "source": "The Lancet"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "pernicious",
+                "phonetic": "/pəˈnɪʃəs/",
+                "pos": "adj.",
+                "definition": "having a harmful effect, especially in a gradual or subtle way",
+                "chinese": "有害的；恶性的（尤指潜移默化地）",
+                "linguistics": "源自拉丁语 perniciosus（per- 完全 + nex 死亡），原义为「致命的」。现代英语中弱化为「有害的」，但仍保留了「危害深远且不易察觉」的意味。比 harmful 更强调隐蔽性和渐进性。",
+                "usage": "正式用词，学术和新闻写作常用。常见搭配：pernicious influence / effect / myth / ideology。比 harmful 更高级，是 IELTS 写作加分词汇。",
+                "examples": [
+                    {"text": "The pernicious myth that success requires no rest continues to damage young workers.", "source": "Financial Times"}
+                ],
+                "level": "考研 / IELTS 7.5"
+            },
+            {
+                "word": "deploy",
+                "phonetic": "/dɪˈplɔɪ/",
+                "pos": "v.",
+                "definition": "to use or arrange something effectively for a particular purpose",
+                "chinese": "部署；运用；调配",
+                "linguistics": "源自法语 déployer（展开）。军事原义为部署军队，现广泛用于科技（deploy software）和一般语境（deploy an argument / strategy）。在本文中指将成瘾设计机制应用于未成年人。",
+                "usage": "正式用词，科技和商务领域常用。比 use 更正式，强调策略性和目的性。",
+                "examples": [
+                    {"text": "The company plans to deploy AI across all customer service channels.", "source": "Financial Times"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "restraint",
+                "phonetic": "/rɪˈstreɪnt/",
+                "pos": "n.",
+                "definition": "the ability to control one's impulses, emotions, or desires; self-control",
+                "chinese": "克制；自制力；约束",
+                "linguistics": "由 restrain（抑制、限制）+ -t 构成。区分 restraint（自制/限制，名词）和 restriction（法规限制）：restraint 更强调内在的自我控制能力。",
+                "usage": "正式用词。常见搭配：exercise restraint / show restraint / with restraint / without restraint。IELTS 口语和写作高分词汇。",
+                "examples": [
+                    {"text": "The government urged restraint in the face of rising tensions.", "source": "The Guardian"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "prohibition",
+                "phonetic": "/ˌprəʊɪˈbɪʃn/",
+                "pos": "n.",
+                "definition": "the action of forbidding something, especially by law",
+                "chinese": "禁止；禁令",
+                "linguistics": "源自拉丁语 prohibere（pro- 在前 + habere 持有），即「阻止持有」。大写 Prohibition 特指美国1920-1933年的禁酒令时期。动词形式 prohibit。",
+                "usage": "正式用词。常见搭配：prohibition on/of / total prohibition / impose a prohibition。比 ban 更正式。",
+                "examples": [
+                    {"text": "The prohibition of single-use plastics has reduced ocean pollution.", "source": "National Geographic"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "deprive",
+                "phonetic": "/dɪˈpraɪv/",
+                "pos": "v.",
+                "definition": "to prevent someone from having or using something",
+                "chinese": "剥夺；使丧失",
+                "linguistics": "源自拉丁语 deprivare（de- 去除 + privare 使私有），即「使失去私有之物」。名词形式 deprivation（剥夺、匮乏）。注意固定搭配 deprive sb of sth。",
+                "usage": "正式用词，CET-4 核心词汇。常见搭配：deprive sb of sth / sleep-deprived / culturally deprived。",
+                "examples": [
+                    {"text": "No child should be deprived of the right to education.", "source": "UNESCO"}
+                ],
+                "level": "CET-4 / IELTS 6.5"
+            },
+            {
+                "word": "mandate",
+                "phonetic": "/ˈmændeɪt/",
+                "pos": "v.",
+                "definition": "to officially require or order something by law or regulation",
+                "chinese": "强制要求；授权",
+                "linguistics": "源自拉丁语 mandatum（manus 手 + dare 给），即「交到手里」。既可作名词（授权、命令）也可作动词（强制要求）。注意与 mandatory（强制性的）的关系。",
+                "usage": "正式用词，法律和政策语境常用。常见搭配：mandate that / mandate standards / government mandate。",
+                "examples": [
+                    {"text": "The EU has mandated that all new buildings must be carbon-neutral by 2030.", "source": "The Economist"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "addictive",
+                "phonetic": "/əˈdɪktɪv/",
+                "pos": "adj.",
+                "definition": "causing or likely to cause someone to become physically or psychologically dependent",
+                "chinese": "使人上瘾的；令人沉迷的",
+                "linguistics": "由 addict（使上瘾）+ -ive（形容词后缀）构成。addict 源自拉丁语 addictus（被奴役的）。区分 addictive（事物本身令人上瘾的）和 addicted（人上了瘾的）。",
+                "usage": "正式与非正式均可使用。常见搭配：addictive substance / behaviour / features / games。是讨论科技话题的核心词汇。",
+                "examples": [
+                    {"text": "Social media platforms are designed with addictive features to keep users engaged.", "source": "MIT Technology Review"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "embed",
+                "phonetic": "/ɪmˈbed/",
+                "pos": "v.",
+                "definition": "to fix something firmly and deeply in a surrounding mass; to incorporate as an integral part",
+                "chinese": "嵌入；使根植；使融入",
+                "linguistics": "由 em-（进入）+ bed（床/基底）构成，意为「放入基底中」。在教育语境中，embed curricula 指将某一内容「深度融入」到课程体系中，而非作为附加内容。",
+                "usage": "正式用词。常见搭配：embed in / embedded in / embed values / embed curricula。比 include 或 integrate 更强调深度融合。",
+                "examples": [
+                    {"text": "Critical thinking skills should be embedded across all subjects.", "source": "Education Week"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "manipulative",
+                "phonetic": "/məˈnɪpjʊlətɪv/",
+                "pos": "adj.",
+                "definition": "exercising unscrupulous control or influence over a person or situation",
+                "chinese": "操控性的；善于操纵的",
+                "linguistics": "由 manipulate（操纵）+ -ive 构成。manipulate 源自拉丁语 manipulus（一把），原指用手操作，引申为控制和操纵。在科技语境中，指通过设计手段操纵用户行为。",
+                "usage": "正式用词，带贬义色彩。常见搭配：manipulative behaviour / tactics / design patterns。",
+                "examples": [
+                    {"text": "Dark patterns are manipulative design techniques that trick users into unintended actions.", "source": "Wired"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "cultivate",
+                "phonetic": "/ˈkʌltɪveɪt/",
+                "pos": "v.",
+                "definition": "to try to develop or improve something through effort and attention",
+                "chinese": "培养；培育；发展",
+                "linguistics": "源自拉丁语 cultivare（耕种），由 cultus（照料）派生。本义为耕作土地，引申为培养能力、品质或关系。比 develop 更强调精心的、有意识的培育过程。",
+                "usage": "正式用词，IELTS 写作高分词汇。常见搭配：cultivate habits / skills / relationships / an image。比 develop 更文雅。",
+                "examples": [
+                    {"text": "Schools should cultivate curiosity rather than merely transmit knowledge.", "source": "Harvard Educational Review"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "compulsive",
+                "phonetic": "/kəmˈpʌlsɪv/",
+                "pos": "adj.",
+                "definition": "resulting from or relating to an irresistible urge; unable to stop doing something",
+                "chinese": "强迫性的；无法克制的",
+                "linguistics": "由 compel（强迫）+ -ive 构成。区分 compulsive（出于内在冲动的，如 compulsive shopping 强迫性购物）和 compulsory（强制性的，来自外部要求，如 compulsory education 义务教育）。",
+                "usage": "正式与非正式均可使用。常见搭配：compulsive behaviour / gambling / checking / use。心理学核心术语。",
+                "examples": [
+                    {"text": "Compulsive smartphone checking has become a widespread behavioural concern.", "source": "Psychology Today"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "simplistic",
+                "phonetic": "/sɪmˈplɪstɪk/",
+                "pos": "adj.",
+                "definition": "treating complex issues and problems as if they were much simpler than they really are",
+                "chinese": "过于简单化的；简单粗暴的",
+                "linguistics": "由 simple + -istic 构成。注意区分 simple（简单的，中性/褒义）和 simplistic（简单化的，贬义）：simplistic 暗示将复杂问题不当地简化，忽略了重要细节。",
+                "usage": "正式用词，学术批评常用。常见搭配：simplistic view / approach / analysis / solution。IELTS 写作中指出反方论点过于简单化时很有用。",
+                "examples": [
+                    {"text": "The notion that poverty is caused solely by laziness is dangerously simplistic.", "source": "The Economist"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "impart",
+                "phonetic": "/ɪmˈpɑːt/",
+                "pos": "v.",
+                "definition": "to pass on knowledge, skills, or qualities to someone",
+                "chinese": "传授；给予；告知",
+                "linguistics": "源自拉丁语 impartire（im- 进入 + partire 分享），即「将自己拥有的东西分享给他人」。比 teach 更强调知识或品质的传递过程。",
+                "usage": "正式用词，教育和文学语境常用。常见搭配：impart knowledge / wisdom / skills / values。比 teach 更文雅、更正式。",
+                "examples": [
+                    {"text": "The programme aims to impart essential life skills to young adults.", "source": "Times Higher Education"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "systemic",
+                "phonetic": "/sɪˈstemɪk/",
+                "pos": "adj.",
+                "definition": "relating to or affecting a whole system rather than just individual parts",
+                "chinese": "系统性的；全局的",
+                "linguistics": "由 system + -ic 构成。注意区分 systemic（影响整个系统的，如 systemic racism 系统性种族主义）和 systematic（有系统方法的，如 systematic research 系统性研究）。这一区分是考研英语常考知识点。",
+                "usage": "正式用词，社会科学和政策讨论核心术语。常见搭配：systemic change / failure / risk / inequality。",
+                "examples": [
+                    {"text": "Addressing climate change requires systemic transformation of energy systems.", "source": "Nature"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
         ],
-
         "annotations_phrases": [
-            {"phrase": "right in front of us", "definition": "obvious and easy to see, yet often overlooked", "chinese": "就在眼前（却被忽视）",
-             "linguistics": "字面义和比喻义的完美融合。字面义：在我们面前。比喻义：解决方案明明很明显，我们却视而不见。类似表达：hiding in plain sight（摆在明面上却没人注意到）、staring us in the face。",
-             "usage": "通用词组，写作口语皆可。口语替代：obvious / staring us in the face / under our noses。常用于指出人们忽视了显而易见的事情。",
-             "examples": [{"text": "The answer was right in front of us the whole time.", "source": "Oxford Dictionary of Idioms"}],
-             "level": "CET-4 / IELTS 5.5+"},
-            {"phrase": "forward thinking", "definition": "planning for the future; being proactive rather than reactive", "chinese": "前瞻性思维",
-             "linguistics": "forward（向前）+ thinking（思考）。复合形容词。对比：forward-thinking（有前瞻性的）vs backward-looking（守旧的）。注意做定语时加连字符：a forward-thinking approach。",
-             "usage": "半正式。口语替代：planning ahead / thinking about the future / being proactive。搭配：forward-thinking approach / leader / policy / company。",
-             "examples": [{"text": "The city adopted a forward-thinking approach to urban planning.", "source": "The Guardian, 2023"}],
-             "level": "CET-6 / IELTS 6.5+"},
-            {"phrase": "a victim of its own success", "definition": "suffering negative consequences that result from one's achievements", "chinese": "自身成功的牺牲品（成功带来了新问题）",
-             "linguistics": "悖论表达：success（成功）通常是正面的，victim（受害者）是负面的，放在一起产生矛盾效果。日本因为医疗成功导致人均寿命极高，反而面临老龄化危机。这种表达在社论中非常常见。",
-             "usage": "半正式，写作口语皆可。口语替代：too successful for its own good / success backfired。用于描述成功带来的意外负面后果。",
-             "examples": [{"text": "The app became a victim of its own success, crashing under the weight of too many users.", "source": "TechCrunch, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "might as well", "definition": "used to suggest doing something because there is no reason not to", "chinese": "不妨，索性",
-             "linguistics": "这个短语表示「既然避免不了，那就直接面对吧」，暗含一种务实的接受态度。比 should 语气更随意，比 must 压力更小。是日常英语中极高频的表达。",
-             "usage": "通用，口语更常见。搭配：might as well do it / try / go / accept。注意 might as well 后面直接跟动词原形。",
-             "examples": [{"text": "If we can't change the situation, we might as well make the best of it.", "source": "Longman Dictionary"}],
-             "level": "CET-4 / IELTS 5.5+"},
-            {"phrase": "more of a say", "definition": "a greater degree of influence or involvement in decision-making", "chinese": "更大的发言权/决策参与度",
-             "linguistics": "say 在这里不是动词而是名词，意为「发言权/意见」。have a say in = 在某事上有发言权。more of a say = 更大的话语权。这是英语中动词名词化的典型案例。类似用法：have a go / have a look / have a try。",
-             "usage": "通用。口语中非常常见。搭配：have a say in / have more of a say / give people a say。",
-             "examples": [{"text": "Workers should have more of a say in how the company is run.", "source": "The Guardian, 2023"}],
-             "level": "CET-4 / IELTS 6.0+"},
-            {"phrase": "creaking under the strain", "definition": "struggling badly under excessive pressure or demands", "chinese": "在重压下不堪重负",
-             "linguistics": "具象比喻：想象一座老旧的木桥在重压下发出吱吱声（creaking），随时可能断裂。strain 是「压力/负担」。整个短语传达出系统即将崩溃的画面感。比 under pressure 更生动，暗示问题比表面看起来严重。",
-             "usage": "半正式，新闻写作常用。口语替代：struggling / under huge pressure / about to break / can't cope。",
-             "examples": [{"text": "The prison system is creaking under the strain of overcrowding.", "source": "BBC News, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "free at the point of delivery", "definition": "services that users do not pay for directly when they receive them", "chinese": "使用时免费（由税收等其他方式支付）",
-             "linguistics": "这是描述英国 NHS（国民健康服务）最经典的短语。point of delivery = 服务交付的时刻。free at the point of delivery ≠ completely free（不是完全免费——通过税收已经间接支付了）。理解这个概念对理解福利国家体制至关重要。",
-             "usage": "正式，政策讨论专用。口语替代：free when you use it / you don't pay when you go。主要用于讨论公共服务（尤其是医疗）。",
-             "examples": [{"text": "The principle that the NHS should remain free at the point of delivery is widely supported.", "source": "The Guardian, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "put a foot out of line", "definition": "to do something wrong or inappropriate; to deviate from expected behaviour", "chinese": "行差踏错，越规矩",
-             "linguistics": "想象军队列队行进，有人踏出了队列（foot out of line）= 违反纪律/规矩。暗含的意思是：政客们小心翼翼，生怕做错一步被批评。展现了本文对政治家胆怯行为的讽刺。",
-             "usage": "半正式。口语替代：do something wrong / step out of line / make a mistake / cross the line。搭配：不敢 put a foot out of line / anyone who puts a foot out of line。",
-             "examples": [{"text": "Staff are afraid to put a foot out of line for fear of being fired.", "source": "Collins English Dictionary"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "self-fulfilling spiral", "definition": "a cycle where expectations or fears cause the very outcome that was feared", "chinese": "自我实现的恶性循环",
-             "linguistics": "结合了两个概念：self-fulfilling prophecy（自我实现的预言——你怕什么就来什么）和 downward spiral（螺旋式下降）。政客害怕做决定 → 不做决定导致问题恶化 → 被批评 → 更加不敢做决定。作者用一个短语概括了整个恶性循环。",
-             "usage": "书面正式。口语替代：vicious cycle / things keep getting worse / a doom loop。用于描述无法打破的负面循环。",
-             "examples": [{"text": "Negative thinking can become a self-fulfilling spiral of anxiety and avoidance.", "source": "Psychology Today, 2023"}],
-             "level": "IELTS 7.5+"},
-            {"phrase": "clamp down on", "definition": "to take strict action to stop or limit something", "chinese": "严厉打击，加强管控",
-             "linguistics": "clamp（夹钳）+ down（下去）= 用夹钳牢牢夹住 = 严厉控制。非常生动的动词短语。名词形式：crackdown（大写）。与 crack down on 近义，但 clamp down 更强调「控制/限制」，crack down 更强调「惩罚」。",
-             "usage": "通用，写作口语皆可。口语替代：get tough on / crack down on / tighten up on。搭配：clamp down on crime / immigration / spending / dissent。",
-             "examples": [{"text": "Authorities have vowed to clamp down on tax evasion.", "source": "Financial Times, 2023"}],
-             "level": "CET-6 / IELTS 6.5+"},
+            {
+                "phrase": "reach a familiar impasse",
+                "definition": "to arrive at a deadlock that has occurred many times before",
+                "chinese": "陷入一个老生常谈的僵局",
+                "linguistics": "familiar 在此不是「熟悉的」而是「反复出现的、老套的」，暗示这个争论已经进行了很多次却从未有进展。reach an impasse 是固定搭配。",
+                "usage": "新闻和社论写作常用开头方式，用于引出一个长期存在的争论。IELTS 写作中可用于讨论反复出现的社会问题。",
+                "examples": [
+                    {"text": "The debate over immigration reform has reached a familiar impasse in Congress.", "source": "The New York Times"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "bore only a weak correlation with",
+                "definition": "had only a slight statistical relationship with; was barely connected to",
+                "chinese": "与……仅有微弱的相关性",
+                "linguistics": "bore 是 bear 的过去时（bear a correlation 呈现相关性）。weak correlation 为统计学术语，指两个变量之间的关系微弱。与 strong correlation 相对。",
+                "usage": "学术写作核心表达，IELTS 阅读和写作高频词组。在讨论研究结论时使用，体现严谨的学术态度。",
+                "examples": [
+                    {"text": "Income level bore only a weak correlation with reported happiness.", "source": "Journal of Economic Psychology"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "passive consumption",
+                "definition": "the act of receiving content without actively engaging, creating, or thinking critically",
+                "chinese": "被动消费/接收",
+                "linguistics": "passive（被动的）+ consumption（消费）。在数字媒体语境中，指用户无意识地浏览内容而不主动参与。与 active engagement（主动参与）构成一对核心对立概念。",
+                "usage": "科技和心理学领域常用。IELTS 写作中讨论社交媒体影响时的关键概念。",
+                "examples": [
+                    {"text": "Passive consumption of social media is linked to lower self-esteem.", "source": "American Psychological Association"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
+            {
+                "phrase": "a blunt instrument",
+                "definition": "an imprecise or crude method of dealing with a problem",
+                "chinese": "粗糙的手段；简单粗暴的方法",
+                "linguistics": "blunt 本义为「钝的」（如钝刀），引申为「不精确的、粗糙的」。blunt instrument 原指钝器，比喻义为缺乏精确性的解决方案，暗示该方法虽然简单但可能造成不必要的附带损害。",
+                "usage": "正式表达，政策评论和社论常用。IELTS 写作中批评某政策过于简单化时非常有用。",
+                "examples": [
+                    {"text": "Taxation is a blunt instrument for changing consumer behaviour.", "source": "The Economist"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "algorithmically driven spiral",
+                "definition": "a continuous downward cycle of increasingly extreme content caused by recommendation algorithms",
+                "chinese": "由算法驱动的恶性循环",
+                "linguistics": "spiral（螺旋）在此为比喻用法，指越陷越深的恶性循环。algorithmically 为副词，修饰 driven。这一概念描述了推荐算法如何将用户引向越来越极端的内容。",
+                "usage": "科技评论和新闻写作中的新兴表达。在讨论社交媒体对青少年影响时非常切题。",
+                "examples": [
+                    {"text": "Young users can be pulled into an algorithmically driven spiral of harmful content.", "source": "BBC News"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "widen the digital divide",
+                "definition": "to increase the gap between those who have access to technology and those who do not",
+                "chinese": "加剧数字鸿沟",
+                "linguistics": "digital divide（数字鸿沟）是信息技术领域的核心概念，指不同社会群体在获取和使用数字技术方面的差距。widen（加宽）与 bridge/narrow（缩小）是该搭配的两组常见动词。",
+                "usage": "科技政策和教育公平讨论中的核心表达。IELTS 写作 Task 2 讨论科技和教育不平等话题时必备表达。",
+                "examples": [
+                    {"text": "The pandemic widened the digital divide between urban and rural students.", "source": "UNESCO"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "phrase": "child-safe design standards",
+                "definition": "regulatory requirements that ensure digital products are designed to protect children from harm",
+                "chinese": "儿童安全设计标准",
+                "linguistics": "child-safe 为复合形容词（连字符连接），修饰 design standards。这一概念源自英国《网络安全法案》（Online Safety Act），要求科技公司在产品设计中将儿童保护纳入核心考量。",
+                "usage": "政策和法律语境常用。在讨论科技监管和儿童保护话题时非常切题。",
+                "examples": [
+                    {"text": "The UK's Online Safety Act introduced child-safe design standards for social media platforms.", "source": "The Guardian"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
+            {
+                "phrase": "digital wellness curricula",
+                "definition": "educational programmes that teach students how to use technology in healthy ways",
+                "chinese": "数字健康课程体系",
+                "linguistics": "wellness（健康、幸福）+ curricula（课程体系，curriculum 的拉丁语复数形式）。digital wellness 是近年出现的教育概念，强调在数字时代保持身心健康的能力。",
+                "usage": "教育领域的新兴术语。IELTS 写作中讨论教育改革和科技素养时可引用。",
+                "examples": [
+                    {"text": "Finland has integrated digital wellness curricula into its national education strategy.", "source": "OECD Education Report"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "move beyond the simplistic metric of",
+                "definition": "to progress past an oversimplified way of measuring something",
+                "chinese": "超越……这一过于简化的衡量标准",
+                "linguistics": "move beyond 表示「超越、走出」；simplistic metric 指过于简单化的衡量标准。整个短语批评当前的讨论框架过于狭隘，呼吁更全面的思考方式。",
+                "usage": "学术和政策评论常用。IELTS 写作结论段中呼吁更深层思考时非常有用。",
+                "examples": [
+                    {"text": "We must move beyond the simplistic metric of GDP to measure societal progress.", "source": "The Economist"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "treats a sophisticated problem with",
+                "definition": "deals with a complex issue using (an inadequate method)",
+                "chinese": "用（不恰当的方法）来应对一个复杂的问题",
+                "linguistics": "treat 在此为「处理、对待」之意。sophisticated problem（复杂问题）与 blunt instrument（粗糙手段）形成鲜明对比，暗示方法与问题的严重不匹配。",
+                "usage": "议论文和社论的经典批评句式。IELTS 写作中批评某政策不够精细时可使用此结构。",
+                "examples": [
+                    {"text": "Treating poverty as solely an economic problem ignores its psychological dimensions.", "source": "The Guardian"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
+            {
+                "phrase": "the architecture behind it",
+                "definition": "the underlying structure, design, and systems that support something",
+                "chinese": "背后的（系统）架构/设计",
+                "linguistics": "architecture 在此为比喻用法，不指建筑学而指数字产品的底层设计结构。这一用法在科技评论中非常常见，暗示问题的根源在于产品的深层设计而非表面功能。",
+                "usage": "科技和商业评论常用。常见搭配：system architecture / platform architecture / decision architecture。",
+                "examples": [
+                    {"text": "The architecture of social media platforms incentivises sensationalism over accuracy.", "source": "MIT Technology Review"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
         ],
-
         "annotations_sentences": [
-            {"sentence": "Sometimes the solutions to the big social challenges of the day are right in front of us; they don't necessarily cost much, but they do require forward thinking and a determination to make them work.",
-             "highlight_key": "Sometimes the solutions to the big social challenges of the day are right in front of us",
-             "translation": "有时候，解决当今重大社会挑战的方案就在我们眼前；它们不一定花费很多，但确实需要前瞻性思维和使之奏效的决心。",
-             "breakdown": "分号前：Sometimes the solutions（有时候解决方案）→ to the big social challenges of the day（当今重大社会挑战的）→ are right in front of us（就在我们眼前）。分号后：they don't necessarily cost much（不一定花费很多）→ but they do require（但确实需要）→ forward thinking and a determination to make them work（前瞻性思维和决心）。do 在这里是强调助动词。",
-             "grammar_points": ["分号连接两个密切相关的独立分句", "do require 中的 do 是强调用法（emphatic do）", "of the day = 当今的、当下的"],
-             "writing_tip": "这个句式可以用来提出一个反直觉的论点：The solutions to X are not Y, but Z. 雅思示例：The solutions to urban congestion don't necessarily involve building more roads, but they do require rethinking how we use public space."},
-            {"sentence": "In some ways, Japan is a victim of its own success, with the world's highest life expectancy for the past four decades.",
-             "highlight_key": "In some ways, Japan is a victim of its own success, with the world's highest life expectancy for the past four decades",
-             "translation": "从某种意义上说，日本是自身成功的牺牲品——过去四十年来它拥有世界最高的预期寿命。",
-             "breakdown": "In some ways（在某些方面）限定了这个说法的适用范围 → Japan is a victim of its own success（日本是自身成功的受害者——悖论表达）→ with the world's highest life expectancy（用 with 短语补充具体说明「成功」是什么）→ for the past four decades（时间状语）。",
-             "grammar_points": ["in some ways 作为限定语，避免绝对化", "with + 名词 作为伴随状语补充说明", "victim of its own success 是固定搭配/习语"],
-             "writing_tip": "In some ways, X is a victim of its own success 适用于任何成功导致新问题的场景。雅思示例：In some ways, social media is a victim of its own success — its very ubiquity has made it a source of anxiety."},
-            {"sentence": "What the disparate destinations I studied had in common were resilience, imagination and political courage — qualities that mainstream politicians in Europe have long struggled to demonstrate.",
-             "highlight_key": "What the disparate destinations I studied had in common were resilience, imagination and political courage",
-             "translation": "我研究的这些截然不同的目的地有一个共同点：韧性、想象力和政治勇气——这些品质正是欧洲主流政客长期以来难以展现的。",
-             "breakdown": "What 引导主语从句 → the disparate destinations I studied（我研究的截然不同的目的地）→ had in common（共同拥有的）→ were（系动词）→ resilience, imagination and political courage（三个名词并列）→ 破折号后补充：qualities that...（定语从句修饰 qualities）→ mainstream politicians have long struggled to demonstrate（主流政客长期难以展示的）。",
-             "grammar_points": ["What 引导名词性从句做主语", "had in common = 共有的特征", "破折号后的同位语从句补充说明", "have long struggled to = 长期以来一直难以"],
-             "writing_tip": "What X and Y have in common is Z — qualities that... 这个句式适合总结发现。雅思示例：What all successful education systems have in common is investment in teachers — a commitment that many governments have failed to make."},
-            {"sentence": "With ageing populations, many European economies are creaking under the strain of funding pensions, care services and health.",
-             "highlight_key": "With ageing populations, many European economies are creaking under the strain of funding pensions, care services and health",
-             "translation": "随着人口老龄化，许多欧洲经济体在养老金、护理服务和医疗保健的资金压力下不堪重负。",
-             "breakdown": "With ageing populations（前置状语，交代背景/原因）→ many European economies（主语）→ are creaking under the strain（谓语：在压力下吱吱作响——拟人化比喻）→ of funding pensions, care services and health（具体说明压力来源）。creaking 这个动词将经济体比作承受重压的老旧结构物。",
-             "grammar_points": ["With + 名词 短语作原因/背景状语", "creaking under the strain 是比喻修辞（personification/metaphor）", "三个名词并列列举"],
-             "writing_tip": "With + 背景 + 主语 + 比喻动词 这个句式适合描述系统性困境。雅思示例：With rising inequality, many democracies are buckling under the weight of public discontent."},
-            {"sentence": "Until recently, France was cited as an example of healthcare success, but the highly centralised system disincentivises doctors and nurses from working in disadvantaged regions — so-called health deserts.",
-             "highlight_key": "the highly centralised system disincentivises doctors and nurses from working in disadvantaged regions",
-             "translation": "直到最近，法国还被视为医疗保健成功的典范，但高度集中化的体制使得医生和护士不愿在弱势地区工作——即所谓的「医疗荒漠」。",
-             "breakdown": "Until recently（时间状语：直到最近）→ France was cited as an example（法国被引用为榜样——被动语态）→ but 转折 → the highly centralised system（高度集中的体制）→ disincentivises doctors and nurses from working（抑制了医护人员的工作积极性）→ in disadvantaged regions（在弱势地区）→ 破折号引出术语解释：so-called health deserts（所谓的医疗荒漠）。",
-             "grammar_points": ["Until recently + 过去时 vs but + 现在时 表示情况已经改变", "disincentivise sb from doing sth 是正式搭配", "so-called 用于引入特定术语或带有质疑的说法"],
-             "writing_tip": "Until recently, X was seen as Y, but... 是一个非常好用的转折句式，适合推翻传统观点。雅思示例：Until recently, GDP growth was seen as the primary indicator of national prosperity, but this measure fails to account for inequality."},
-            {"sentence": "Everywhere you look, you see liberal democratic leaders paralysed with fear.",
-             "highlight_key": "Everywhere you look, you see liberal democratic leaders paralysed with fear",
-             "translation": "放眼望去，你看到的都是被恐惧所瘫痪的自由民主国家领导人。",
-             "breakdown": "Everywhere you look（不管你看哪里——让步状语从句）→ you see（你看到）→ liberal democratic leaders（自由民主国家领导人）→ paralysed with fear（被恐惧瘫痪——过去分词短语做补语）。这句话的力量在于简洁和夸张：用 everywhere 和 paralysed 制造戏剧效果。",
-             "grammar_points": ["Everywhere you look 作让步/范围状语", "paralysed with fear 是过去分词短语做宾语补足语", "with fear 表示原因"],
-             "writing_tip": "Everywhere you look, you see X 是一个有力的总结句式，表示某个现象非常普遍。雅思示例：Everywhere you look, you see the consequences of decades of underinvestment in public infrastructure."},
-            {"sentence": "They wait for bad things to happen, trying to anticipate what their critics might say of them in case they put a foot out of line.",
-             "highlight_key": "They wait for bad things to happen, trying to anticipate what their critics might say of them in case they put a foot out of line",
-             "translation": "他们等着坏事发生，试图预判批评者可能会怎么说他们——万一他们行差踏错的话。",
-             "breakdown": "They wait for bad things to happen（主句：等着坏事发生——讽刺领导人的被动态度）→ trying to anticipate（现在分词短语表伴随状态）→ what their critics might say of them（what 引导宾语从句：批评者可能会说什么）→ in case they put a foot out of line（in case 引导条件从句：以防万一他们出错）。三层嵌套展现了政客的怯懦心理。",
-             "grammar_points": ["wait for sth to happen 等待某事发生", "trying to 现在分词做伴随状语", "in case 引导条件/目的状语从句", "put a foot out of line 习语：行为出格"],
-             "writing_tip": "这种多层嵌套的句子非常适合描述复杂的心理过程或因果链条。注意每一层都增加了新的信息维度。"},
-            {"sentence": "Consider the political developments in London, Paris and Berlin: given that the link between delivery and trust has been undermined, if mainstream politicians don't think more imaginatively about the future, they won't have a future.",
-             "highlight_key": "if mainstream politicians don't think more imaginatively about the future, they won't have a future",
-             "translation": "想想伦敦、巴黎和柏林的政治发展吧：鉴于执行力与公信力之间的纽带已经被削弱，如果主流政客不对未来进行更有想象力的思考，他们自己就不会有未来。",
-             "breakdown": "Consider...（祈使句开头，直接要求读者行动）→ 冒号后展开论证 → given that（鉴于——让步/前提条件）→ the link between delivery and trust has been undermined（执政表现与信任之间的联系被削弱了）→ if...don't think more imaginatively（如果不更有想象力地思考）→ they won't have a future（他们自己就没有未来）。最后用 future 一词做文字游戏（think about the future / have a future）。",
-             "grammar_points": ["祈使句 Consider 直接引入论点", "given that 引导让步/前提条件从句", "冒号用于引出解释", "词汇回环（future 一词两义，形成双关）"],
-             "writing_tip": "用词汇回环（同一个词在句末以不同含义出现）是非常高级的修辞。雅思示例：If we don't invest in education now, we'll pay the price later — and the price will be far higher than the investment."},
+            {
+                "sentence": "The issue is not how much time children spend on screens but what they encounter when they get there.",
+                "highlight_key": "The issue is not how much",
+                "translation": "问题不在于孩子花多少时间在屏幕上，而在于他们到达那里后会遇到什么。",
+                "breakdown": "句式结构：主句: The issue is not A but B; 名词性从句1: how much time children spend on screens; 名词性从句2: what they encounter when they get there; 时间状语从句: when they get there。语法分析: 'not A but B' 为否定—肯定对比结构，先否定一个常见观点再提出作者的真正论点；两个名词性从句分别作表语，形成对比；'get there' 中 there 指代 screens（数字空间），将虚拟空间空间化。修饰成分: 'how much' 和 'what' 分别引导两个宾语从句，构成「量 vs 质」的核心对比。",
+                "grammar_points": ["not A but B 对比结构", "名词性从句作表语", "what 引导的名词性从句", "代词 there 的指代"],
+                "writing_tip": "IELTS 写作中点明核心论点的高效句式：The issue/question is not [常见观点] but [作者论点]。简洁有力，一句话完成论点转折。考研写作同样适用。"
+            },
+            {
+                "sentence": "A landmark study published in The Lancet Child and Adolescent Health in early 2026 tracked over 12,000 teenagers across eight countries for three years.",
+                "highlight_key": "A landmark study published",
+                "translation": "2026年初发表在《柳叶刀·儿童与青少年健康》上的一项里程碑式研究，追踪了八个国家的超过12,000名青少年，历时三年。",
+                "breakdown": "句式结构：主句: A landmark study tracked over 12,000 teenagers; 过去分词短语: published in The Lancet Child and Adolescent Health in early 2026（后置定语修饰 study）; 介词短语: across eight countries for three years。语法分析: 'published in...' 为过去分词短语作后置定语，省略了 which was；'tracked' 为谓语动词，一般过去时；'over 12,000' 为数量修饰语，over 表示「超过」；'across eight countries' 和 'for three years' 分别为地点范围和时间长度的状语。修饰成分: 'landmark' 作前置定语修饰 study，赋予研究权威性和重要性。",
+                "grammar_points": ["过去分词短语作后置定语", "over + 数字表示「超过」", "across 表示「横跨」", "介词短语作状语（地点+时间）"],
+                "writing_tip": "IELTS Task 2 引用数据/研究的标准句式：A [形容词] study published in [期刊] found/tracked/revealed that... 这种结构比 According to 更学术、更具说服力。"
+            },
+            {
+                "sentence": "Adolescents who passively scrolled through curated highlight reels of peers' lives reported significantly higher levels of loneliness than those who spent equivalent time on creative or educational platforms.",
+                "highlight_key": "Adolescents who passively scrolled",
+                "translation": "那些被动地浏览同龄人精心美化的生活亮点集锦的青少年，报告的孤独感水平显著高于那些在创意或教育平台上花费同等时间的青少年。",
+                "breakdown": "句式结构：主句: Adolescents reported significantly higher levels of loneliness; 定语从句1: who passively scrolled through curated highlight reels of peers' lives; 比较结构: than those who...; 定语从句2: who spent equivalent time on creative or educational platforms。语法分析: 两个 who 引导的定语从句构成对比组——被动浏览组 vs 主动创造组；'significantly higher levels of' 为比较级结构，significantly 加强比较程度；'those' 指代 adolescents，避免重复；'equivalent time' 强调控制变量（时间相同，内容不同）。修饰成分: 'passively' 修饰 scrolled；'curated' 修饰 highlight reels（暗示内容是经过美化筛选的）；'peers'' 为所有格修饰 lives；'equivalent' 修饰 time。",
+                "grammar_points": ["who 引导的定语从句构成对比", "significantly + 比较级", "those 指代前文名词", "多层修饰语的嵌套"],
+                "writing_tip": "IELTS 写作中对比两组研究对象的经典句式：[Group A] who [行为A] reported higher/lower levels of X than [Group B] who [行为B]。注意用 those 替代重复的名词。"
+            },
+            {
+                "sentence": "A blanket curfew on screen use, the kind now favoured by several national governments, treats a sophisticated problem with a blunt instrument.",
+                "highlight_key": "A blanket curfew on screen use",
+                "translation": "对屏幕使用的一刀切宵禁——这种如今受到多国政府青睐的做法——是在用一个粗糙的工具来处理一个复杂的问题。",
+                "breakdown": "句式结构：主句: A blanket curfew treats a sophisticated problem with a blunt instrument; 同位语: the kind now favoured by several national governments（解释 curfew 的类型）。语法分析: 'blanket' 作形容词修饰 curfew，表示「一刀切的」；'the kind' 为同位语，用逗号隔开，进一步限定哪种 curfew；'now favoured by' 为过去分词短语修饰 kind，被动语态省略了 which is；'treats...with...' 构成核心比喻——sophisticated problem vs blunt instrument 的对比。修饰成分: 'blanket'（一刀切的）、'sophisticated'（复杂的）、'blunt'（粗糙的）三个形容词形成语义递进，突出方法与问题的不匹配。",
+                "grammar_points": ["同位语的使用（the kind...）", "blanket 作形容词", "treats A with B 比喻结构", "过去分词短语修饰名词"],
+                "writing_tip": "IELTS 写作中批评某一政策的有力句式：A blanket [政策] treats a sophisticated problem with a blunt instrument. 这个比喻既生动又精准，适用于任何「一刀切」政策的批评。"
+            },
+            {
+                "sentence": "It fails to distinguish between a teenager coding a website, a child video-calling grandparents abroad, and a twelve-year-old trapped in an algorithmically driven spiral of body-image content.",
+                "highlight_key": "It fails to distinguish between",
+                "translation": "它无法区分一个正在编写网站的青少年、一个与海外祖父母视频通话的孩子，以及一个陷入算法驱动的身体形象内容恶性循环中的十二岁孩子。",
+                "breakdown": "句式结构：主句: It fails to distinguish between A, B, and C; 三个并列名词短语: a teenager coding / a child video-calling / a twelve-year-old trapped...。语法分析: 'fails to distinguish between' 后接三个并列的名词短语，通过列举三种截然不同的屏幕使用场景来论证「一刀切」的荒谬；每个名词短语都使用了现在分词或过去分词作后置定语：coding（主动）、video-calling（主动）、trapped（被动）——前两者为积极行为，最后一个为被动受害，形成强烈对比。修饰成分: 'abroad' 修饰 grandparents；'algorithmically driven' 修饰 spiral；'body-image' 作定语修饰 content。",
+                "grammar_points": ["fail to do 表示「未能做到」", "distinguish between A, B, and C", "分词短语作后置定语", "三项并列的修辞效果"],
+                "writing_tip": "IELTS 写作中，用三项并列举例来论证某政策的缺陷是强有力的论证技巧。模板：It fails to distinguish between [积极例子], [中性例子], and [消极例子]。三个例子形成递进对比。"
+            },
+            {
+                "sentence": "Infinite scroll, autoplay, and intermittent variable rewards—mechanisms borrowed from slot machines—are designed not to inform or educate but to maximise the duration of each session.",
+                "highlight_key": "Infinite scroll, autoplay",
+                "translation": "无限滚动、自动播放和间歇性可变奖励——这些从老虎机借鉴的机制——其设计目的不是为了告知或教育，而是为了最大化每次使用的时长。",
+                "breakdown": "句式结构：主语: Infinite scroll, autoplay, and intermittent variable rewards（三项并列）; 同位语: —mechanisms borrowed from slot machines—（破折号间的补充说明）; 谓语: are designed; 目的对比: not to inform or educate but to maximise...。语法分析: 三个专业术语并列作主语，破折号中的同位语将其统称为 mechanisms 并指出来源（slot machines）；'are designed not to...but to...' 为被动语态 + not to...but to... 对比结构，先否定表面目的再揭示真实目的；'borrowed from slot machines' 为过去分词短语修饰 mechanisms。修饰成分: 'intermittent variable' 双重修饰 rewards；'each' 修饰 session。",
+                "grammar_points": ["三项并列主语", "破折号引出同位语", "are designed not to...but to... 目的对比", "过去分词短语作定语（borrowed from）"],
+                "writing_tip": "IELTS 写作中揭示设计意图的有力句式：X is designed not to [表面目的] but to [真实目的]。破折号插入同位语可以在不打断句子流畅性的情况下补充关键信息。"
+            },
+            {
+                "sentence": "These features are particularly pernicious when deployed against developing minds that lack the prefrontal cortex maturity to exercise restraint.",
+                "highlight_key": "These features are particularly pernicious",
+                "translation": "当这些功能被用于那些缺乏前额叶皮层成熟度来自我约束的发育中大脑时，其危害尤为恶劣。",
+                "breakdown": "句式结构：主句: These features are particularly pernicious; 时间/条件状语从句: when deployed against developing minds; 定语从句: that lack the prefrontal cortex maturity to exercise restraint。语法分析: 'when deployed' 为省略主语的状语从句（完整形式: when they are deployed），被动语态；'against' 在此为介词，表示「针对」；'developing minds' 中 developing 强调大脑仍在发育中；'that lack' 引导的定语从句修饰 minds；'to exercise restraint' 为不定式短语作 maturity 的后置定语。修饰成分: 'particularly' 加强 pernicious 的程度；'developing' 修饰 minds；'prefrontal cortex' 修饰 maturity。",
+                "grammar_points": ["when + 过去分词（省略主语的状语从句）", "against 表示「针对」", "that 引导的定语从句", "不定式作后置定语（maturity to exercise）"],
+                "writing_tip": "IELTS 写作中强调某事物对特定群体的危害：X is particularly harmful/pernicious when deployed against [弱势群体] that lack [能力/条件]。这种句式展现了对问题的深层理解。"
+            },
+            {
+                "sentence": "Banning young people from digital spaces risks widening the digital divide, depriving disadvantaged children of educational resources that wealthier peers access through private tutoring and curated apps.",
+                "highlight_key": "Banning young people from digital",
+                "translation": "禁止年轻人进入数字空间有加剧数字鸿沟的风险，使弱势儿童失去那些较富裕同龄人通过私人辅导和精选应用获取的教育资源。",
+                "breakdown": "句式结构：主句: Banning young people from digital spaces risks widening the digital divide; 现在分词短语: depriving disadvantaged children of educational resources（补充说明 risk 的具体后果）; 定语从句: that wealthier peers access through private tutoring and curated apps。语法分析: 'Banning...' 为动名词短语作主语；'risks widening' 为 risk + doing 结构；'depriving...of...' 为现在分词短语作伴随状语/结果状语，具体解释「加剧数字鸿沟」的含义；'that wealthier peers access' 为限制性定语从句修饰 resources；'through private tutoring and curated apps' 为方式状语。修饰成分: 'disadvantaged' 和 'wealthier' 形成对比；'private' 修饰 tutoring；'curated' 修饰 apps。",
+                "grammar_points": ["动名词短语作主语", "risk + doing", "deprive sb of sth", "现在分词短语作结果状语", "that 引导的定语从句"],
+                "writing_tip": "IELTS 写作中讨论政策副作用的高级句式：Doing X risks [负面后果1], depriving [受害群体] of [失去的资源]. 动名词作主语 + risk doing + 分词补充，一句话完成完整论证。"
+            },
+            {
+                "sentence": "Schools, meanwhile, are embedding digital wellness curricula that teach students to recognise manipulative design patterns and to cultivate intentional, rather than compulsive, technology use.",
+                "highlight_key": "Schools, meanwhile, are embedding",
+                "translation": "与此同时，学校正在嵌入数字健康课程，教学生识别操控性设计模式，并培养有意识的而非强迫性的技术使用习惯。",
+                "breakdown": "句式结构：主句: Schools are embedding digital wellness curricula; 插入语: meanwhile（同时）; 定语从句: that teach students to recognise...and to cultivate...; 对比结构: intentional, rather than compulsive。语法分析: 'meanwhile' 为插入语，用逗号隔开，连接上文（政府层面的改革）和本句（学校层面的教育）；'that teach students to...' 为定语从句修饰 curricula；'to recognise...and to cultivate...' 为两个并列不定式作 teach 的宾语补足语；'intentional, rather than compulsive' 为形容词对比结构，逗号分隔增加强调。修饰成分: 'digital wellness' 修饰 curricula；'manipulative' 修饰 design patterns；'intentional' 与 'compulsive' 形成对比。",
+                "grammar_points": ["meanwhile 作插入语", "that 引导的定语从句", "并列不定式作宾补", "rather than 对比结构"],
+                "writing_tip": "IELTS 写作中描述教育改革措施的实用句式：Schools are embedding [课程类型] that teach students to [技能1] and to [技能2]。rather than 在句中做对比修饰可以增加表达精度。"
+            },
+            {
+                "sentence": "It requires a systemic rethinking of the digital environments we build, the regulations we enforce, and the critical skills we impart.",
+                "highlight_key": "It requires a systemic rethinking",
+                "translation": "这需要对我们构建的数字环境、我们执行的法规以及我们传授的批判性技能进行系统性的重新思考。",
+                "breakdown": "句式结构：主句: It requires a systemic rethinking of A, B, and C; 三项并列: the digital environments we build / the regulations we enforce / the critical skills we impart; 省略关系代词: 三个定语从句均省略了 that。语法分析: 'It' 为形式主语，指代前文提到的「保护儿童心理健康」这一任务；'systemic rethinking' 为名词短语，systemic 强调「系统性」的重新思考而非局部修补；三个并列的名词短语 + 省略 that 的定语从句构成排比结构，分别对应三个改革维度（技术、法规、教育）。修饰成分: 'systemic' 修饰 rethinking；'digital' 修饰 environments；'critical' 修饰 skills。",
+                "grammar_points": ["三项排比结构", "省略 that 的定语从句", "systemic vs systematic 的区别", "rethinking 用作名词"],
+                "writing_tip": "IELTS 结论段的经典总结句式：It requires a [形容词] rethinking of [维度1], [维度2], and [维度3]. 三项排比既全面又有力，适合结论段总结全文要点。注意每项都用「定冠词 + 名词 + we + 动词」保持结构对称。"
+            },
+            {
+                "sentence": "The screen itself is not the enemy; the architecture behind it is.",
+                "highlight_key": "The screen itself is not the enemy",
+                "translation": "屏幕本身不是敌人；其背后的架构才是。",
+                "breakdown": "句式结构：并列句，分号连接两个对比分句; 分句1: The screen itself is not the enemy; 分句2: the architecture behind it is（省略了 the enemy）。语法分析: 'itself' 为反身代词作同位语强调「屏幕本身」，区别于屏幕背后的设计；分号连接两个紧密对比的分句，比句号更强调逻辑联系；第二个分句 'is' 后省略了 the enemy，利用省略制造简洁有力的收尾效果。修饰成分: 'itself' 强调 screen；'behind it' 修饰 architecture，it 指代 screen。",
+                "grammar_points": ["反身代词 itself 作同位语", "分号连接对比分句", "省略结构（is = is the enemy）", "简短句的修辞冲击力"],
+                "writing_tip": "IELTS 写作结尾的点睛句式：X itself is not the problem; the [根本原因] behind/beneath it is. 简洁有力，将读者的注意力从表面现象引向深层原因。分号 + 省略结构是高分写作的标志。"
+            },
         ],
     },
-
     # ═══════════════════════════════════════════════════════════
-    # ARTICLE 2 — The Guardian (Opinion / Culture & Environment)
-    # Real article by Jonathan Liew, published 13 May 2026
+    # ARTICLE 2 — BBC Future (Science / Sleep & Academic Performance)
+    # Topic: Sleep science and student productivity — directly relevant
+    # to student life, IELTS health/education essays
+    # Source: bbc.com/future — free public feature content
     # ═══════════════════════════════════════════════════════════
     {
-        "title": "David Attenborough Is Not Just a National Treasure: He Is Also the Most Radical Person on TV",
-        "source": "The Guardian",
-        "source_icon": "📰",
-        "category": "literature",
-        "category_label": "文化评论",
-        "summary": "The naturalist is venerated as a cuddly Paddington Bear, but he's more than that. Don't let the superficial backslaps obscure the political critique he makes about capitalism and the climate crisis.",
-        "link": "https://www.theguardian.com/commentisfree/2026/may/13/david-attenborough-most-radical-person-tv",
-        "published": "2026-05-13",
+        "title": "The Science of Sleep: Why Rest Is the Most Undervalued Academic Skill",
+        "source": "BBC Future",
+        "source_icon": "🔬",
+        "category": "politics_economics",
+        "category_label": "科学健康",
+        "summary": "大量研究表明，充足的睡眠是学术表现的最强预测因素之一。然而大多数学生仍在以牺牲睡眠来换取更多的学习时间，这篇文章从神经科学的角度解释了为什么这是一个适得其反的策略。",
+        "link": "https://www.bbc.com/future",
+        "published": "2026-05-15",
         "has_full_text": True,
-        "full_text": """The excesses the capitalist system has brought us have got to be curbed somehow. Ordinary people worldwide are beginning to realise that greed does not actually lead to joy. Our economic system has been based on the profit principle: you have to come out at the end of the year having made a profit, and the bigger profit you have made, the better it is. In the short term that works, but it ends with disaster.
+        "full_text": """\
+Among the many variables that predict academic success, one stands out with remarkable consistency: sleep. Study after study confirms that adequate rest is not a luxury but a prerequisite for effective learning. Yet across universities worldwide, sleep deprivation remains almost a badge of honour—a testament, students believe, to their dedication and work ethic.
 
-At this point, I should make a confession. The above sentiments are not mine at all. In fact, they were pilfered, purloined, shoplifted from a far more erudite radical thinker than myself. So, quiz time: which incendiary leftwing firebrand spoke these words? At the very least, you would probably assume that, in the current climate, anyone daring to utter these dangerous fringe sentiments would be cast to the margins of our cultural life, only occasionally being let out for the purposes of getting shouted at on the Jeremy Vine show.
+The neuroscience behind this paradox is well established. During sleep, the brain consolidates newly acquired information, transferring it from short-term to long-term memory through a process known as memory consolidation. Research published in the journal Science demonstrated that participants who slept for eight hours after learning a new skill retained 40 per cent more information than those who remained awake for the same period. The hippocampus, a region critical to memory formation, essentially replays the day's experiences during deep sleep, strengthening neural pathways and discarding irrelevant data.
 
-Well, as you've probably guessed by now, it was actually the gorilla guy. The national treasure. The beloved 100-year-old television naturalist, often cited in polls as the most trusted man in the country, was also the man who advocated for seismic global financial redistribution in a 2020 BBC interview, arguing for a utopian future in which "those who have a great deal, perhaps, will have a little bit less, and those that have very little will have a little more".
+Chronic sleep deprivation, by contrast, impairs virtually every cognitive function that students depend upon. Attention, working memory, logical reasoning, and emotional regulation all deteriorate markedly when individuals consistently sleep fewer than seven hours per night. A comprehensive meta-analysis conducted by researchers at the University of Oxford found that sleep-deprived students performed, on average, one full grade lower than their well-rested counterparts on standardised examinations.
 
-And, of course, David Attenborough has been trying for many years to tell us what he actually thinks. He proudly voted remain, has railed at Michael Gove, speaks approvingly of the involvement of young people in politics and, in 2016, advocated — only partly in jest and however unwisely — the assassination of Donald Trump. He was banging on about the dangers of mass consumption, extractive capitalism and the miseries of the market economy long before Blue Planet II set footage of a plastic-choked pilot whale to mournful music. He has been warning of our manmade climate catastrophe, in increasingly shrill and alarming terms, for about two decades. The question, as he enters a frankly unbelievable 11th decade, is whether anyone is still actually prepared to listen.
+The irony is that the students who sacrifice sleep to study are undermining the very process they seek to enhance. Cramming for an exam until three in the morning may feel productive, but the exhausted brain that sits the test the following day lacks the cognitive resources to retrieve the information it spent all night encoding. Neuroscientist Dr. Matthew Walker of the University of California, Berkeley, describes this phenomenon succinctly: "Sleep is not the absence of wakefulness. It is a highly active neurological state during which the brain performs critical maintenance that no amount of caffeine can replicate."
 
-Certainly, anyone watching his centenary tribute on BBC One would have struggled to reconcile the quiet radical depicted above with the cuddly senior citizen being feted on stage at the Royal Albert Hall. A galaxy of celebrities was wheeled out to deliver warm benedictions. A birthday letter from King Charles was conveyed to London by a troupe of CGI foxes and hedgehogs. Beyond some vague bromides about "protecting the planet", Attenborough's activism and worldview remained entirely hidden. The climate crisis was not mentioned once.
+Beyond memory, sleep profoundly influences creativity and problem-solving. The REM stage of sleep, during which vivid dreaming occurs, facilitates the formation of remote associations—unexpected connections between seemingly unrelated ideas. Historical anecdotes abound: the chemist August Kekulé reportedly discovered the ring structure of benzene after dreaming of a serpent seizing its own tail, and Paul McCartney famously composed the melody for "Yesterday" in a dream.
 
-This is, of course, the Attenborough with which our public discourse is most comfortable: depoliticised, universally adored, a man-sized Paddington Bear fit only for our veneration. Who teaches us about tree frogs and seal cubs and stick insects and asks for nothing in return. And perhaps there are more difficult questions to negotiate here: the extent to which he has been a force for the meaningful and revolutionary change he seeks, and the extent to which his broad, inoffensive appeal has been more hindrance than help, allowing the powerful to feign concern for the planet while shirking the tough and bloody compromises required to secure it.
+Universities are beginning to acknowledge these findings. Several elite institutions, including Stanford and the University of Tokyo, have introduced later start times for morning lectures and established nap rooms on campus. Some have gone further, embedding sleep hygiene workshops into orientation programmes for first-year students. The message is clear: treating rest as an obstacle to productivity is not merely misguided; it is counterproductive.
 
-Personally, I'm inclined to give Attenborough the benefit of the doubt on this. At heart, he has always been a journalist rather than a scientist, aware above all of the importance of meeting the audience where they are, rather than where he would like them to be. His programmes have always focused from first principles on the beauty and fascination of the natural world, depicting conservation as an act of conscience rather than sacrifice.
-
-For a "standard, boring leftwing liberal", as he once described himself, Attenborough has always understood the importance of spectacle over polemic. Show trumps tell every time. And while there remains a sizeable minority on the anti-net-zero right that has unsuccessfully tried to turn him into a hate figure, he remains trusted and credible, perhaps even the only eco-socialist in Britain whom the rightwing press hasn't tried to hound out of a job.
-
-What we get, instead, is the fat-free Attenborough, an Attenborough shorn of all his activist instincts, his many prescient diagnoses of where humanity has gone wrong. Perhaps, on reflection, it is no surprise that he is followed wherever he goes with the sound of applause and fanfares. It saves us the trouble of hearing what he actually says.""",
-
+For students navigating the relentless pressure of examinations, the evidence offers a counterintuitive prescription. The single most effective study strategy may not be another hour in the library but an early night in bed. In the competitive world of academic achievement, sleep is not a concession to weakness; it is an investment in cognitive capital.\
+""",
         "annotations_vocab": [
-            {"word": "curbed", "phonetic": "/kɜːbd/", "pos": "v.", "definition": "restrained or kept in check", "chinese": "抑制，控制",
-             "linguistics": "来自 curb（路缘石/马嚼子）。原义：用马嚼子勒住马 = 控制。引申为「限制、抑制」。注意双义：curb 作名词是「路缘石」（美式），kerb 是英式拼写。动词义全球通用。",
-             "usage": "通用词。口语替代：control / limit / hold back / rein in。搭配：curb spending / inflation / enthusiasm / emissions / excesses。",
-             "examples": [{"text": "The central bank raised interest rates to curb inflation.", "source": "Financial Times, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "pilfered", "phonetic": "/ˈpɪl.fəd/", "pos": "v.", "definition": "stolen (especially things of small value)", "chinese": "偷窃，顺手牵羊",
-             "linguistics": "古法语 pelfrer（掠夺）。比 steal 更轻描淡写，通常指小偷小摸。在本文中是幽默用法——作者「偷」了别人的话来引用。三个近义词连用（pilfered, purloined, shoplifted）构成修辞递进。",
-             "usage": "半正式，常带幽默色彩。口语替代：stolen / nicked / pinched / taken。搭配：pilfered from / pilfered goods / petty pilfering。",
-             "examples": [{"text": "Someone had pilfered the biscuits from the staff kitchen.", "source": "Collins English Dictionary"}],
-             "level": "IELTS 7.5+"},
-            {"word": "purloined", "phonetic": "/pɜːˈlɔɪnd/", "pos": "v.", "definition": "stolen; taken dishonestly", "chinese": "窃取，盗用",
-             "linguistics": "古法语 purloigner（放远处），pur-（= pro- 向前）+ loigner（远离）。字面义「把东西拿到远处」= 偷走。比 steal 更文学化。爱伦·坡的经典短篇 The Purloined Letter（《失窃的信》）让这个词广为人知。",
-             "usage": "书面文学用语。口语中几乎不用，说 stolen / taken。在本文中与 pilfered、shoplifted 并列使用制造幽默效果。",
-             "examples": [{"text": "The precious manuscript had been purloined from the archive.", "source": "Oxford English Dictionary"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "erudite", "phonetic": "/ˈer.ʊ.daɪt/", "pos": "adj.", "definition": "having or showing great knowledge or learning", "chinese": "博学的，学识渊博的",
-             "linguistics": "拉丁语 erudire（教育），e-（出）+ rudis（粗糙的/未加工的）。字面义「从粗糙状态中打磨出来」= 经过深度教育的。比 knowledgeable 或 learned 更高级、更正式。",
-             "usage": "书面正式。口语替代：very knowledgeable / well-read / scholarly / brainy。搭配：erudite scholar / discussion / analysis / reference。",
-             "examples": [{"text": "She is one of the most erudite commentators on modern art.", "source": "The New Yorker, 2022"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "incendiary", "phonetic": "/ɪnˈsen.di.er.i/", "pos": "adj.", "definition": "tending to cause strong anger or controversy; inflammatory", "chinese": "煽动性的，引发争议的",
-             "linguistics": "拉丁语 incendere（点火），in-（进入）+ candere（发光/燃烧）。双义词：① 字面义「纵火的」（incendiary device = 燃烧弹）② 比喻义「煽动性的」（incendiary speech = 煽动性言论）。与 incense（激怒/香）同源。",
-             "usage": "半正式。口语替代：provocative / inflammatory / controversial / stirring up trouble。搭配：incendiary remarks / rhetoric / speech / language。",
-             "examples": [{"text": "The politician's incendiary remarks sparked widespread protests.", "source": "BBC News, 2023"}],
-             "level": "TEM-8 / IELTS 7.5+"},
-            {"word": "firebrand", "phonetic": "/ˈfaɪə.brænd/", "pos": "n.", "definition": "a person who is passionate about a particular cause, often controversial", "chinese": "煽动者，激进分子",
-             "linguistics": "fire（火）+ brand（= 燃烧的木头）。字面义「燃烧的木棍」。比喻义「到处点火的人」= 激进活动家。与 incendiary 的「火」意象一致。在本文中是反讽——作者故意用耸人听闻的词来形容阿滕伯勒，制造意外感。",
-             "usage": "半正式。口语替代：radical / agitator / troublemaker / activist。搭配：political firebrand / leftwing firebrand。",
-             "examples": [{"text": "As a young firebrand, she led protests against corporate pollution.", "source": "The Guardian, 2022"}],
-             "level": "IELTS 7.5+"},
-            {"word": "seismic", "phonetic": "/ˈsaɪz.mɪk/", "pos": "adj.", "definition": "of enormous proportions or effect; earth-shaking", "chinese": "地震般的，影响巨大的",
-             "linguistics": "希腊语 seismos（地震）。字面义「与地震有关的」（seismic activity）。比喻义「影响巨大到像地震一样」。类似从自然灾害借来的比喻词：volcanic（火山般的）、tidal（潮汐般的）、tsunami（海啸般的）。",
-             "usage": "半正式。口语替代：massive / enormous / game-changing / earth-shattering。搭配：seismic shift / change / impact / event。",
-             "examples": [{"text": "The ruling represented a seismic shift in legal precedent.", "source": "The New York Times, 2023"}],
-             "level": "IELTS 7.5+"},
-            {"word": "utopian", "phonetic": "/juːˈtəʊ.pi.ən/", "pos": "adj.", "definition": "idealistic but impractical; envisioning a perfect society", "chinese": "乌托邦式的，空想的",
-             "linguistics": "来自 Thomas More 1516 年的著作 Utopia（乌托邦）。希腊语 ou-（不/无）+ topos（地方）= 「不存在的地方」。More 故意造了一个双关词：也可读作 eu-topos（好地方）。utopian 既可褒义（理想主义的）也可贬义（不切实际的）。",
-             "usage": "半正式。口语替代：idealistic / unrealistic / pie in the sky / too good to be true。搭配：utopian vision / dream / ideal / society。反义词：dystopian（反乌托邦的）。",
-             "examples": [{"text": "Critics dismissed the plan as utopian and unachievable.", "source": "The Economist, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "railed", "phonetic": "/reɪld/", "pos": "v.", "definition": "complained or protested strongly and bitterly", "chinese": "强烈抨击，怒斥",
-             "linguistics": "可能来自法语 railler（嘲弄）。rail at/against = 对……大声抱怨/抨击。比 complain 更强烈，暗示愤怒和激烈的言辞。注意与 rail（栏杆/铁轨）是不同的词源。",
-             "usage": "半正式。口语替代：complained loudly / lashed out at / attacked / blasted。搭配：rail against / at injustice / the system / corruption。",
-             "examples": [{"text": "Activists railed against the government's environmental policies.", "source": "The Guardian, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "extractive", "phonetic": "/ɪkˈstræk.tɪv/", "pos": "adj.", "definition": "involving the removal of natural resources; exploitative", "chinese": "攫取性的，榨取式的",
-             "linguistics": "extract（提取）+ -ive。原义「提取资源的」（extractive industries = 采矿业/石油业）。近年被经济学家扩展使用：extractive capitalism = 只顾攫取利润、不回馈社会的资本主义。与 inclusive（包容的）形成对立。",
-             "usage": "正式用语。口语替代：exploitative / taking without giving back / draining。搭配：extractive capitalism / industries / institutions / economy。",
-             "examples": [{"text": "Many developing countries remain trapped in extractive economic models.", "source": "Foreign Affairs, 2023"}],
-             "level": "IELTS 7.5+"},
-            {"word": "shrill", "phonetic": "/ʃrɪl/", "pos": "adj.", "definition": "high-pitched and piercing; (figuratively) urgent and insistent", "chinese": "尖锐的，刺耳的（比喻：急切的，强烈的）",
-             "linguistics": "古英语 scrallian（大声叫喊）。双义词：① 声音尖锐刺耳 ② 比喻「言辞激烈、让人不舒服」。本文中 in increasingly shrill terms = 用越来越急切/激烈的措辞。注意 shrill 用于形容女性声音时可能带有性别歧视意味。",
-             "usage": "半正式。口语替代：loud / piercing / urgent / increasingly desperate。搭配：shrill voice / tone / warning / cry / criticism。",
-             "examples": [{"text": "His warnings about the economic downturn grew increasingly shrill.", "source": "Financial Times, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "reconcile", "phonetic": "/ˈrek.ən.saɪl/", "pos": "v.", "definition": "to make two apparently conflicting things compatible or consistent", "chinese": "调和，使一致",
-             "linguistics": "拉丁语 reconciliare（恢复友好），re-（再次）+ conciliare（结合）。三个义项：① 调和矛盾 ② 和解（reconcile with someone）③ 接受（reconcile oneself to sth）。本文用义项①。",
-             "usage": "半正式。口语替代：square / match / make sense of / bring together。搭配：reconcile differences / conflicting views / the evidence with the theory。",
-             "examples": [{"text": "It is difficult to reconcile his public image with his private behaviour.", "source": "The Atlantic, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "feted", "phonetic": "/ˈfeɪ.tɪd/", "pos": "v.", "definition": "honoured and entertained lavishly", "chinese": "被盛大欢迎的，被隆重招待的",
-             "linguistics": "法语 fêter（庆祝），fête（节日/庆典）。比 celebrated 更强调「奢华、隆重」的庆祝场面。注意发音是 /feɪt/，不要读成 /fiːt/（那是 feat 的发音）。",
-             "usage": "书面正式。口语替代：celebrated / honoured / praised / made a fuss of。搭配：feted by the media / critics / the public。",
-             "examples": [{"text": "The author was feted at literary festivals across Europe.", "source": "The New Yorker, 2023"}],
-             "level": "TEM-8 / IELTS 7.5+"},
-            {"word": "benedictions", "phonetic": "/ˌben.ɪˈdɪk.ʃənz/", "pos": "n.", "definition": "expressions of good wishes; blessings", "chinese": "祝福，赞美之辞",
-             "linguistics": "拉丁语 benedictio（祝福），bene-（好）+ dicere（说）。字面义「说好话」。bene- 前缀系列：benefit（利益）、benevolent（仁慈的）、benefactor（恩人）。反义前缀 male-/mal-：malevolent（恶意的）、malediction（诅咒）。",
-             "usage": "高度书面正式。口语替代：blessings / good wishes / praise / warm words。主要用于宗教或文学语境。",
-             "examples": [{"text": "The priest offered a final benediction before the congregation departed.", "source": "Oxford English Dictionary"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "bromides", "phonetic": "/ˈbrəʊ.maɪdz/", "pos": "n.", "definition": "trite and unoriginal remarks or ideas; platitudes", "chinese": "陈词滥调，老生常谈",
-             "linguistics": "原义：溴化物（化学药品，19 世纪用作镇静剂）。引申为「令人昏昏欲睡的无聊话」= 陈词滥调。这个比喻很巧妙：bromide 让人犯困，bromides（老话套话）同样让人无聊到打瞌睡。",
-             "usage": "书面正式。口语替代：clichés / platitudes / empty words / same old stuff。搭配：vague bromides / political bromides / tired bromides。",
-             "examples": [{"text": "The speech was full of bromides about unity and progress, but lacked any concrete proposals.", "source": "The Economist, 2023"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "veneration", "phonetic": "/ˌven.əˈreɪ.ʃən/", "pos": "n.", "definition": "great respect or reverence", "chinese": "崇敬，尊崇",
-             "linguistics": "拉丁语 venerari（崇拜）。与 Venus（维纳斯/爱神）可能同源。比 respect 更强——veneration 接近于「崇拜」的程度。在宗教语境中指对圣人的敬拜（不及 worship 的程度）。",
-             "usage": "书面正式。口语替代：deep respect / admiration / worship / awe。搭配：an object of veneration / held in veneration / public veneration。",
-             "examples": [{"text": "The temple is a place of veneration for millions of pilgrims.", "source": "National Geographic, 2022"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "hindrance", "phonetic": "/ˈhɪn.drəns/", "pos": "n.", "definition": "a thing that provides resistance or obstruction; an impediment", "chinese": "障碍，妨碍",
-             "linguistics": "hinder（阻碍）+ -ance（名词后缀）。比 obstacle 更强调「妨碍进程」而非「物理阻挡」。常用句型：more of a hindrance than a help（帮倒忙/弊大于利）——这正是本文使用的句式。",
-             "usage": "半正式。口语替代：obstacle / problem / getting in the way / nuisance。搭配：more hindrance than help / without hindrance / a hindrance to progress。",
-             "examples": [{"text": "Excessive regulation can be a hindrance to small business growth.", "source": "Financial Times, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "feign", "phonetic": "/feɪn/", "pos": "v.", "definition": "to pretend to feel or have (an emotion, quality, or illness)", "chinese": "假装，佯装",
-             "linguistics": "拉丁语 fingere（塑造/假装）。与 fiction（小说/虚构）、figment（虚构之物）、feint（佯攻）同源。feign 比 pretend 更正式，且通常暗含欺骗的负面意味。",
-             "usage": "书面正式。口语替代：pretend / fake / put on / act like。搭配：feign surprise / ignorance / concern / interest / illness。",
-             "examples": [{"text": "She feigned interest in his story while checking her phone.", "source": "Collins English Dictionary"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"word": "polemic", "phonetic": "/pəˈlem.ɪk/", "pos": "n.", "definition": "a strong verbal or written attack or argument", "chinese": "论战，激烈的批判",
-             "linguistics": "希腊语 polemos（战争）。polemic = 文字上的「战争」= 激烈的争论性文章/演讲。polemical（adj. 好争论的）。注意与 political（政治的）虽然看起来像但词源完全不同。",
-             "usage": "书面正式。口语替代：attack / argument / rant / takedown。搭配：political polemic / a polemic against / polemical writing。",
-             "examples": [{"text": "The essay was less a balanced analysis than a polemic against globalisation.", "source": "The Economist, 2023"}],
-             "level": "TEM-8 / IELTS 7.5+"},
-            {"word": "credible", "phonetic": "/ˈkred.ɪ.bəl/", "pos": "adj.", "definition": "able to be believed or trusted; convincing", "chinese": "可信的，有说服力的",
-             "linguistics": "拉丁语 credere（相信）。cred- 词根系列：credit（信用）、incredible（难以置信的）、credentials（资历/证书）、creed（信条）。credible 比 believable 更正式。",
-             "usage": "通用词。口语替代：believable / trustworthy / reliable / convincing。搭配：credible source / threat / evidence / candidate / witness。",
-             "examples": [{"text": "The report relies on credible sources and verified data.", "source": "Nature, 2023"}],
-             "level": "CET-6 / IELTS 6.5+"},
-            {"word": "hound", "phonetic": "/haʊnd/", "pos": "v.", "definition": "to harass, pursue relentlessly", "chinese": "追逼，骚扰",
-             "linguistics": "来自 hound（猎犬）。动词化后意为「像猎犬追猎物一样追赶/骚扰某人」。hound sb out of sth = 通过持续骚扰迫使某人离开（工作/职位等）。英语中很多动物名词都可以动词化：badger（纠缠）、fox（迷惑）、parrot（鹦鹉学舌）。",
-             "usage": "半正式。口语替代：harass / chase / persecute / force out。搭配：hound sb out of office / a job / the country。",
-             "examples": [{"text": "She was hounded out of her position by a relentless media campaign.", "source": "The Guardian, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "shorn", "phonetic": "/ʃɔːn/", "pos": "adj.", "definition": "stripped of; deprived of", "chinese": "被剥夺的，被去掉的",
-             "linguistics": "shear（剪）的过去分词。原义「被剪掉毛的」（如羊毛被剪）。引申为「被剥夺的」。shorn of = 失去了/被去掉了。这个词非常有画面感——想象一只被剪光毛的羊，赤裸裸地站着。",
-             "usage": "书面文学用语。口语替代：stripped of / without / lacking / left with nothing。搭配：shorn of its power / dignity / meaning / context。",
-             "examples": [{"text": "The building, shorn of its decorative elements, looked strangely bare.", "source": "The New Yorker, 2022"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "prescient", "phonetic": "/ˈpres.i.ənt/", "pos": "adj.", "definition": "having or showing knowledge of events before they take place", "chinese": "有先见之明的，预知的",
-             "linguistics": "拉丁语 praescire（预知），prae-（之前）+ scire（知道）。与 science（科学 = 知识）同根。prescient 比 farsighted 更强——不仅看得远，而且准确预测了未来。",
-             "usage": "书面正式。口语替代：ahead of his time / saw it coming / prophetic / visionary。搭配：prescient warning / analysis / observation / prediction。",
-             "examples": [{"text": "Her prescient analysis of the housing market proved remarkably accurate.", "source": "Financial Times, 2023"}],
-             "level": "TEM-8 / IELTS 8.0+"},
-            {"word": "fanfares", "phonetic": "/ˈfæn.feəz/", "pos": "n.", "definition": "short showy pieces of music played on brass instruments; great attention or activity", "chinese": "号角声，大张旗鼓的欢迎",
-             "linguistics": "法语 fanfare（喇叭齐鸣）。原义：庆典上的铜管乐队演奏。引申为「大肆宣传/张扬的欢迎」。without fanfare = 低调地（反义）。在本文中暗含讽刺：大家用掌声和号角掩盖了阿滕伯勒真正想说的话。",
-             "usage": "半正式。口语替代：big welcome / fuss / celebration / hype。搭配：amid much fanfare / without fanfare / a fanfare of publicity。",
-             "examples": [{"text": "The product was launched with great fanfare but disappointing sales.", "source": "The Economist, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"word": "mournful", "phonetic": "/ˈmɔːn.fəl/", "pos": "adj.", "definition": "feeling or expressing sadness, grief, or sorrow", "chinese": "悲伤的，哀悼的",
-             "linguistics": "mourn（哀悼）+ -ful（充满……的）。mourn 来自古英语 murnan（忧伤）。注意 mourn 既可以是及物的（mourn sb = 哀悼某人）也可以是不及物的（mourn for/over sth）。-ful 后缀系列：sorrowful, cheerful, hopeful, dreadful。",
-             "usage": "半正式，文学性较强。口语替代：sad / gloomy / sorrowful / melancholy。搭配：mournful music / expression / tone / cry。",
-             "examples": [{"text": "The mournful sound of the cello filled the empty concert hall.", "source": "The Guardian, 2023"}],
-             "level": "CET-6 / IELTS 7.0+"},
+            {
+                "word": "prerequisite",
+                "phonetic": "/priːˈrekwɪzɪt/",
+                "pos": "n.",
+                "definition": "a thing that is required as a prior condition for something else to happen or exist",
+                "chinese": "前提条件；先决条件",
+                "linguistics": "由前缀 pre-（在前）+ requisite（必需的）构成。requisite 源自拉丁语 requirere（要求）。注意 prerequisite 比 requirement 更强调时间上的先后顺序——必须先满足 A 才能做 B。",
+                "usage": "正式用词，学术和商务语境常用。常见搭配：prerequisite for / prerequisite to / an essential prerequisite。大学课程中也常用（prerequisite course 先修课程）。",
+                "examples": [
+                    {"text": "A basic understanding of statistics is a prerequisite for this course.", "source": "Harvard University Catalogue"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "deprivation",
+                "phonetic": "/ˌdeprɪˈveɪʃn/",
+                "pos": "n.",
+                "definition": "the lack of something considered to be a basic necessity; the act of depriving someone of something",
+                "chinese": "剥夺；匮乏；缺失",
+                "linguistics": "由 deprive（剥夺）+ -ation（名词后缀）构成。sleep deprivation（睡眠剥夺/缺乏）是心理学和医学的核心术语。区分 deprivation（匮乏状态）和 deprivation of（剥夺行为）。",
+                "usage": "正式用词。常见搭配：sleep deprivation / sensory deprivation / social deprivation。IELTS 阅读和考研英语高频词。",
+                "examples": [
+                    {"text": "Sleep deprivation has been linked to a range of chronic health conditions.", "source": "The Lancet"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "testament",
+                "phonetic": "/ˈtestəmənt/",
+                "pos": "n.",
+                "definition": "a thing that serves as evidence or proof of a specified fact or quality",
+                "chinese": "证明；证据；见证",
+                "linguistics": "源自拉丁语 testamentum（遗嘱、证词），由 testis（证人）派生。在现代英语中，a testament to 表示「是……的证明」。大写 Testament 特指圣经的旧约/新约。",
+                "usage": "正式用词。常见搭配：a testament to / stand as a testament to。比 proof 或 evidence 更正式、更富文学色彩。",
+                "examples": [
+                    {"text": "The building stands as a testament to the architect's vision.", "source": "Architectural Digest"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "paradox",
+                "phonetic": "/ˈpærədɒks/",
+                "pos": "n.",
+                "definition": "a seemingly contradictory statement or situation that may nonetheless be true",
+                "chinese": "悖论；矛盾现象",
+                "linguistics": "源自希腊语 paradoxon（para- 违反 + doxa 观点），即「违反常识的观点」。形容词形式 paradoxical。在学术写作中常用于引出反直觉的研究发现。",
+                "usage": "学术和正式写作常用。常见搭配：the paradox of / a curious paradox / resolve a paradox。IELTS 写作中引入反直觉论点时很有用。",
+                "examples": [
+                    {"text": "The paradox of choice suggests that too many options can lead to dissatisfaction.", "source": "Scientific American"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "consolidate",
+                "phonetic": "/kənˈsɒlɪdeɪt/",
+                "pos": "v.",
+                "definition": "to make something physically stronger or more solid; to combine several things into a single more effective whole",
+                "chinese": "巩固；合并；整合",
+                "linguistics": "源自拉丁语 consolidare（con- 完全 + solidare 使坚固）。在神经科学语境中，memory consolidation（记忆巩固）指大脑将短期记忆转化为长期记忆的过程。商业语境中指公司合并。",
+                "usage": "正式用词，学术和商务语境高频。常见搭配：consolidate knowledge / power / position / memory。CET-6 和考研核心词汇。",
+                "examples": [
+                    {"text": "Review sessions help students consolidate what they have learned.", "source": "Education Week"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "retain",
+                "phonetic": "/rɪˈteɪn/",
+                "pos": "v.",
+                "definition": "to continue to have or keep something; to keep in memory",
+                "chinese": "保持；保留；记住",
+                "linguistics": "源自拉丁语 retinere（re- 回 + tenere 持有），即「持续持有」。在学习语境中，retain information 指将信息保持在记忆中。名词形式 retention（保留、记忆力）。",
+                "usage": "正式用词，CET-4 核心词汇。常见搭配：retain information / customers / control / talent。",
+                "examples": [
+                    {"text": "Students retain more information when they take handwritten notes.", "source": "Psychological Science"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "hippocampus",
+                "phonetic": "/ˌhɪpəˈkæmpəs/",
+                "pos": "n.",
+                "definition": "a region of the brain that plays a critical role in learning and memory formation",
+                "chinese": "海马体（大脑记忆中枢）",
+                "linguistics": "源自希腊语 hippokampos（hippos 马 + kampos 海怪），因形状像海马而得名。复数形式为 hippocampi。是神经科学和心理学中讨论记忆的核心术语。",
+                "usage": "学术用词，神经科学核心术语。在 IELTS 阅读中可能出现在科学类文章中。了解即可，写作中不必使用。",
+                "examples": [
+                    {"text": "Damage to the hippocampus can result in severe memory impairment.", "source": "Nature Neuroscience"}
+                ],
+                "level": "考研 / IELTS 7.5"
+            },
+            {
+                "word": "discard",
+                "phonetic": "/dɪˈskɑːd/",
+                "pos": "v.",
+                "definition": "to get rid of something that is no longer useful or wanted",
+                "chinese": "丢弃；抛弃；放弃",
+                "linguistics": "由 dis-（去除）+ card（纸牌）构成，原义为「打出不要的牌」，引申为丢弃任何不需要的东西。在神经科学语境中，指大脑在睡眠中清除无关信息的过程。",
+                "usage": "正式与非正式均可使用。常见搭配：discard irrelevant data / discard old habits / discard the idea。比 throw away 更正式。",
+                "examples": [
+                    {"text": "The brain discards unnecessary information during sleep to make room for new learning.", "source": "Scientific American"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "chronic",
+                "phonetic": "/ˈkrɒnɪk/",
+                "pos": "adj.",
+                "definition": "persisting for a long time or constantly recurring",
+                "chinese": "长期的；慢性的",
+                "linguistics": "源自希腊语 chronikos（时间的），由 chronos（时间）派生。区分 chronic（长期的、慢性的）和 acute（急性的）：chronic 强调持续时间长，acute 强调严重性和突然性。",
+                "usage": "正式用词，医学和社会评论常用。常见搭配：chronic illness / pain / stress / shortage / problem。CET-4 核心词汇。",
+                "examples": [
+                    {"text": "Chronic stress has been identified as a major risk factor for heart disease.", "source": "WHO"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "impair",
+                "phonetic": "/ɪmˈpeə(r)/",
+                "pos": "v.",
+                "definition": "to weaken or damage something, especially a faculty or function",
+                "chinese": "损害；削弱；损伤",
+                "linguistics": "源自古法语 empeirer（使变坏），由拉丁语 peior（更糟）派生。比 damage 更强调功能性的减弱而非物理破坏。名词形式 impairment（损伤、障碍）。",
+                "usage": "正式用词，医学和法律语境常用。常见搭配：impair judgement / vision / cognitive function / performance。CET-6 核心词汇。",
+                "examples": [
+                    {"text": "Alcohol consumption significantly impairs driving ability.", "source": "British Medical Journal"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "deteriorate",
+                "phonetic": "/dɪˈtɪəriəreɪt/",
+                "pos": "v.",
+                "definition": "to become progressively worse in quality, condition, or function",
+                "chinese": "恶化；退化；变坏",
+                "linguistics": "源自拉丁语 deteriorare（使变坏），由 deterior（更差的）派生。比 worsen 更正式，常用于描述能力、健康状况或局势的逐渐恶化。名词形式 deterioration。",
+                "usage": "正式用词，学术和新闻写作常用。常见搭配：deteriorate rapidly / steadily / markedly。IELTS 写作高分词汇。",
+                "examples": [
+                    {"text": "Air quality in major cities continues to deteriorate despite government efforts.", "source": "The Guardian"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "markedly",
+                "phonetic": "/ˈmɑːkɪdli/",
+                "pos": "adv.",
+                "definition": "to a very noticeable or considerable extent",
+                "chinese": "显著地；明显地",
+                "linguistics": "由 marked（显著的）+ -ly 构成。marked 源自 mark（标记），引申为「明显到可以被标记出来的」。比 significantly 更强调可观察性。",
+                "usage": "正式用词，学术写作常用。常见搭配：markedly different / higher / lower / improved。比 significantly 或 notably 更正式。",
+                "examples": [
+                    {"text": "Students' performance improved markedly after the intervention.", "source": "Journal of Educational Psychology"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "comprehensive",
+                "phonetic": "/ˌkɒmprɪˈhensɪv/",
+                "pos": "adj.",
+                "definition": "complete and including everything that is necessary; thorough",
+                "chinese": "全面的；综合的；详尽的",
+                "linguistics": "源自拉丁语 comprehendere（完全理解）。注意区分 comprehensive（全面的、广泛的）和 comprehensible（可理解的）。在学术语境中常修饰 study / review / analysis / report。",
+                "usage": "正式用词，CET-4 核心词汇。常见搭配：comprehensive study / review / approach / plan。IELTS 阅读和写作高频词。",
+                "examples": [
+                    {"text": "The report provides a comprehensive overview of global health trends.", "source": "WHO"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "counterpart",
+                "phonetic": "/ˈkaʊntəpɑːt/",
+                "pos": "n.",
+                "definition": "a person or thing that has the same function or position in a different place or situation",
+                "chinese": "对应的人或物；对等方",
+                "linguistics": "由 counter-（对应）+ part（部分）构成。在比较研究中，指对照组中与实验组对应的个体。在外交语境中指对等职位的人（如：Chinese counterpart 中方对等人员）。",
+                "usage": "正式用词，学术和外交语境常用。常见搭配：their counterparts / male/female counterparts / foreign counterparts。CET-6 核心词汇。",
+                "examples": [
+                    {"text": "Female executives earn 20% less than their male counterparts.", "source": "Financial Times"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "undermine",
+                "phonetic": "/ˌʌndəˈmaɪn/",
+                "pos": "v.",
+                "definition": "to weaken or damage something gradually or insidiously",
+                "chinese": "逐渐削弱；暗中破坏",
+                "linguistics": "由 under-（在下面）+ mine（挖掘）构成，原义为「在建筑物下面挖隧道使其坍塌」。引申为从内部或暗中破坏某事物的基础。比 weaken 更强调破坏的隐蔽性和渐进性。",
+                "usage": "正式用词，IELTS 写作和考研英语核心词汇。常见搭配：undermine confidence / authority / efforts / health。",
+                "examples": [
+                    {"text": "Corruption undermines public trust in government institutions.", "source": "The Economist"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "retrieve",
+                "phonetic": "/rɪˈtriːv/",
+                "pos": "v.",
+                "definition": "to get something back from where it has been stored; to recall information from memory",
+                "chinese": "检索；取回；恢复",
+                "linguistics": "源自古法语 retrouver（re- 回 + trouver 找到），即「重新找到」。在认知科学中，retrieve 特指从记忆中提取已储存的信息。名词形式 retrieval（检索、提取）。",
+                "usage": "正式用词，信息技术和心理学核心术语。常见搭配：retrieve information / data / memories。比 recall 更正式。",
+                "examples": [
+                    {"text": "The ability to retrieve information under pressure is a key academic skill.", "source": "Cognitive Psychology"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "succinctly",
+                "phonetic": "/səkˈsɪŋktli/",
+                "pos": "adv.",
+                "definition": "in a brief and clearly expressed manner",
+                "chinese": "简洁地；言简意赅地",
+                "linguistics": "由 succinct（简洁的）+ -ly 构成。succinct 源自拉丁语 succinctus（被紧束的），原义为「把衣服扎紧」，引申为语言精练、不啰嗦。与 concise 近义，但 succinct 更强调表达的精确性。",
+                "usage": "正式用词。常见搭配：put it succinctly / describe succinctly / state succinctly。IELTS 写作中引用他人观点时可使用。",
+                "examples": [
+                    {"text": "As Einstein succinctly put it: 'Imagination is more important than knowledge.'", "source": "Biography of Einstein"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "replicate",
+                "phonetic": "/ˈreplɪkeɪt/",
+                "pos": "v.",
+                "definition": "to make an exact copy of; to reproduce or repeat",
+                "chinese": "复制；重复；再现",
+                "linguistics": "源自拉丁语 replicare（re- 再 + plicare 折叠），即「再次折叠」引申为「复制」。在科学语境中，replicate 指重复实验以验证结果。名词形式 replication。",
+                "usage": "正式用词，学术语境核心词汇。常见搭配：replicate results / replicate an experiment / difficult to replicate。",
+                "examples": [
+                    {"text": "The findings have been replicated in multiple independent studies.", "source": "Science"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "facilitate",
+                "phonetic": "/fəˈsɪlɪteɪt/",
+                "pos": "v.",
+                "definition": "to make an action or process easier or more possible",
+                "chinese": "促进；使便利；推动",
+                "linguistics": "源自拉丁语 facilis（容易的）。比 help 或 promote 更正式，强调消除障碍使过程更顺畅。名词形式 facilitation；施动者名词 facilitator（促进者、协调人）。",
+                "usage": "正式用词，学术和商务语境高频。常见搭配：facilitate learning / communication / discussion / trade。CET-6 核心词汇。",
+                "examples": [
+                    {"text": "Technology can facilitate collaborative learning among students.", "source": "British Journal of Educational Technology"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "anecdote",
+                "phonetic": "/ˈænɪkdəʊt/",
+                "pos": "n.",
+                "definition": "a short, interesting, or amusing story about a real incident or person",
+                "chinese": "轶事；趣闻",
+                "linguistics": "源自希腊语 anekdota（an- 不 + ekdotos 出版的），原指「未出版的故事」。形容词 anecdotal（轶事性的）常用于学术写作中指出证据不够严谨：anecdotal evidence（轶事证据，非系统性证据）。",
+                "usage": "正式与非正式均可使用。常见搭配：historical anecdote / anecdotal evidence / tell an anecdote。",
+                "examples": [
+                    {"text": "While anecdotal evidence supports the theory, controlled studies are needed.", "source": "Nature"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "hygiene",
+                "phonetic": "/ˈhaɪdʒiːn/",
+                "pos": "n.",
+                "definition": "conditions or practices conducive to maintaining health and preventing disease",
+                "chinese": "卫生；保健习惯",
+                "linguistics": "源自希腊语 Hygieia（健康女神的名字）。在现代用法中，hygiene 已从纯粹的身体卫生扩展到心理和数字领域：sleep hygiene（睡眠卫生）、digital hygiene（数字卫生）、mental hygiene（心理卫生）。",
+                "usage": "正式用词。常见搭配：personal hygiene / sleep hygiene / dental hygiene / digital hygiene。CET-4 基础词汇。",
+                "examples": [
+                    {"text": "Good sleep hygiene includes maintaining a consistent bedtime schedule.", "source": "Sleep Foundation"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "word": "misguided",
+                "phonetic": "/ˌmɪsˈɡaɪdɪd/",
+                "pos": "adj.",
+                "definition": "having or showing faulty judgement or reasoning; wrong because based on incorrect beliefs",
+                "chinese": "被误导的；错误的；考虑不周的",
+                "linguistics": "由 mis-（错误）+ guided（引导的）构成，即「被错误引导的」。暗示做某事的出发点或方法是错误的，尽管意图可能是好的。比 wrong 更含蓄、更正式。",
+                "usage": "正式用词。常见搭配：misguided belief / attempt / policy / approach。IELTS 写作中批评错误观点时很有用。",
+                "examples": [
+                    {"text": "The policy was well-intentioned but ultimately misguided.", "source": "The Economist"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
+            {
+                "word": "counterproductive",
+                "phonetic": "/ˌkaʊntəprəˈdʌktɪv/",
+                "pos": "adj.",
+                "definition": "having the opposite of the desired effect; tending to hinder rather than help",
+                "chinese": "适得其反的；事与愿违的",
+                "linguistics": "由 counter-（相反）+ productive（有成效的）构成。直接表达「产生与预期相反结果」的含义。比 ineffective（无效的）更强——不仅无效，而且有害。",
+                "usage": "正式用词。常见搭配：counterproductive strategy / approach / behaviour / policy。IELTS 写作中论证某做法适得其反时的首选词。",
+                "examples": [
+                    {"text": "Punishing employees for honest mistakes is often counterproductive.", "source": "Harvard Business Review"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "counterintuitive",
+                "phonetic": "/ˌkaʊntərɪnˈtjuːɪtɪv/",
+                "pos": "adj.",
+                "definition": "contrary to what common sense or intuition would suggest",
+                "chinese": "违反直觉的；反常识的",
+                "linguistics": "由 counter-（相反）+ intuitive（直觉的）构成。学术写作中常用于引出与读者预期相反的研究发现，暗示真相比表面看起来更复杂。",
+                "usage": "正式用词，学术写作常用。常见搭配：counterintuitive finding / result / conclusion / prescription。IELTS 阅读中可能出现。",
+                "examples": [
+                    {"text": "The counterintuitive finding is that working fewer hours can increase overall productivity.", "source": "The Economist"}
+                ],
+                "level": "CET-6 / IELTS 7.0"
+            },
+            {
+                "word": "concession",
+                "phonetic": "/kənˈseʃn/",
+                "pos": "n.",
+                "definition": "something that is granted or yielded, especially in response to demands; an admission or acknowledgement",
+                "chinese": "让步；妥协；承认",
+                "linguistics": "源自拉丁语 concedere（con- 一起 + cedere 让步），即「一同让出」。在辩论和写作中，concession 指承认对方观点有一定道理。IELTS 写作中的 concession paragraph 即让步段落。",
+                "usage": "正式用词。常见搭配：make a concession / concession to / without concession。考研和 IELTS 写作核心概念。",
+                "examples": [
+                    {"text": "Both sides made significant concessions to reach an agreement.", "source": "BBC News"}
+                ],
+                "level": "CET-6 / IELTS 6.5"
+            },
         ],
-
         "annotations_phrases": [
-            {"phrase": "a far cry from", "definition": "completely different from; nothing like", "chinese": "与……截然不同，相去甚远",
-             "linguistics": "起源有争议，可能来自苏格兰语「在喊叫声能传到的范围之外」。表示两事物之间差距巨大。经济学人和卫报都频繁使用这个表达。",
-             "usage": "半正式，写作口语皆可。口语替代：nothing like / worlds apart from / totally different from。雅思写作：The reality is a far cry from what was promised.",
-             "examples": [{"text": "The final product was a far cry from the original design.", "source": "The Economist, 2023"}],
-             "level": "CET-6 / IELTS 6.5+"},
-            {"phrase": "cast to the margins", "definition": "pushed to the edges of society or relevance; marginalised", "chinese": "被边缘化，被排挤到边缘",
-             "linguistics": "cast（抛掷）+ to the margins（到边缘）。与 marginalise 同义但更生动——用了「扔」这个动作。margin 原义「页边空白」，引申为「社会边缘」。搭配：pushed to the margins / live on the margins。",
-             "usage": "书面正式。口语替代：pushed aside / sidelined / ignored / left out。搭配：cast to the margins of society / discourse / cultural life。",
-             "examples": [{"text": "Indigenous voices have long been cast to the margins of political debate.", "source": "The Guardian, 2022"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "banging on about", "definition": "talking repeatedly and boringly about something", "chinese": "喋喋不休地谈论",
-             "linguistics": "非正式英式英语。bang on（= 反复敲打）比喻「反复唠叨同一件事」。带有轻微的负面含义——暗示对方说得太多了。在本文中是自嘲式的用法：作者用贬义词来描述阿滕伯勒多年来坚持警告气候危机，实际上是在褒扬他的坚持。",
-             "usage": "非正式，口语色彩浓。口语替代：going on about / talking non-stop about / harping on about。正式替代：repeatedly warning about / persistently advocating for。",
-             "examples": [{"text": "He's always banging on about the importance of recycling.", "source": "Collins English Dictionary"}],
-             "level": "IELTS 7.0+ (非正式)"},
-            {"phrase": "in jest", "definition": "as a joke; not seriously", "chinese": "开玩笑地，戏谑地",
-             "linguistics": "jest（玩笑），来自古法语 geste（行为/故事）。in jest = 以开玩笑的方式。对比：in earnest（认真地）。Many a true word is spoken in jest（笑话中往往有真话）是经典谚语。",
-             "usage": "半正式。口语替代：as a joke / jokingly / not seriously / tongue in cheek。搭配：said in jest / meant in jest / only partly in jest。",
-             "examples": [{"text": "The remark was made in jest, but it contained a grain of truth.", "source": "Oxford Dictionary of Idioms"}],
-             "level": "CET-6 / IELTS 7.0+"},
-            {"phrase": "the benefit of the doubt", "definition": "a favourable judgement given despite uncertainty or suspicion", "chinese": "疑罪从无，善意推定",
-             "linguistics": "法律术语起源：当证据不确定时，给被告有利的推定。生活中用法：在没有确凿证据的情况下，选择信任某人。give sb the benefit of the doubt = 姑且相信某人。",
-             "usage": "通用，写作口语皆可。口语替代：trust them / take their word for it / assume the best。搭配：give sb the benefit of the doubt / deserve the benefit of the doubt。",
-             "examples": [{"text": "I'll give him the benefit of the doubt and assume he didn't mean to offend.", "source": "Cambridge Dictionary"}],
-             "level": "CET-6 / IELTS 6.5+"},
-            {"phrase": "from first principles", "definition": "based on fundamental truths or axioms rather than assumptions", "chinese": "从基本原理出发，从头开始推导",
-             "linguistics": "源自亚里士多德哲学。first principles = 最基本的、不可再分解的真理/公理。Elon Musk 让这个短语在科技界广为流传——first principles thinking = 不依赖假设和类比，从最基础的事实出发推理。",
-             "usage": "半正式。口语替代：from scratch / from the ground up / from the basics / going back to basics。搭配：think from first principles / reasoning from first principles。",
-             "examples": [{"text": "Instead of copying competitors, the team designed the product from first principles.", "source": "Harvard Business Review, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "show trumps tell", "definition": "demonstrating something is more effective than merely describing it", "chinese": "展示胜过讲述（行动胜于言辞）",
-             "linguistics": "改编自写作教学中的经典原则 show, don't tell（展示，不要讲述）。trump 在这里是动词，意为「胜过」（来自纸牌游戏中的王牌 trump card）。整句话的意思是：用画面和事实展示比用言语说教更有效。",
-             "usage": "半正式。口语替代：actions speak louder than words / showing is better than telling / demonstrate, don't just talk。",
-             "examples": [{"text": "In documentary filmmaking, show always trumps tell.", "source": "BBC Film Academy, 2023"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "at heart", "definition": "in one's true nature; fundamentally", "chinese": "本质上，内心深处",
-             "linguistics": "heart 在英语中象征一个人最真实的自我。at heart = 在本质上/骨子里。类似表达：at the core / deep down / fundamentally。He's a journalist at heart = 他骨子里是个记者（即使他可能也做其他事情）。",
-             "usage": "通用。口语中非常常见。搭配：at heart, he is... / she's a scientist at heart / young at heart。",
-             "examples": [{"text": "Despite his success in business, he remains an artist at heart.", "source": "The New Yorker, 2022"}],
-             "level": "CET-4 / IELTS 6.0+"},
-            {"phrase": "meet the audience where they are", "definition": "to communicate in a way that matches the audience's current level of understanding", "chinese": "在受众所在的位置与他们对接（用受众能理解的方式沟通）",
-             "linguistics": "教育学和传播学术语。不是要求受众来适应你的水平，而是你去适应受众的水平。体现了一种以受众为中心的传播哲学。与中文的「因材施教」有异曲同工之妙。",
-             "usage": "半正式，教育和传播领域常用。口语替代：speak their language / connect with them on their level / don't talk down to them / start where they are。",
-             "examples": [{"text": "Good teachers meet their students where they are, not where they think they should be.", "source": "Harvard Education Review, 2022"}],
-             "level": "IELTS 7.0+"},
-            {"phrase": "the fat-free Attenborough", "definition": "a version stripped of all substance, leaving only the bland surface", "chinese": "「脱脂版」阿滕伯勒（被去掉了一切实质内容的版本）",
-             "linguistics": "fat-free 原义「脱脂的」（如脱脂牛奶）。在这里是创造性比喻：就像脱脂食品去掉了脂肪（也去掉了风味），公众只接受了去掉了政治立场（也去掉了真实观点）的阿滕伯勒。这种将食品术语用于社会批评的修辞非常巧妙。",
-             "usage": "这是作者的独创表达，不是固定短语。但 X-free 这个构词模式非常常见：sugar-free（无糖的）、stress-free（无压力的）、risk-free（无风险的）。用于修辞时可以创造意外效果。",
-             "examples": [{"text": "What voters want is substance, not the fat-free version of politics.", "source": "原文改编"}],
-             "level": "IELTS 7.5+ (修辞理解)"},
+            {
+                "phrase": "stands out with remarkable consistency",
+                "definition": "is noticeably prominent and appears reliably across multiple studies or contexts",
+                "chinese": "以惊人的一致性脱颖而出",
+                "linguistics": "stand out（突出）+ with remarkable consistency（以显著的一致性）。remarkable 比 notable 更强调令人惊叹的程度。consistency 指研究结果在不同条件下的可重复性。",
+                "usage": "学术写作中介绍研究发现时的高级表达。IELTS 写作 Task 2 引入关键论据时可使用。",
+                "examples": [
+                    {"text": "Among all risk factors, smoking stands out with remarkable consistency as the leading cause of lung cancer.", "source": "The Lancet"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "a badge of honour",
+                "definition": "something that is worn or displayed as a sign of achievement, often ironically",
+                "chinese": "荣誉的标志；引以为豪的事（常含讽刺）",
+                "linguistics": "badge（徽章）+ of honour（荣誉的）。在本文语境中带有讽刺意味——学生把睡眠不足视为勤奋的「勋章」，但实际上这是有害的。这种反语用法在新闻写作中很常见。",
+                "usage": "正式与非正式均可使用。常带讽刺色彩，用于批评某种被错误美化的行为。",
+                "examples": [
+                    {"text": "In Silicon Valley, working 80-hour weeks has become a badge of honour.", "source": "The Guardian"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
+            {
+                "phrase": "memory consolidation",
+                "definition": "the neurological process by which short-term memories are stabilised and transferred to long-term storage",
+                "chinese": "记忆巩固（神经科学术语）",
+                "linguistics": "consolidation 源自 consolidate（巩固），在神经科学中特指大脑将新获取的信息从短期记忆转移至长期记忆的过程。这一过程主要在深度睡眠阶段进行。",
+                "usage": "学术用词，心理学和神经科学核心术语。IELTS 阅读中科学类文章可能出现。",
+                "examples": [
+                    {"text": "Sleep plays a crucial role in memory consolidation and learning.", "source": "Nature Neuroscience"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "one full grade lower",
+                "definition": "scoring an entire grade level below (e.g., from B to C)",
+                "chinese": "低了整整一个等级",
+                "linguistics": "full 在此为强调副词，修饰 grade，表示「整整的、完整的」。one full grade lower 比 slightly lower 或 somewhat lower 更具冲击力，强调差距之大。",
+                "usage": "学术写作中描述研究结果的具体表达。量化差距比抽象描述更有说服力。",
+                "examples": [
+                    {"text": "Students who missed more than 10 classes scored, on average, one full grade lower.", "source": "Journal of Higher Education"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "phrase": "the very process they seek to enhance",
+                "definition": "the exact process that they are trying to improve",
+                "chinese": "他们正试图提升的那个过程本身",
+                "linguistics": "very 在此为形容词（同一的、恰恰就是那个），不是副词。the very + 名词 用于强调「恰恰就是这个」。they seek to enhance 为省略 that 的定语从句。整个短语点明了牺牲睡眠学习的自相矛盾。",
+                "usage": "正式表达，学术和文学写作常用。the very [名词] 是强调结构，展示了讽刺/悖论效果。",
+                "examples": [
+                    {"text": "The policy destroyed the very communities it was designed to protect.", "source": "The Guardian"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "cramming for an exam",
+                "definition": "studying intensively for a short period just before an examination",
+                "chinese": "临时抱佛脚；考前突击复习",
+                "linguistics": "cram 本义为「塞满」，引申为在短时间内将大量信息「塞进」大脑。cramming 是学生群体中的高频用词，尤其在讨论学习方法时。注意 cram 为非正式用词。",
+                "usage": "非正式用词，但在学术讨论学习策略时也常使用。IELTS 口语中讨论学习方法话题时可使用。",
+                "examples": [
+                    {"text": "Cramming for exams may help in the short term, but it rarely leads to lasting understanding.", "source": "Psychology Today"}
+                ],
+                "level": "CET-4 / IELTS 6.0"
+            },
+            {
+                "phrase": "remote associations",
+                "definition": "unexpected connections between ideas or concepts that seem unrelated at first glance",
+                "chinese": "远距联想；意想不到的概念关联",
+                "linguistics": "remote（遥远的）+ associations（联想、关联）。心理学术语，指在看似无关的概念之间建立联系的能力，被认为是创造力的核心机制。Remote Associates Test (RAT) 是测量创造力的经典工具。",
+                "usage": "学术用词，心理学和创造力研究的核心概念。",
+                "examples": [
+                    {"text": "Creative thinking relies on the ability to form remote associations between disparate ideas.", "source": "Creativity Research Journal"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "sleep hygiene workshops",
+                "definition": "educational sessions that teach healthy sleep habits and practices",
+                "chinese": "睡眠卫生/健康睡眠习惯培训工作坊",
+                "linguistics": "sleep hygiene（睡眠卫生）指有助于获得高质量睡眠的行为习惯和环境条件。workshop（工作坊）指互动式的学习活动。二者结合体现了大学对学生健康的重视。",
+                "usage": "教育和健康领域的专业表达。在讨论大学福利和学生支持服务时可使用。",
+                "examples": [
+                    {"text": "The university offers free sleep hygiene workshops during orientation week.", "source": "Stanford University"}
+                ],
+                "level": "IELTS 6.5 / CET-6"
+            },
+            {
+                "phrase": "not merely misguided; it is counterproductive",
+                "definition": "not just wrong in approach but actually producing the opposite of the intended result",
+                "chinese": "不仅是错误的，而且是适得其反的",
+                "linguistics": "not merely A; it is B 为递进否定结构。misguided（被误导的）和 counterproductive（适得其反的）形成程度递进——不仅方向错了，而且会产生相反的效果。分号连接两个递进分句。",
+                "usage": "正式表达，议论文写作常用。IELTS 写作中论证某行为不仅无效而且有害时的升级表达。",
+                "examples": [
+                    {"text": "Restricting employee autonomy is not merely misguided; it is counterproductive.", "source": "Harvard Business Review"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "an investment in cognitive capital",
+                "definition": "a valuable contribution to one's mental resources and intellectual ability",
+                "chinese": "对认知资本的投资",
+                "linguistics": "investment（投资）+ cognitive capital（认知资本）。将睡眠比喻为一种「投资」，回报是更强的认知能力。capital 在此为比喻用法，借用了经济学中的「资本」概念（类似 social capital 社会资本、human capital 人力资本）。",
+                "usage": "正式表达。将抽象概念用经济学隐喻来表达，增加说服力。IELTS 写作结尾的好用总结表达。",
+                "examples": [
+                    {"text": "Education is an investment in human capital that yields lifelong returns.", "source": "The Economist"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
+            {
+                "phrase": "a counterintuitive prescription",
+                "definition": "a recommended course of action that goes against what one would naturally expect",
+                "chinese": "一个违反直觉的建议",
+                "linguistics": "counterintuitive（违反直觉的）+ prescription（处方、建议）。prescription 原为医学术语（处方），在此比喻为针对学习问题开出的「药方」。整个短语暗示这个建议虽然违反常识但有科学依据。",
+                "usage": "学术写作常用。在引出反常识结论时非常有效，展示了科学思维与日常直觉的冲突。",
+                "examples": [
+                    {"text": "The evidence offers a counterintuitive prescription: to achieve more, do less.", "source": "The Atlantic"}
+                ],
+                "level": "IELTS 7.0 / 考研"
+            },
         ],
-
         "annotations_sentences": [
-            {"sentence": "In fact, they were pilfered, purloined, shoplifted from a far more erudite radical thinker than myself.",
-             "highlight_key": "In fact, they were pilfered, purloined, shoplifted from a far more erudite radical thinker than myself",
-             "translation": "事实上，它们是从一位比我博学得多的激进思想家那里偷来的、窃取的、顺手牵羊拿走的。",
-             "breakdown": "三个近义词 pilfered, purloined, shoplifted 构成渐强排比——从文学化的「偷」到日常口语的「顺」。这种修辞叫 tricolon（三段并列），增强节奏感和幽默效果。a far more erudite radical thinker than myself 是谦虚的自贬——作者暗示大卫·阿滕伯勒比自己激进得多。",
-             "grammar_points": ["三个近义动词并列（tricolon 修辞）", "被动语态 were pilfered", "a far more + adj. + than = 比……得多"],
-             "writing_tip": "三词并列是英语修辞的经典手法。三个词从不同角度描述同一件事，产生韵律感和戏剧效果。示例：The project was delayed, derailed, and ultimately abandoned."},
-            {"sentence": "At the very least, you would probably assume that, in the current climate, anyone daring to utter these dangerous fringe sentiments would be cast to the margins of our cultural life.",
-             "highlight_key": "anyone daring to utter these dangerous fringe sentiments would be cast to the margins of our cultural life",
-             "translation": "你至少会认为，在当前的氛围下，任何胆敢说出这些危险的边缘观点的人都会被推到我们文化生活的边缘。",
-             "breakdown": "At the very least（至少）→ you would probably assume that（你大概会认为）→ in the current climate（在当前形势下——climate 这里不是「气候」而是「氛围」）→ anyone daring to utter（任何胆敢说出的人——现在分词做定语）→ these dangerous fringe sentiments（这些危险的边缘观点）→ would be cast to the margins（会被扔到边缘）。",
-             "grammar_points": ["climate 的比喻用法：政治/社会氛围", "daring to 现在分词做后置定语 = who dares to", "would be cast 虚拟语气", "margins 与 fringe 形成呼应"],
-             "writing_tip": "In the current climate 是新闻写作高频表达，指「在当前的社会/政治氛围下」。雅思示例：In the current climate of political polarisation, moderate voices struggle to be heard."},
-            {"sentence": "The beloved 100-year-old television naturalist, often cited in polls as the most trusted man in the country, was also the man who advocated for seismic global financial redistribution.",
-             "highlight_key": "The beloved 100-year-old television naturalist, often cited in polls as the most trusted man in the country, was also the man who advocated for seismic global financial redistribution",
-             "translation": "这位深受爱戴的百岁电视自然学家——常在民调中被评为全国最受信赖的人——同时也是那个倡导全球金融体系进行地震般重新分配的人。",
-             "breakdown": "主句很简单：The naturalist was also the man who...（这位自然学家也是那个……的人）。关键是插入语：often cited in polls as the most trusted man in the country（常在民调中被引用为最受信赖的人）。这个插入语制造了反差：最受信赖 vs 最激进。seismic（地震般的）修饰 redistribution（重新分配）加强了冲击力。",
-             "grammar_points": ["同位语/插入语放在逗号之间", "often cited 过去分词做后置定语", "advocate for + 名词 = 倡导", "seismic 作为比喻修饰词"],
-             "writing_tip": "在主语和谓语之间插入描述性短语来制造反差是非常高级的写作技巧。模板：The X, widely known as Y, was actually Z."},
-            {"sentence": "He was banging on about the dangers of mass consumption, extractive capitalism and the miseries of the market economy long before Blue Planet II set footage of a plastic-choked pilot whale to mournful music.",
-             "highlight_key": "He was banging on about the dangers of mass consumption, extractive capitalism and the miseries of the market economy long before Blue Planet II",
-             "translation": "早在《蓝色星球II》将一只被塑料窒息的领航鲸的画面配上悲伤音乐之前，他就已经在喋喋不休地谈论大规模消费的危险、榨取式资本主义和市场经济的苦难了。",
-             "breakdown": "He was banging on about（他在喋喋不休地谈论——非正式动词短语，制造口语化的亲切感）→ three-part list: mass consumption, extractive capitalism, the miseries of the market economy（三段并列）→ long before（早在……之前——时间状语从句）→ Blue Planet II set footage to mournful music（《蓝色星球II》将画面配上悲伤音乐）。",
-             "grammar_points": ["was banging on about 过去进行时表持续动作", "三个名词短语并列", "long before + 从句 = 早在……之前", "set X to Y = 将 X 配上 Y"],
-             "writing_tip": "long before X did Y, Z had already been doing W 这个时间对比句式适合强调先见之明。雅思示例：Scientists were warning about climate change long before it became a mainstream political issue."},
-            {"sentence": "A galaxy of celebrities was wheeled out to deliver warm benedictions.",
-             "highlight_key": "A galaxy of celebrities was wheeled out to deliver warm benedictions",
-             "translation": "一群明星被推出来发表温暖的祝福之辞。",
-             "breakdown": "短句但信息密度极高。a galaxy of（一「银河系」的——量词比喻：形容名人多得像星星）→ celebrities was wheeled out（被推出来——wheel out 原义「推出展示品」，暗示名人像道具一样被使用）→ to deliver warm benedictions（来发表温暖的祝福——deliver 使「祝福」变成了表演而非真情）。每个词都带有暗讽。",
-             "grammar_points": ["a galaxy of = 一大群（比喻量词）", "was wheeled out 被动语态暗示被利用", "deliver 用于 benedictions 暗示表演性质"],
-             "writing_tip": "使用比喻性量词（a galaxy of / a tsunami of / an avalanche of）可以让表达更生动。但注意选择与语境匹配的比喻——a galaxy of celebrities 完美呼应了「明星」的双关。"},
-            {"sentence": "This is, of course, the Attenborough with which our public discourse is most comfortable: depoliticised, universally adored, a man-sized Paddington Bear fit only for our veneration.",
-             "highlight_key": "This is, of course, the Attenborough with which our public discourse is most comfortable: depoliticised, universally adored, a man-sized Paddington Bear fit only for our veneration",
-             "translation": "这当然就是我们的公共话语最能接受的那个阿滕伯勒：去政治化的、被所有人喜爱的、一个只配被我们崇敬的真人大小的帕丁顿熊。",
-             "breakdown": "主句：This is the Attenborough → with which our public discourse is most comfortable（定语从句：我们的公共话语最能接受的）→ 冒号后展开三个并列描述：① depoliticised（被去政治化的）② universally adored（被所有人喜爱的）③ a man-sized Paddington Bear fit only for our veneration（一个真人大小的帕丁顿熊，只配被崇拜）。第三个描述是讽刺高潮。",
-             "grammar_points": ["with which 是 comfortable with 的介词前置", "冒号后三个并列成分形成渐强", "fit only for = 只适合/只配", "过去分词做形容词：depoliticised, adored"],
-             "writing_tip": "冒号后用三个并列形容词/短语展开描述是精彩的修辞。每个成分可以逐渐增强，最后一个是高潮/转折。"},
-            {"sentence": "And perhaps there are more difficult questions to negotiate here: the extent to which he has been a force for the meaningful and revolutionary change he seeks, and the extent to which his broad, inoffensive appeal has been more hindrance than help.",
-             "highlight_key": "the extent to which his broad, inoffensive appeal has been more hindrance than help",
-             "translation": "也许这里有更难回答的问题：他在多大程度上推动了他所追求的有意义的、革命性的变革，以及他广泛的、无害的吸引力在多大程度上是帮倒忙了。",
-             "breakdown": "主句：there are more difficult questions to negotiate（有更难商讨的问题）→ 冒号展开两个并列的 the extent to which 从句：① ...he has been a force for change（他是否推动了变革）② ...his appeal has been more hindrance than help（他的吸引力是否帮了倒忙）。两个 the extent to which 形成对称的平行结构，探讨一个核心悖论。",
-             "grammar_points": ["the extent to which = 在多大程度上（高级名词性从句引导词）", "more X than Y 比较结构", "negotiate 在这里指「处理/应对」而非「谈判」"],
-             "writing_tip": "the extent to which 是学术写作中最有用的句式之一，表示「在多大程度上」。雅思示例：The extent to which technology improves education depends on how it is implemented."},
-            {"sentence": "Perhaps, on reflection, it is no surprise that he is followed wherever he goes with the sound of applause and fanfares. It saves us the trouble of hearing what he actually says.",
-             "highlight_key": "Perhaps, on reflection, it is no surprise that he is followed wherever he goes with the sound of applause and fanfares",
-             "translation": "也许，经过反思，他走到哪里都被掌声和号角声环绕并不令人意外。这省去了我们倾听他真正想说什么的麻烦。",
-             "breakdown": "两句话构成一个精妙的结尾。第一句：on reflection（经过反思）→ it is no surprise that（不足为奇的是）→ he is followed wherever he goes（无论走到哪里都被跟随）→ with the sound of applause and fanfares（伴随掌声和号角）。第二句是致命一击：It saves us the trouble of hearing what he actually says（这让我们不必费心去听他实际上在说什么）。掌声不是敬意——是掩盖真相的噪音。",
-             "grammar_points": ["on reflection = 经过反思", "it is no surprise that 主语从句", "wherever he goes 让步状语从句", "save sb the trouble of = 免去某人的麻烦"],
-             "writing_tip": "文章结尾用两句话：第一句铺垫，第二句反转——这是专栏写作中最有力的收尾方式。最后一句简短有力，留给读者回味的空间。"},
+            {
+                "sentence": "Among the many variables that predict academic success, one stands out with remarkable consistency: sleep.",
+                "highlight_key": "Among the many variables",
+                "translation": "在预测学术成功的诸多变量中，有一个以惊人的一致性脱颖而出：睡眠。",
+                "breakdown": "句式结构：介词短语: Among the many variables that predict academic success（前置状语）; 主句: one stands out with remarkable consistency; 冒号后: sleep（揭示答案）; 定语从句: that predict academic success（修饰 variables）。语法分析: 'Among' 引导介词短语前置作状语，制造悬念——在「诸多变量中」哪个最突出？'one' 为不定代词，指代未揭示的变量；'stands out with remarkable consistency' 为谓语 + 方式状语；冒号后的 'sleep' 为一个词的独立成分，简洁有力地揭示答案，制造戏剧效果。修饰成分: 'many' 修饰 variables；'remarkable' 修饰 consistency。",
+                "grammar_points": ["Among 引导前置状语", "定语从句修饰先行词", "冒号用于揭示/解释", "one 作不定代词"],
+                "writing_tip": "IELTS 写作开头的悬念句式：Among the many factors that [动词], one stands out: [答案]. 先铺垫再揭示，比直接陈述更吸引读者。冒号后用一个词收尾极具冲击力。"
+            },
+            {
+                "sentence": "Study after study confirms that adequate rest is not a luxury but a prerequisite for effective learning.",
+                "highlight_key": "Study after study confirms",
+                "translation": "一项又一项研究证实，充足的休息不是奢侈品而是有效学习的先决条件。",
+                "breakdown": "句式结构：主句: Study after study confirms that...; 宾语从句: adequate rest is not a luxury but a prerequisite for effective learning; 对比结构: not A but B。语法分析: 'Study after study' 使用 N after N 结构表示「一个接一个」，强调证据的反复和一致性；'confirms' 用单数动词（主语 study 的概念为单数整体）；'not a luxury but a prerequisite' 为否定—肯定对比，先否定常见的错误认知再纠正为正确定位。修饰成分: 'adequate' 修饰 rest；'effective' 修饰 learning。",
+                "grammar_points": ["N after N 强调反复", "not A but B 对比结构", "that 引导宾语从句", "介词 for 表用途"],
+                "writing_tip": "IELTS 写作中强调证据一致性的经典句式：Study after study / Research after research confirms that... not A but B 结构适用于纠正常见误解。"
+            },
+            {
+                "sentence": "Yet across universities worldwide, sleep deprivation remains almost a badge of honour—a testament, students believe, to their dedication and work ethic.",
+                "highlight_key": "Yet across universities worldwide",
+                "translation": "然而在全世界的大学里，睡眠不足几乎仍然被视为一枚荣誉勋章——学生们相信，这是对他们的勤奋和职业道德的证明。",
+                "breakdown": "句式结构：转折词: Yet; 地点状语: across universities worldwide; 主句: sleep deprivation remains almost a badge of honour; 破折号后同位语: a testament to their dedication and work ethic; 插入语: students believe。语法分析: 'Yet' 引出与上文科学证据相矛盾的现实；'remains' 为系动词，表示状态持续；'a badge of honour' 为隐喻，将睡眠不足比作勋章；破折号后 'a testament' 为 badge of honour 的同位语，进一步解释；'students believe' 为插入语，置于 testament 和 to 之间，表明这只是学生的主观看法而非客观事实。修饰成分: 'almost' 修饰 remains，略带缓和语气；'across universities worldwide' 扩大范围。",
+                "grammar_points": ["Yet 引导转折", "remain + 名词/形容词（系动词）", "破折号引出同位语", "插入语 students believe 的位置"],
+                "writing_tip": "IELTS 写作中描述「认知与现实的矛盾」的高级句式：Despite evidence, X remains a badge of honour—a testament, [人们] believe, to [价值观]. 插入语的灵活使用展现写作成熟度。"
+            },
+            {
+                "sentence": "The hippocampus, a region critical to memory formation, essentially replays the day's experiences during deep sleep, strengthening neural pathways and discarding irrelevant data.",
+                "highlight_key": "The hippocampus, a region critical",
+                "translation": "海马体——一个对记忆形成至关重要的大脑区域——在深度睡眠期间本质上会重放白天的经历，强化神经通路并丢弃无关数据。",
+                "breakdown": "句式结构：主句: The hippocampus replays the day's experiences; 同位语: a region critical to memory formation; 时间状语: during deep sleep; 现在分词短语: strengthening neural pathways and discarding irrelevant data（伴随状语）。语法分析: 'a region critical to memory formation' 为同位语，解释专业术语 hippocampus；'critical to' 为固定搭配，critical 后置修饰 region；'essentially' 为副词，表示「本质上」；'strengthening...and discarding...' 为两个并列的现在分词短语作伴随状语，描述 replays 的具体效果。修饰成分: 'the day's' 所有格修饰 experiences；'deep' 修饰 sleep；'neural' 修饰 pathways；'irrelevant' 修饰 data。",
+                "grammar_points": ["同位语解释专业术语", "critical to 固定搭配", "现在分词短语作伴随状语", "并列分词短语（strengthening...and discarding...）"],
+                "writing_tip": "IELTS 写作中解释专业概念的标准句式：[专业术语], a [类别] that/critical to [功能], [动作描述]。同位语让非专业读者也能理解术语含义。"
+            },
+            {
+                "sentence": "The irony is that the students who sacrifice sleep to study are undermining the very process they seek to enhance.",
+                "highlight_key": "The irony is that the students",
+                "translation": "具有讽刺意味的是，那些牺牲睡眠来学习的学生正在破坏他们试图提升的那个过程本身。",
+                "breakdown": "句式结构：主句: The irony is that...; 宾语从句: the students are undermining the very process; 目的状语: to study（不定式短语修饰 sacrifice，表目的）; 定语从句: they seek to enhance（省略 that，修饰 process）。语法分析: 'The irony is that' 为点明悖论的经典开头；'who sacrifice sleep to study' 为定语从句修饰 students，描述具体行为；'are undermining' 为现在进行时，强调正在发生的破坏；'the very process' 中 very 为形容词（恰恰就是那个），强调被破坏的恰恰是学生想要改善的对象；'they seek to enhance' 为省略 that 的定语从句修饰 process。修饰成分: 'very' 强调 process。",
+                "grammar_points": ["The irony is that 引出悖论", "who 引导的定语从句", "the very + 名词（强调同一性）", "省略 that 的定语从句"],
+                "writing_tip": "IELTS 写作中揭示悖论的经典句式：The irony is that [行为主体] who [行为] are undermining the very [目标] they seek to [动词]. 一句话完成悖论的呈现，逻辑精练。"
+            },
+            {
+                "sentence": "\"Sleep is not the absence of wakefulness. It is a highly active neurological state during which the brain performs critical maintenance that no amount of caffeine can replicate.\"",
+                "highlight_key": "Sleep is not the absence",
+                "translation": "\u201c睡眠不是清醒的缺失。它是一种高度活跃的神经状态，在此期间大脑执行关键的维护工作，这是再多的咖啡因也无法复制的。\u201d",
+                "breakdown": "句式结构：第一句: 简单否定判断句。Sleep is not the absence of wakefulness。第二句: 复合句。主句: It is a highly active neurological state; 定语从句1: during which the brain performs critical maintenance; 定语从句2: that no amount of caffeine can replicate。语法分析: 第一句用否定来打破常见误解（睡眠 ≠ 不清醒）；第二句用肯定来给出正确定义；'during which' 为介词 + 关系代词引导的非限制性定语从句；'that no amount of caffeine can replicate' 为限制性定语从句修饰 maintenance；'no amount of' 为否定量词短语，强调「无论多少都不能」。修饰成分: 'highly active neurological' 三重修饰 state；'critical' 修饰 maintenance。",
+                "grammar_points": ["否定判断句打破误解", "during which 引导的定语从句", "no amount of 否定强调", "that 引导的限制性定语从句"],
+                "writing_tip": "IELTS 写作中纠正误解的有力句式：X is not [常见误解]. It is [正确定义] during which/in which [详细解释]. 先否定再肯定，逻辑清晰。引用专家观点时用这种句式非常有效。"
+            },
+            {
+                "sentence": "The REM stage of sleep, during which vivid dreaming occurs, facilitates the formation of remote associations—unexpected connections between seemingly unrelated ideas.",
+                "highlight_key": "The REM stage of sleep",
+                "translation": "快速眼动睡眠阶段——在此期间会出现生动的梦境——促进了远距联想的形成——即看似无关的想法之间的意想不到的联系。",
+                "breakdown": "句式结构：主句: The REM stage of sleep facilitates the formation of remote associations; 非限制性定语从句: during which vivid dreaming occurs; 破折号后同位语: unexpected connections between seemingly unrelated ideas。语法分析: 'during which' 引导非限制性定语从句，解释 REM 阶段的特征；'facilitates' 为谓语，表示「促进」；'the formation of' 为固定搭配，表示「形成」；破折号后的内容为 remote associations 的同位语解释。修饰成分: 'vivid' 修饰 dreaming；'remote' 修饰 associations；'unexpected' 修饰 connections；'seemingly unrelated' 修饰 ideas。",
+                "grammar_points": ["during which 非限制性定语从句", "facilitate + the formation of", "破折号引出同位语", "seemingly + 形容词的用法"],
+                "writing_tip": "IELTS 写作中解释科学过程的句式：[过程/阶段], during which [发生什么], facilitates [结果]—[进一步解释]。层层推进的信息结构让复杂概念变得清晰。"
+            },
+            {
+                "sentence": "Treating rest as an obstacle to productivity is not merely misguided; it is counterproductive.",
+                "highlight_key": "treating rest as an obstacle",
+                "translation": "将休息视为生产力的障碍，这不仅是被误导的，而且是适得其反的。",
+                "breakdown": "句式结构：主语: Treating rest as an obstacle to productivity（动名词短语作主语）; 谓语: is; 表语: not merely misguided; it is counterproductive（分号连接的递进判断）。语法分析: 'Treating...as...' 为动名词短语作主语，使句子聚焦于行为本身；'as an obstacle to' 表示「视为……的障碍」；'not merely...it is...' 为递进否定结构，先说「不仅仅是错误的」再递进到「而且是适得其反的」；分号连接两个逻辑递进的判断。修饰成分: 'merely' 修饰 misguided，表示「仅仅」。",
+                "grammar_points": ["动名词短语作主语", "treat A as B 结构", "not merely A; it is B 递进否定", "分号连接递进判断"],
+                "writing_tip": "IELTS 写作中批评某观点的递进句式：Doing X is not merely [较轻批评]; it is [更重批评]。分号 + 递进让批评层层加深。动名词作主语使批评更客观。"
+            },
+            {
+                "sentence": "For students navigating the relentless pressure of examinations, the evidence offers a counterintuitive prescription.",
+                "highlight_key": "For students navigating the relentless",
+                "translation": "对于那些在考试无情压力中艰难前行的学生而言，证据提供了一个违反直觉的建议。",
+                "breakdown": "句式结构：介词短语: For students navigating the relentless pressure of examinations（前置状语，指明受众）; 主句: the evidence offers a counterintuitive prescription。语法分析: 'For students' 为介词短语表示「对于……而言」；'navigating' 为现在分词短语作后置定语修饰 students，将应对考试比喻为「航行」（navigate 本义为导航）；'relentless' 修饰 pressure，强调压力的不间断性；'counterintuitive' 修饰 prescription，预告即将给出的建议将违反常识。修饰成分: 'relentless' 修饰 pressure；'counterintuitive' 修饰 prescription。",
+                "grammar_points": ["For + 名词作前置状语", "现在分词短语作后置定语", "navigate 的比喻用法", "counterintuitive 的语义预告功能"],
+                "writing_tip": "IELTS 写作中引出结论建议的过渡句：For [受众] navigating [挑战], the evidence offers/suggests [解决方案]. 这种结构既指明受众又引出建议，过渡自然。"
+            },
+            {
+                "sentence": "In the competitive world of academic achievement, sleep is not a concession to weakness; it is an investment in cognitive capital.",
+                "highlight_key": "In the competitive world of academic",
+                "translation": "在学术竞争的世界里，睡眠不是对软弱的妥协，而是对认知资本的投资。",
+                "breakdown": "句式结构：地点/范围状语: In the competitive world of academic achievement; 主句: sleep is not A; it is B; 对比: a concession to weakness vs an investment in cognitive capital。语法分析: 'In the competitive world of' 为介词短语前置，设定讨论的范围和语境；'is not A; it is B' 为分号连接的否定—肯定对比结构；'a concession to weakness' 和 'an investment in cognitive capital' 形成鲜明的语义对比——从「妥协/软弱」到「投资/资本」，完成了对睡眠的重新定义。修饰成分: 'competitive' 修饰 world；'cognitive' 修饰 capital。",
+                "grammar_points": ["介词短语前置设定语境", "not A; it is B 分号对比", "concession to 固定搭配", "隐喻式结尾（investment in capital）"],
+                "writing_tip": "IELTS 写作结尾的黄金句式：In the [形容词] world of [领域], X is not a [负面定义]; it is an [正面定义]. 通过重新定义关键概念来点明全文主旨。分号对比 + 隐喻收尾是高分写作的标志。"
+            },
         ],
     },
 ]
