@@ -109,6 +109,7 @@
       <div class="reader-toolbar">
         <button class="back-btn" onclick="goBack()">← 返回</button>
         <div class="toolbar-actions">
+          <button class="toolbar-btn" id="btn-tts-article" onclick="toggleArticleSpeak()" title="英式发音朗读全文">🔊 朗读全文</button>
           <button class="toolbar-btn" id="btn-reading-progress" title="阅读进度">
             <span class="progress-text" id="reading-progress-text">0%</span>
           </button>
@@ -165,10 +166,19 @@
   <div class="word-tooltip" id="word-tooltip" style="display:none">
     <div class="tooltip-header">
       <span class="tooltip-word" id="tooltip-word"></span>
+      <button class="btn-tts-inline" title="英式朗读" onclick="event.stopPropagation(); speak(document.getElementById('tooltip-word').textContent, {rate: 0.85})">🔊</button>
       <span class="tooltip-phonetic" id="tooltip-phonetic"></span>
     </div>
     <div class="tooltip-chinese" id="tooltip-chinese"></div>
     <div class="tooltip-def" id="tooltip-def"></div>
+  </div>
+
+  <!-- ═══ DOUBLE-CLICK LOOKUP TOOLTIP ═══ -->
+  <div class="dblclick-tooltip" id="dblclick-tooltip" style="display:none">
+    <div class="dblclick-tooltip-word" id="dblclick-word"></div>
+    <div class="dblclick-tooltip-phonetic" id="dblclick-phonetic"></div>
+    <div class="dblclick-tooltip-def" id="dblclick-def"></div>
+    <div class="dblclick-tooltip-chinese" id="dblclick-chinese"></div>
   </div>
 
   <footer class="site-footer">

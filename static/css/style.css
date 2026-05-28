@@ -350,6 +350,37 @@ body {
 .tooltip-chinese { font-family: var(--font-zh); font-size: 0.85rem; color: var(--accent); font-weight: 600; }
 .tooltip-def { font-size: 0.82rem; color: var(--ink-light); margin-top: 2px; line-height: 1.5; }
 
+/* ─── DOUBLE-CLICK LOOKUP TOOLTIP ─── */
+.dblclick-tooltip {
+  position: fixed; z-index: 250;
+  background: #fff; border: 1px solid var(--border); border-radius: 8px;
+  padding: var(--space-md); box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  max-width: 340px; min-width: 220px;
+  animation: tooltipIn 0.2s ease;
+  pointer-events: auto;
+  border-top: 3px solid var(--purple);
+}
+.dblclick-tooltip-word {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  color: var(--ink); margin-bottom: var(--space-xs);
+}
+.dblclick-tooltip-phonetic {
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-muted);
+  margin-bottom: var(--space-xs);
+}
+.dblclick-tooltip-def {
+  font-size: 0.82rem; color: var(--ink-light); line-height: 1.5;
+  margin-bottom: var(--space-xs);
+}
+.dblclick-tooltip-chinese {
+  font-family: var(--font-zh); font-size: 0.85rem; color: var(--purple);
+  font-weight: 600;
+}
+.dblclick-tooltip-loading {
+  font-family: var(--font-zh); font-size: 0.82rem; color: var(--ink-muted);
+  padding: var(--space-sm) 0;
+}
+
 /* ─── VOCABULARY PAGE ─── */
 .vocab-section { max-width: 800px; margin: 0 auto; padding: var(--space-2xl) var(--space-xl); }
 .vocab-saved-card {
@@ -407,4 +438,40 @@ body {
   .reader-title { font-size: 1.5rem; }
   .paste-section, .vocab-section, .history-section { padding: var(--space-lg) var(--space-md); }
   .reader-body .para-number { display: none; }
+}
+
+/* ═══ TTS 朗读按钮 ═══ */
+.btn-tts-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.78em;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+  margin: 0 4px;
+  vertical-align: middle;
+  line-height: 1;
+}
+.btn-tts-inline:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.1);
+}
+.btn-tts-example {
+  margin-right: 6px;
+  font-size: 0.72em;
+}
+#btn-tts-article {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  transition: background 0.2s, color 0.2s;
+}
+#btn-tts-article.tts-playing {
+  background: var(--accent, #c33);
+  color: #fff;
 }
