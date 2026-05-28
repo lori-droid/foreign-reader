@@ -292,9 +292,9 @@ function renderReader(article, analysis) {
   document.getElementById('count-phrases').textContent = analysis.phrases.length;
   document.getElementById('count-patterns').textContent = complexSentences.length;
 
-  // Collect vocab words for highlighting — support both form_found (old) and word (new)
-  const vocabWords = (analysis.vocabulary || []).map(v => v.form_found || v.word);
-  const phrases = (analysis.phrases || []).map(p => p.phrase);
+  // Collect vocab/phrase info — keep full objects so we can use lemma + forms
+  const vocabList = (analysis.vocabulary || []);
+  const phraseList = (analysis.phrases || []);
 
   const bodyEl = document.getElementById('reader-body');
   const paragraphs = (article.full_text || '').split(/\n{2,}/).filter(p => p.trim());
@@ -311,29 +311,35 @@ function renderReader(article, analysis) {
     // 1. Highlight complex sentences first (longest first to avoid partial matches)
     sentenceKeys.sort((a, b) => b.key.length - a.key.length).forEach(({ key, idx: sIdx }) => {
       const escaped = escapeHtml(key);
-      // Use a longer prefix for more accurate matching
       const matchPrefix = escaped.substring(0, Math.min(120, escaped.length));
       if (p.toLowerCase().includes(matchPrefix.substring(0, 40).toLowerCase())) {
-        // Find and wrap the sentence — match from the key prefix to the end of the sentence
         const regexStr = escapeRegExp(matchPrefix) + (escaped.length > 120 ? '[^<]*?' : '');
         const sentenceRegex = new RegExp('(' + regexStr + ')', 'i');
         p = p.replace(sentenceRegex, '<span class="highlight-sentence" data-sentence-idx="' + sIdx + '">$1</span>');
       }
     });
 
-    // 2. Highlight phrases (longest first) — only in text nodes, skip inside HTML tags
-    const sortedPhrases = [...phrases].sort((a, b) => b.length - a.length);
-    sortedPhrases.forEach(phrase => {
-      p = highlightInTextNodes(p, phrase, (match) =>
-        '<span class="highlight-phrase" data-phrase="' + match.toLowerCase() + '">' + match + '</span>'
+    // 2. Highlight phrases (with inflection / parens-strip / slash-split expansion)
+    const sortedPhrases = phraseList.slice().sort((a, b) => b.phrase.length - a.phrase.length);
+    sortedPhrases.forEach(ph => {
+      const forms = _expandPhrase(ph.phrase || '');
+      if (!forms.length) return;
+      const alt = forms.map(escapeRegExp).join('|');
+      const pat = new RegExp('(' + alt + ')', 'gi');
+      p = _highlightWithPattern(p, pat, (match) =>
+        '<span class="highlight-phrase" data-phrase="' + (ph.phrase || '').toLowerCase() + '">' + match + '</span>'
       );
     });
 
-    // 3. Highlight vocab words — only in text nodes, skip inside HTML tags
-    vocabWords.forEach(word => {
-      p = highlightInTextNodes(p, word, (match) =>
-        '<span class="highlight-vocab" data-word="' + word.toLowerCase() + '">' + match + '</span>',
-        true /* word boundary */
+    // 3. Highlight vocab words (with inflection-aware regex)
+    vocabList.forEach(v => {
+      const lemma = (v.form_found || v.word || '').toLowerCase();
+      if (!lemma) return;
+      const forms = _inflections(lemma).sort((a, b) => b.length - a.length);
+      const alt = forms.map(escapeRegExp).join('|');
+      const pat = new RegExp('(?<![\\w])(' + alt + ')(?![\\w])', 'gi');
+      p = _highlightWithPattern(p, pat, (match) =>
+        '<span class="highlight-vocab" data-word="' + lemma + '">' + match + '</span>'
       );
     });
 
@@ -341,19 +347,29 @@ function renderReader(article, analysis) {
   });
   bodyEl.innerHTML = html;
 
-  // 按原文出现顺序排序卡片(否则按 JSON 中的顺序)
+  // 按原文出现顺序排序卡片(对每条找它所有屈折形式/词组变体的最早出现位置)
   const fullTextLower = (article.full_text || '').toLowerCase();
-  const sortByAppearance = (items, keyFn) => items.slice().sort((a, b) => {
-    const ka = (keyFn(a) || '').toLowerCase();
-    const kb = (keyFn(b) || '').toLowerCase();
-    const ia = ka ? fullTextLower.indexOf(ka) : -1;
-    const ib = kb ? fullTextLower.indexOf(kb) : -1;
-    return (ia === -1 ? Infinity : ia) - (ib === -1 ? Infinity : ib);
-  });
+  const firstIdxOfForms = (forms) => {
+    let earliest = Infinity;
+    for (const f of forms) {
+      if (!f) continue;
+      const i = fullTextLower.indexOf(f.toLowerCase());
+      if (i !== -1 && i < earliest) earliest = i;
+    }
+    return earliest;
+  };
+  const sortByAppearance = (items, getForms) =>
+    items.slice()
+      .map(it => ({ it, idx: firstIdxOfForms(getForms(it)) }))
+      .sort((a, b) => a.idx - b.idx)
+      .map(x => x.it);
 
-  const sortedVocab = sortByAppearance(analysis.vocabulary || [], v => v.form_found || v.word);
-  const sortedPhrases = sortByAppearance(analysis.phrases || [], p => p.phrase);
-  const sortedSentences = sortByAppearance(complexSentences, s => s.highlight_key || s.sentence);
+  const sortedVocab = sortByAppearance(analysis.vocabulary || [],
+    v => _inflections((v.form_found || v.word || '').toLowerCase()));
+  const sortedPhrases = sortByAppearance(analysis.phrases || [],
+    p => _expandPhrase(p.phrase || ''));
+  const sortedSentences = sortByAppearance(complexSentences,
+    s => [s.highlight_key || '', (s.sentence || '').substring(0, 60)]);
 
   renderVocabTab(sortedVocab);
   renderPhrasesTab(sortedPhrases);
@@ -1590,3 +1606,252 @@ if ('speechSynthesis' in window) {
 
 // 切换页面时自动停止朗读
 window.addEventListener('beforeunload', stopSpeak);
+
+// ═════════════════════════════════════════════════════════════
+// 屈折变形 + 词组变体 (用于稳健的高亮匹配)
+// ═════════════════════════════════════════════════════════════
+
+// 给定 lemma,生成它可能的所有屈折形式
+function _inflections(word) {
+  const w = (word || '').toLowerCase();
+  if (!w || w.length < 2) return w ? [w] : [];
+  const out = new Set([w]);
+  // 不规则动词表(常见的 ~80 个)
+  if (_IRREGULAR_VERBS[w]) {
+    _IRREGULAR_VERBS[w].forEach(f => out.add(f));
+  }
+  const isVowel = c => 'aeiou'.includes(c);
+  const last = w[w.length - 1];
+  const sec  = w.length >= 2 ? w[w.length - 2] : '';
+  const thi  = w.length >= 3 ? w[w.length - 3] : '';
+
+  // 普通复数/三单/动词 s
+  out.add(w + 's');
+
+  if (w.endsWith('e')) {
+    // elude → eluded / eluding / eludes
+    const stem = w.slice(0, -1);
+    out.add(w + 'd');           // sabotaged
+    out.add(stem + 'ing');      // sabotaging
+    // -e 词的副词 -ely
+    out.add(w + 'ly');
+  } else if (w.endsWith('y') && w.length > 2 && !isVowel(sec)) {
+    // 辅音 + y: 改 ies/ied/ier/iest/ily
+    const stem = w.slice(0, -1);
+    out.add(stem + 'ies');
+    out.add(stem + 'ied');
+    out.add(stem + 'ier');
+    out.add(stem + 'iest');
+    out.add(stem + 'ily');
+  } else if (w.endsWith('s') || w.endsWith('x') || w.endsWith('z') ||
+             w.endsWith('ch') || w.endsWith('sh')) {
+    // 加 es 复数
+    out.add(w + 'es');
+    out.add(w + 'ed');
+    out.add(w + 'ing');
+  } else {
+    out.add(w + 'ed');
+    out.add(w + 'ing');
+    out.add(w + 'ly');
+    // CVC 双写末尾辅音(短动词 stop → stopped, plan → planned)
+    if (w.length >= 3 && !isVowel(last) && isVowel(sec) && !isVowel(thi)
+        && !'wxy'.includes(last)) {
+      out.add(w + last + 'ed');
+      out.add(w + last + 'ing');
+    }
+  }
+  // 形容词比较级/最高级(短词常见)
+  if (w.length <= 7 && !w.endsWith('y') && !w.endsWith('e')) {
+    out.add(w + 'er');
+    out.add(w + 'est');
+  }
+  // 过滤太短(避免误匹配)
+  return Array.from(out).filter(f => f.length >= 3);
+}
+
+// 给定词组短语,生成所有可能的匹配形式
+// 处理:括号内容(可选)、斜杠分隔的整句替代、内联斜杠词替代、首词的动词屈折
+function _expandPhrase(phrase) {
+  if (!phrase) return [];
+  const out = new Set();
+  const original = phrase.toLowerCase().trim();
+  out.add(original);
+  // 去括号
+  const noParens = original.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+  if (noParens) out.add(noParens);
+  // 括号内容作为可选前缀(如 "(never) get off the ground" → "never get off the ground" 也匹配)
+  const withInner = original.replace(/[()]/g, '').replace(/\s+/g, ' ').trim();
+  if (withInner) out.add(withInner);
+  // 整句斜杠分隔(带空格): "deal from strength / deal from a position of strength"
+  if (/\s\/\s/.test(noParens)) {
+    noParens.split(/\s+\/\s+/).forEach(alt => {
+      const a = alt.trim();
+      if (a) out.add(a);
+    });
+  }
+  // 内联斜杠词替代: "drag out for months/years" → ["...months", "...years"]
+  const variants = Array.from(out);
+  variants.forEach(v => {
+    if (/\w\/\w/.test(v)) {
+      const tokens = v.split(' ');
+      tokens.forEach((tok, i) => {
+        if (tok.includes('/')) {
+          tok.split('/').forEach(alt => {
+            const ts = tokens.slice();
+            ts[i] = alt;
+            out.add(ts.join(' '));
+          });
+        }
+      });
+    }
+  });
+  // 首词动词屈折(如 "set in motion" → "setting in motion")
+  Array.from(out).forEach(p => {
+    const words = p.split(' ');
+    if (words.length >= 2 && words[0].length >= 2) {
+      _inflections(words[0]).forEach(form => {
+        out.add([form, ...words.slice(1)].join(' '));
+      });
+    }
+  });
+  return Array.from(out).filter(p => p.length >= 3);
+}
+
+// 用给定正则在 HTML 文本节点中替换(不动 HTML 标签内部)
+function _highlightWithPattern(html, pattern, wrapFn) {
+  const parts = html.split(/(<[^>]+>)/);
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i].startsWith('<')) continue;
+    parts[i] = parts[i].replace(pattern, (_, m) => wrapFn(m));
+  }
+  return parts.join('');
+}
+
+// 常见不规则动词的过去式和过去分词
+const _IRREGULAR_VERBS = {
+  arise: ['arose', 'arisen', 'arising', 'arises'],
+  awake: ['awoke', 'awoken', 'awaking', 'awakes'],
+  be: ['am', 'is', 'are', 'was', 'were', 'been', 'being'],
+  bear: ['bore', 'borne', 'born', 'bearing', 'bears'],
+  beat: ['beat', 'beaten', 'beating', 'beats'],
+  become: ['became', 'become', 'becoming', 'becomes'],
+  begin: ['began', 'begun', 'beginning', 'begins'],
+  bend: ['bent', 'bending', 'bends'],
+  bet: ['bet', 'betting', 'bets'],
+  bid: ['bid', 'bidding', 'bids'],
+  bind: ['bound', 'binding', 'binds'],
+  bite: ['bit', 'bitten', 'biting', 'bites'],
+  bleed: ['bled', 'bleeding', 'bleeds'],
+  blow: ['blew', 'blown', 'blowing', 'blows'],
+  break: ['broke', 'broken', 'breaking', 'breaks'],
+  bring: ['brought', 'bringing', 'brings'],
+  build: ['built', 'building', 'builds'],
+  burn: ['burnt', 'burned', 'burning', 'burns'],
+  burst: ['burst', 'bursting', 'bursts'],
+  buy: ['bought', 'buying', 'buys'],
+  cast: ['cast', 'casting', 'casts'],
+  catch: ['caught', 'catching', 'catches'],
+  choose: ['chose', 'chosen', 'choosing', 'chooses'],
+  cling: ['clung', 'clinging', 'clings'],
+  come: ['came', 'come', 'coming', 'comes'],
+  cost: ['cost', 'costing', 'costs'],
+  creep: ['crept', 'creeping', 'creeps'],
+  cut: ['cut', 'cutting', 'cuts'],
+  deal: ['dealt', 'dealing', 'deals'],
+  dig: ['dug', 'digging', 'digs'],
+  do: ['does', 'did', 'done', 'doing'],
+  draw: ['drew', 'drawn', 'drawing', 'draws'],
+  dream: ['dreamt', 'dreamed', 'dreaming', 'dreams'],
+  drink: ['drank', 'drunk', 'drinking', 'drinks'],
+  drive: ['drove', 'driven', 'driving', 'drives'],
+  eat: ['ate', 'eaten', 'eating', 'eats'],
+  fall: ['fell', 'fallen', 'falling', 'falls'],
+  feed: ['fed', 'feeding', 'feeds'],
+  feel: ['felt', 'feeling', 'feels'],
+  fight: ['fought', 'fighting', 'fights'],
+  find: ['found', 'finding', 'finds'],
+  fly: ['flew', 'flown', 'flying', 'flies'],
+  forbid: ['forbade', 'forbidden', 'forbidding', 'forbids'],
+  forget: ['forgot', 'forgotten', 'forgetting', 'forgets'],
+  forgive: ['forgave', 'forgiven', 'forgiving', 'forgives'],
+  freeze: ['froze', 'frozen', 'freezing', 'freezes'],
+  get: ['got', 'gotten', 'getting', 'gets'],
+  give: ['gave', 'given', 'giving', 'gives'],
+  go: ['went', 'gone', 'going', 'goes'],
+  grow: ['grew', 'grown', 'growing', 'grows'],
+  hang: ['hung', 'hanging', 'hangs'],
+  have: ['had', 'has', 'having'],
+  hear: ['heard', 'hearing', 'hears'],
+  hide: ['hid', 'hidden', 'hiding', 'hides'],
+  hit: ['hit', 'hitting', 'hits'],
+  hold: ['held', 'holding', 'holds'],
+  hurt: ['hurt', 'hurting', 'hurts'],
+  keep: ['kept', 'keeping', 'keeps'],
+  kneel: ['knelt', 'kneeled', 'kneeling', 'kneels'],
+  know: ['knew', 'known', 'knowing', 'knows'],
+  lay: ['laid', 'laying', 'lays'],
+  lead: ['led', 'leading', 'leads'],
+  lean: ['leant', 'leaned', 'leaning', 'leans'],
+  leap: ['leapt', 'leaped', 'leaping', 'leaps'],
+  learn: ['learnt', 'learned', 'learning', 'learns'],
+  leave: ['left', 'leaving', 'leaves'],
+  lend: ['lent', 'lending', 'lends'],
+  let: ['let', 'letting', 'lets'],
+  lie: ['lay', 'lain', 'lying', 'lies'],
+  light: ['lit', 'lighted', 'lighting', 'lights'],
+  lose: ['lost', 'losing', 'loses'],
+  make: ['made', 'making', 'makes'],
+  mean: ['meant', 'meaning', 'means'],
+  meet: ['met', 'meeting', 'meets'],
+  pay: ['paid', 'paying', 'pays'],
+  put: ['put', 'putting', 'puts'],
+  quit: ['quit', 'quitting', 'quits'],
+  read: ['read', 'reading', 'reads'],
+  ride: ['rode', 'ridden', 'riding', 'rides'],
+  ring: ['rang', 'rung', 'ringing', 'rings'],
+  rise: ['rose', 'risen', 'rising', 'rises'],
+  run: ['ran', 'run', 'running', 'runs'],
+  say: ['said', 'saying', 'says'],
+  see: ['saw', 'seen', 'seeing', 'sees'],
+  seek: ['sought', 'seeking', 'seeks'],
+  sell: ['sold', 'selling', 'sells'],
+  send: ['sent', 'sending', 'sends'],
+  set: ['set', 'setting', 'sets'],
+  shake: ['shook', 'shaken', 'shaking', 'shakes'],
+  shine: ['shone', 'shined', 'shining', 'shines'],
+  shoot: ['shot', 'shooting', 'shoots'],
+  show: ['showed', 'shown', 'showing', 'shows'],
+  shrink: ['shrank', 'shrunk', 'shrinking', 'shrinks'],
+  shut: ['shut', 'shutting', 'shuts'],
+  sing: ['sang', 'sung', 'singing', 'sings'],
+  sink: ['sank', 'sunk', 'sinking', 'sinks'],
+  sit: ['sat', 'sitting', 'sits'],
+  sleep: ['slept', 'sleeping', 'sleeps'],
+  slide: ['slid', 'sliding', 'slides'],
+  speak: ['spoke', 'spoken', 'speaking', 'speaks'],
+  spend: ['spent', 'spending', 'spends'],
+  spread: ['spread', 'spreading', 'spreads'],
+  spring: ['sprang', 'sprung', 'springing', 'springs'],
+  stand: ['stood', 'standing', 'stands'],
+  steal: ['stole', 'stolen', 'stealing', 'steals'],
+  stick: ['stuck', 'sticking', 'sticks'],
+  sting: ['stung', 'stinging', 'stings'],
+  strike: ['struck', 'stricken', 'striking', 'strikes'],
+  swear: ['swore', 'sworn', 'swearing', 'swears'],
+  sweep: ['swept', 'sweeping', 'sweeps'],
+  swim: ['swam', 'swum', 'swimming', 'swims'],
+  swing: ['swung', 'swinging', 'swings'],
+  take: ['took', 'taken', 'taking', 'takes'],
+  teach: ['taught', 'teaching', 'teaches'],
+  tear: ['tore', 'torn', 'tearing', 'tears'],
+  tell: ['told', 'telling', 'tells'],
+  think: ['thought', 'thinking', 'thinks'],
+  throw: ['threw', 'thrown', 'throwing', 'throws'],
+  understand: ['understood', 'understanding', 'understands'],
+  wake: ['woke', 'woken', 'waking', 'wakes'],
+  wear: ['wore', 'worn', 'wearing', 'wears'],
+  weep: ['wept', 'weeping', 'weeps'],
+  win: ['won', 'winning', 'wins'],
+  wind: ['wound', 'winding', 'winds'],
+  write: ['wrote', 'written', 'writing', 'writes']
+};
