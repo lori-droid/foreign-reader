@@ -69,27 +69,60 @@ async function loadDailyArticles() {
 function renderArticles(articles) {
   const grid = document.getElementById('articles-grid');
   grid.innerHTML = '';
-  articles.forEach((article, idx) => {
-    const card = document.createElement('div');
-    card.className = 'article-card';
-    const categoryClass = 'cat-' + (article.category || 'editorial');
-    const starClass = article.starred ? 'star-active' : '';
-    card.innerHTML = `
-      <button class="card-star ${starClass}" onclick="event.stopPropagation(); toggleStar(this, ${idx})" title="收藏">&#9733;</button>
-      <div class="card-source">
-        <span>${article.source_icon || ''}</span>
-        <span>${article.source || ''}</span>
-        <span class="card-category ${categoryClass}">${article.category_label || ''}</span>
-      </div>
-      <h3 class="card-title">${escapeHtml(article.title)}</h3>
-      <p class="card-summary">${escapeHtml(article.summary || '')}</p>
-      <div class="card-footer">
-        <span class="card-type type-classic">精读</span>
-        <span class="card-action">开始精读 &rarr;</span>
-      </div>
-    `;
-    card.onclick = () => openArticle(article, idx);
-    grid.appendChild(card);
+  if (!articles.length) {
+    grid.innerHTML = '<div class="empty-state"><p>暂无精读文章</p><p class="empty-hint">在 Cowork 中粘贴外刊原文,我会生成精读 JSON 写入 articles/ 目录,git push 后即可上线</p></div>';
+    return;
+  }
+
+  // 按日期分组(降序)
+  const byDate = {};
+  articles.forEach((a, idx) => {
+    a._origIdx = idx;
+    const d = a.published || '未标注日期';
+    (byDate[d] = byDate[d] || []).push(a);
+  });
+  const sortedDates = Object.keys(byDate).sort().reverse();
+
+  const todayStr = new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Shanghai' });
+
+  sortedDates.forEach(dateStr => {
+    const group = document.createElement('div');
+    group.className = 'date-group';
+    let dateLabel = dateStr;
+    if (dateStr !== '未标注日期') {
+      const d = new Date(dateStr + 'T00:00:00+08:00');
+      dateLabel = d.toLocaleDateString('zh-CN', {
+        year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', timeZone: 'Asia/Shanghai'
+      });
+    }
+    const isToday = dateStr === todayStr;
+    group.innerHTML = `<div class="date-group-header"><span class="date-group-dot"></span>${dateLabel}${isToday ? ' · 今天' : ''}</div><div class="date-group-cards"></div>`;
+    const cardsWrap = group.querySelector('.date-group-cards');
+
+    byDate[dateStr].forEach(article => {
+      const idx = article._origIdx;
+      const card = document.createElement('div');
+      card.className = 'article-card';
+      const categoryClass = 'cat-' + (article.category || 'editorial');
+      const starClass = article.starred ? 'star-active' : '';
+      card.innerHTML = `
+        <button class="card-star ${starClass}" onclick="event.stopPropagation(); toggleStar(this, ${idx})" title="收藏">&#9733;</button>
+        <div class="card-source">
+          <span>${article.source_icon || ''}</span>
+          <span>${article.source || ''}</span>
+          <span class="card-category ${categoryClass}">${article.category_label || ''}</span>
+        </div>
+        <h3 class="card-title">${escapeHtml(article.title)}</h3>
+        <p class="card-summary">${escapeHtml(article.summary || '')}</p>
+        <div class="card-footer">
+          <span class="card-type type-classic">精读</span>
+          <span class="card-action">开始精读 &rarr;</span>
+        </div>
+      `;
+      card.onclick = () => openArticle(article, idx);
+      cardsWrap.appendChild(card);
+    });
+    grid.appendChild(group);
   });
 }
 
@@ -308,12 +341,67 @@ function renderReader(article, analysis) {
   });
   bodyEl.innerHTML = html;
 
-  renderVocabTab(analysis.vocabulary || []);
-  renderPhrasesTab(analysis.phrases || []);
-  renderSentencesTab(complexSentences);
+  // 按原文出现顺序排序卡片(否则按 JSON 中的顺序)
+  const fullTextLower = (article.full_text || '').toLowerCase();
+  const sortByAppearance = (items, keyFn) => items.slice().sort((a, b) => {
+    const ka = (keyFn(a) || '').toLowerCase();
+    const kb = (keyFn(b) || '').toLowerCase();
+    const ia = ka ? fullTextLower.indexOf(ka) : -1;
+    const ib = kb ? fullTextLower.indexOf(kb) : -1;
+    return (ia === -1 ? Infinity : ia) - (ib === -1 ? Infinity : ib);
+  });
+
+  const sortedVocab = sortByAppearance(analysis.vocabulary || [], v => v.form_found || v.word);
+  const sortedPhrases = sortByAppearance(analysis.phrases || [], p => p.phrase);
+  const sortedSentences = sortByAppearance(complexSentences, s => s.highlight_key || s.sentence);
+
+  renderVocabTab(sortedVocab);
+  renderPhrasesTab(sortedPhrases);
+  renderSentencesTab(sortedSentences);
   switchTab('vocab');
   bindHighlightClicks();
+  bindCardClicks();
 }
+
+// ═══ 右侧卡片点击 → 左侧原文滚动 + 闪烁 ═══
+function bindCardClicks() {
+  document.querySelectorAll('.vocab-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // 避免点击内部按钮(收藏/朗读)触发跳转
+      if (e.target.closest('button')) return;
+      scrollOriginalTo('vocab', card.dataset.key);
+    });
+  });
+  document.querySelectorAll('.phrase-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+      scrollOriginalTo('phrase', card.dataset.key);
+    });
+  });
+  document.querySelectorAll('.pattern-card[id^="sentence-card-"]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+      const sIdx = card.id.replace('sentence-card-', '');
+      scrollOriginalTo('sentence', sIdx);
+    });
+  });
+}
+
+function scrollOriginalTo(type, key) {
+  let target = null;
+  if (type === 'vocab') {
+    target = document.querySelector(`.highlight-vocab[data-word="${(key || '').toLowerCase()}"]`);
+  } else if (type === 'phrase') {
+    target = document.querySelector(`.highlight-phrase[data-phrase="${(key || '').toLowerCase()}"]`);
+  } else if (type === 'sentence') {
+    target = document.querySelector(`.highlight-sentence[data-sentence-idx="${key}"]`);
+  }
+  if (!target) return;
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  target.classList.add('flash');
+  setTimeout(() => target.classList.remove('flash'), 1800);
+}
+
 
 // ═══ HIGHLIGHT CLICK → SIDEBAR + TOOLTIP ═══
 function bindHighlightClicks() {

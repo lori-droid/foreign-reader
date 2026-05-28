@@ -22,16 +22,10 @@
       </div>
       <nav class="header-nav">
         <button class="nav-btn active" data-view="home" onclick="showView('home')">
-          <span class="nav-icon">◈</span> 今日推荐
+          <span class="nav-icon">◈</span> 全部精读
         </button>
         <button class="nav-btn" data-view="starred" onclick="showView('starred')">
           <span class="nav-icon">&#9733;</span> 我的收藏
-        </button>
-        <button class="nav-btn" data-view="history" onclick="showView('history')">
-          <span class="nav-icon">◷</span> 历史存档
-        </button>
-        <button class="nav-btn" data-view="paste" onclick="showView('paste')">
-          <span class="nav-icon">✎</span> 粘贴精读
         </button>
         <button class="nav-btn" data-view="vocabulary" onclick="showView('vocabulary')">
           <span class="nav-icon">▤</span> 生词本
@@ -40,33 +34,20 @@
     </div>
   </header>
 
-  <!-- ═══ HOME VIEW ═══ -->
+  <!-- ═══ HOME VIEW: 按日期分组的精读列表 ═══ -->
   <main id="view-home" class="view active">
     <section class="hero">
       <div class="hero-inner">
         <p class="hero-date" id="today-date"></p>
-        <h2 class="hero-title">Today's Reading</h2>
-        <p class="hero-subtitle">精选真实外刊文章，每日深度精读</p>
+        <h2 class="hero-title">Foreign Journal Reader</h2>
+        <p class="hero-subtitle">真外刊 · 精读笔记 · 英式发音</p>
       </div>
     </section>
     <section class="articles-section">
       <div class="articles-grid" id="articles-grid">
         <div class="loading-state">
           <div class="loader"></div>
-          <p>正在获取今日文章...</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ═══ HISTORY VIEW ═══ -->
-  <main id="view-history" class="view">
-    <section class="history-section">
-      <div class="history-inner">
-        <h2 class="section-title">历史存档</h2>
-        <p class="section-desc">按日期浏览往期精读文章，每天的推荐都会自动归档</p>
-        <div class="history-list" id="history-list">
-          <div class="loading-state"><div class="loader"></div><p>加载中...</p></div>
+          <p>正在加载文章...</p>
         </div>
       </div>
     </section>
@@ -80,24 +61,6 @@
         <p class="section-desc">你标记星标的文章，可以反复精读</p>
         <div class="history-list" id="starred-list">
           <div class="loading-state"><div class="loader"></div><p>加载中...</p></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ═══ PASTE VIEW ═══ -->
-  <main id="view-paste" class="view">
-    <section class="paste-section">
-      <div class="paste-inner">
-        <h2 class="section-title">粘贴文章精读</h2>
-        <p class="section-desc">将外刊文章粘贴到下方，系统将自动分析词汇、词组和句式</p>
-        <div class="paste-form">
-          <input type="text" id="paste-title" placeholder="文章标题（选填）" class="paste-input">
-          <textarea id="paste-text" placeholder="在此粘贴英文文章原文..." class="paste-textarea" rows="12"></textarea>
-          <button class="btn-analyze" onclick="analyzeText()">
-            <span class="btn-text">开始精读分析</span>
-            <span class="btn-loading" style="display:none">分析中...</span>
-          </button>
         </div>
       </div>
     </section>
