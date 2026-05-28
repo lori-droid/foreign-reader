@@ -43,6 +43,8 @@ function showView(viewName) {
   if (viewName === 'vocabulary') loadVocabulary();
   if (viewName === 'history') loadHistory();
   if (viewName === 'starred') loadStarred();
+  if (viewName === 'materials') loadMaterials();
+  if (viewName === 'review') loadReviewStats();
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -262,6 +264,7 @@ async function openArticle(article) {
     if (data.success) {
       currentAnalysis = data.analysis;
       renderReader(article, data.analysis);
+      initMySummary(article);
     } else {
       document.getElementById('reader-body').innerHTML = '<div class="empty-state"><p>分析失败</p></div>';
     }
@@ -1855,3 +1858,325 @@ const _IRREGULAR_VERBS = {
   wind: ['wound', 'winding', 'winds'],
   write: ['wrote', 'written', 'writing', 'writes']
 };
+
+// ═════════════════════════════════════════════════════════════
+// 我的概要功能 (英文对照版,存 localStorage)
+// ═════════════════════════════════════════════════════════════
+let _currentArticleIdForSummary = null;
+let _currentArticleSummaryEn = '';
+
+function _summaryKey(articleId) { return 'mySummary:' + articleId; }
+
+function initMySummary(article) {
+  _currentArticleIdForSummary = article._id || article.title;
+  _currentArticleSummaryEn = article.summary_en || '';
+  const section = document.getElementById('my-summary-section');
+  if (!section) return;
+  section.style.display = _currentArticleSummaryEn ? 'block' : 'none';
+  // 折叠状态
+  document.getElementById('my-summary-body').style.display = 'none';
+  document.getElementById('my-summary-chevron').textContent = '▾';
+  document.getElementById('my-summary-compare').style.display = 'none';
+  // 恢复之前写的概要
+  const saved = localStorage.getItem(_summaryKey(_currentArticleIdForSummary));
+  document.getElementById('my-summary-text').value = saved || '';
+  _updateSummaryWordCount();
+  // 字数动态计数
+  document.getElementById('my-summary-text').oninput = _updateSummaryWordCount;
+}
+
+function _updateSummaryWordCount() {
+  const txt = document.getElementById('my-summary-text').value.trim();
+  const words = txt ? txt.split(/\s+/).length : 0;
+  document.getElementById('my-summary-wordcount').textContent = words + ' 词';
+}
+
+function toggleSummarySection() {
+  const body = document.getElementById('my-summary-body');
+  const chev = document.getElementById('my-summary-chevron');
+  const show = body.style.display === 'none';
+  body.style.display = show ? 'block' : 'none';
+  chev.textContent = show ? '▴' : '▾';
+}
+
+function submitMySummary() {
+  const txt = document.getElementById('my-summary-text').value.trim();
+  if (!txt) { notify('请先写下你的概要', 'error'); return; }
+  if (_currentArticleIdForSummary) {
+    localStorage.setItem(_summaryKey(_currentArticleIdForSummary), txt);
+  }
+  document.getElementById('my-summary-mine').textContent = txt;
+  document.getElementById('my-summary-reference').textContent = _currentArticleSummaryEn || '(本文未配置 summary_en)';
+  document.getElementById('my-summary-compare').style.display = 'block';
+  document.getElementById('my-summary-compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ═════════════════════════════════════════════════════════════
+// 写作素材库 (聚合所有文章的 phrases + sentence writing_tips)
+// ═════════════════════════════════════════════════════════════
+let _materialsCache = null;
+
+async function loadMaterials() {
+  if (_materialsCache) { _renderMaterials(_materialsCache); return; }
+  try {
+    const res = await fetch('/api/daily-articles');
+    const data = await res.json();
+    if (!data.success) throw new Error();
+    // 并行获取每篇文章详情
+    const detailsPromises = data.articles.map(a =>
+      fetch('/api/article/' + a._id).then(r => r.json()).then(d => d.article || null)
+    );
+    const articles = (await Promise.all(detailsPromises)).filter(Boolean);
+    _materialsCache = articles;
+    _renderMaterials(articles);
+  } catch (e) {
+    document.getElementById('materials-phrases').innerHTML = '<div class="empty-state"><p>加载失败</p></div>';
+  }
+}
+
+function _renderMaterials(articles) {
+  // 聚合 phrases
+  const allPhrases = [];
+  const allPatterns = [];
+  articles.forEach(a => {
+    (a.annotations_phrases || []).forEach(p => allPhrases.push({ ...p, _article: a }));
+    (a.annotations_sentences || []).forEach(s => {
+      if (s.writing_tip) allPatterns.push({ ...s, _article: a });
+    });
+  });
+
+  // 渲染词组
+  const phEl = document.getElementById('materials-phrases');
+  if (!allPhrases.length) {
+    phEl.innerHTML = '<div class="empty-state"><p>暂无词组素材</p><p class="empty-hint">每篇精读文章的高级词组会汇集到此</p></div>';
+  } else {
+    phEl.innerHTML = allPhrases.map((p, i) => `
+      <div class="material-card">
+        <div class="material-card-header">
+          <span class="material-phrase">${escapeHtml(p.phrase)}</span>
+          <button class="btn-tts-inline" title="英式朗读" onclick="event.stopPropagation(); speak('${escapeAttr(p.phrase)}', {rate: 0.85})">🔊</button>
+          ${p.level ? `<span class="vocab-level">${escapeHtml(p.level)}</span>` : ''}
+        </div>
+        <div class="material-chinese">${escapeHtml(p.chinese || '')}</div>
+        <div class="material-def">${escapeHtml(p.definition || '')}</div>
+        ${p.usage ? `<div class="material-usage"><strong>适用场景:</strong>${escapeHtml(p.usage)}</div>` : ''}
+        ${(p.examples || []).map(ex => {
+          const text = typeof ex === 'string' ? ex : ex.text;
+          const source = typeof ex === 'string' ? '' : (ex.source || '');
+          return `<div class="material-example"><button class="btn-tts-inline" title="英式朗读" onclick="event.stopPropagation(); speak('${escapeAttr(text)}')">🔊</button>${escapeHtml(text)}${source ? `<span class="vocab-example-source">— ${source}</span>` : ''}</div>`;
+        }).join('')}
+        <div class="material-source">来自:《${escapeHtml(p._article.title)}》</div>
+      </div>
+    `).join('');
+  }
+
+  // 渲染句型模板
+  const ptEl = document.getElementById('materials-patterns');
+  if (!allPatterns.length) {
+    ptEl.innerHTML = '<div class="empty-state"><p>暂无句型素材</p><p class="empty-hint">每篇精读文章的写作借鉴模板会汇集到此</p></div>';
+  } else {
+    ptEl.innerHTML = allPatterns.map((s, i) => `
+      <div class="material-card">
+        <div class="material-pattern-tip"><strong>📝 写作借鉴:</strong>${escapeHtml(s.writing_tip)}</div>
+        <div class="material-pattern-example">
+          <div class="material-pattern-label">原文出处</div>
+          <div class="material-pattern-sentence">${escapeHtml(s.sentence)}</div>
+          <button class="btn-tts-inline" title="英式朗读" onclick="event.stopPropagation(); speak('${escapeAttr(s.sentence)}')">🔊 朗读</button>
+        </div>
+        ${s.translation ? `<div class="material-chinese">中文:${escapeHtml(s.translation)}</div>` : ''}
+        ${(s.grammar_points && s.grammar_points.length) ? `
+          <div class="material-grammar"><strong>语法要点:</strong>${s.grammar_points.map(g => `<span class="grammar-tag">${escapeHtml(g)}</span>`).join('')}</div>
+        ` : ''}
+        <div class="material-source">来自:《${escapeHtml(s._article.title)}》</div>
+      </div>
+    `).join('');
+  }
+}
+
+function switchMaterialsTab(tab) {
+  document.querySelectorAll('.materials-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.mtab === tab));
+  document.querySelectorAll('.materials-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('materials-' + tab).classList.add('active');
+}
+
+// ═════════════════════════════════════════════════════════════
+// 轻量 SRS 复习
+// ═════════════════════════════════════════════════════════════
+let _reviewState = { queue: [], idx: 0, mode: 'en-zh', flipped: false };
+
+// 计算某词「应该多久后复习」(基于上次复习间隔)
+function _nextReviewDays(reviewCount, rating) {
+  // rating: 0=again, 1=hard, 2=good, 3=easy
+  const intervals = [
+    [1/1440, 0.5, 1, 2],         // 第 0 次:1分钟/12小时/1天/2天
+    [1/1440, 1, 3, 7],           // 第 1 次
+    [1/1440, 2, 5, 14],
+    [1/1440, 3, 10, 30],
+    [1/1440, 7, 21, 60],
+  ];
+  const tier = Math.min(reviewCount, intervals.length - 1);
+  return intervals[tier][rating] || 1;
+}
+
+async function loadReviewStats() {
+  try {
+    const res = await fetch('/api/vocabulary');
+    const data = await res.json();
+    if (!data.success) return;
+    const vocab = data.vocabulary || [];
+    const due = vocab.filter(v => _isDue(v));
+    const stats = document.getElementById('review-stats');
+    stats.innerHTML = `
+      <span class="stat-pill"><strong>${vocab.length}</strong> 个收藏词</span>
+      <span class="stat-pill stat-due"><strong>${due.length}</strong> 个待复习</span>
+      <span class="stat-pill"><strong>${vocab.filter(v => (v.review_count || 0) >= 3).length}</strong> 个已掌握</span>
+    `;
+  } catch (e) { /* ignore */ }
+}
+
+function _isDue(v) {
+  if (!v.last_reviewed) return true;  // 从未复习过
+  const lastTs = new Date(v.last_reviewed).getTime();
+  const intervalDays = v._next_interval || 1;  // 默认 1 天
+  return Date.now() - lastTs > intervalDays * 86400 * 1000;
+}
+
+async function startReview(mode) {
+  try {
+    const res = await fetch('/api/vocabulary');
+    const data = await res.json();
+    const vocab = (data.vocabulary || []);
+    if (!vocab.length) { notify('生词本是空的,先去精读文章收藏一些词吧', 'info'); return; }
+    // 优先到期的,再随机
+    const due = vocab.filter(_isDue);
+    const queue = due.length > 0 ? due : vocab;
+    // 打乱顺序
+    for (let i = queue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [queue[i], queue[j]] = [queue[j], queue[i]];
+    }
+    _reviewState = { queue, idx: 0, mode, flipped: false };
+    document.getElementById('review-home').style.display = 'none';
+    document.getElementById('review-session').style.display = 'block';
+    _renderReviewCard();
+  } catch (e) { notify('加载生词失败', 'error'); }
+}
+
+function _renderReviewCard() {
+  const { queue, idx, mode } = _reviewState;
+  if (idx >= queue.length) { _endReview(); return; }
+  const v = queue[idx];
+  document.getElementById('review-progress-fill').style.width = ((idx / queue.length) * 100) + '%';
+  document.getElementById('review-progress-text').textContent = (idx + 1) + ' / ' + queue.length;
+
+  const promptEl = document.getElementById('review-prompt');
+  const answerEl = document.getElementById('review-answer');
+
+  if (mode === 'en-zh') {
+    promptEl.innerHTML = `<div class="big-word">${escapeHtml(v.word)}</div>`;
+    answerEl.innerHTML = `<div class="answer-chinese">${escapeHtml(v.definition || '')}</div>${v.example ? `<div class="answer-example">"${escapeHtml(v.example)}"</div>` : ''}`;
+  } else if (mode === 'zh-en') {
+    // definition 字段通常是 "中文 — 英文释义" 这种格式
+    const parts = (v.definition || '').split('—');
+    const ch = (parts[0] || v.definition || '').trim();
+    promptEl.innerHTML = `<div class="big-chinese">${escapeHtml(ch)}</div>`;
+    answerEl.innerHTML = `<div class="answer-word">${escapeHtml(v.word)}</div>`;
+  } else if (mode === 'listen') {
+    promptEl.innerHTML = `<div class="big-listen" onclick="speak('${escapeAttr(v.word)}', {rate: 0.85})">🔊<br><span style="font-size:0.6em;color:#888">点击重听</span></div>`;
+    answerEl.innerHTML = `<div class="answer-word">${escapeHtml(v.word)}</div><div class="answer-chinese">${escapeHtml(v.definition || '')}</div>`;
+    setTimeout(() => speak(v.word, {rate: 0.85}), 200);
+  }
+
+  answerEl.style.display = 'none';
+  document.getElementById('review-actions').style.display = 'block';
+  document.getElementById('review-rate').style.display = 'none';
+  _reviewState.flipped = false;
+}
+
+function flipReviewCard() {
+  document.getElementById('review-answer').style.display = 'block';
+  document.getElementById('review-actions').style.display = 'none';
+  document.getElementById('review-rate').style.display = 'flex';
+  _reviewState.flipped = true;
+}
+
+async function rateReview(rating) {
+  const { queue, idx } = _reviewState;
+  const v = queue[idx];
+  // 找到这个词在生词本中的真实 index(需要后端 API 接受 word 不是 index)
+  // 简化:用 PATCH 风格;实际后端只有 review API by index,我们用 word 匹配
+  // 这里直接调一次 GET 重新拿 vocabulary 找 idx
+  try {
+    const res = await fetch('/api/vocabulary');
+    const data = await res.json();
+    const allVocab = data.vocabulary || [];
+    const realIdx = allVocab.findIndex(x => x.word === v.word && x.added_at === v.added_at);
+    if (realIdx >= 0) {
+      await fetch('/api/vocabulary/' + realIdx + '/review', { method: 'POST' });
+    }
+  } catch (e) { /* ignore */ }
+  _reviewState.idx++;
+  _renderReviewCard();
+}
+
+function _endReview() {
+  document.getElementById('review-home').style.display = 'block';
+  document.getElementById('review-session').style.display = 'none';
+  notify('本轮复习完成!', 'success');
+  loadReviewStats();
+}
+
+function quitReview() {
+  if (confirm('退出本轮复习?')) _endReview();
+}
+
+// 空格键翻面
+document.addEventListener('keydown', (e) => {
+  if (currentView !== 'review') return;
+  if (e.code === 'Space' && document.getElementById('review-session').style.display !== 'none' && !_reviewState.flipped) {
+    e.preventDefault();
+    flipReviewCard();
+  }
+});
+
+// ═════════════════════════════════════════════════════════════
+// 生词本导出 (CSV / Anki)
+// ═════════════════════════════════════════════════════════════
+async function exportVocab(format) {
+  try {
+    const res = await fetch('/api/vocabulary');
+    const data = await res.json();
+    const vocab = data.vocabulary || [];
+    if (!vocab.length) { notify('生词本是空的', 'info'); return; }
+
+    let content = '', filename = '', mime = '';
+    if (format === 'csv') {
+      const rows = [['Word', 'Definition', 'Example', 'Source', 'AddedAt']];
+      vocab.forEach(v => rows.push([v.word, v.definition || '', v.example || '', v.source || '', v.added_at || '']));
+      content = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+      filename = 'foreign-reader-vocab-' + new Date().toISOString().slice(0, 10) + '.csv';
+      mime = 'text/csv;charset=utf-8';
+    } else if (format === 'anki') {
+      // Anki 的 .txt import 格式: 字段之间用 Tab 分隔,行用换行
+      // 字段顺序: Front(英文+音标) <tab> Back(中文+例句)
+      const lines = vocab.map(v => {
+        const front = v.word;
+        const back = (v.definition || '').replace(/\n/g, ' ') + (v.example ? ' <br><br><i>"' + v.example.replace(/\n/g, ' ') + '"</i>' : '');
+        return front + '\t' + back;
+      });
+      content = '#html:true\n' + lines.join('\n');
+      filename = 'foreign-reader-vocab-anki-' + new Date().toISOString().slice(0, 10) + '.txt';
+      mime = 'text/plain;charset=utf-8';
+    }
+
+    const blob = new Blob([content], { type: mime });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    notify('已导出 ' + filename + ' (' + vocab.length + ' 个词)', 'success');
+  } catch (e) {
+    notify('导出失败: ' + e.message, 'error');
+  }
+}

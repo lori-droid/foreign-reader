@@ -513,3 +513,251 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.25rem;
 }
+
+/* ═══ 我的概要模块 ═══ */
+.my-summary-section {
+  margin-top: 2.5rem;
+  border-top: 2px solid #eee;
+  padding-top: 1.5rem;
+}
+.my-summary-toggle {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; padding: 14px 16px;
+  background: #f7f4ee; border-radius: 8px;
+  font-weight: 600; color: #2a2a2a;
+  user-select: none;
+}
+.my-summary-toggle:hover { background: #f0ebe0; }
+.my-summary-icon { font-size: 1.1em; }
+.my-summary-label { flex: 1; font-size: 0.95rem; }
+.my-summary-chevron { color: #888; }
+.my-summary-body { padding: 1.2rem 0.4rem; }
+.my-summary-hint {
+  color: #666; font-size: 0.85rem; line-height: 1.7;
+  margin: 0 0 1rem 0;
+}
+.my-summary-textarea {
+  width: 100%; box-sizing: border-box;
+  padding: 14px; border: 1px solid #ddd; border-radius: 6px;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem; line-height: 1.7; min-height: 140px;
+  resize: vertical;
+}
+.my-summary-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.8rem; color: #888;
+  margin: 6px 4px 14px 4px;
+}
+.my-summary-hint-inline { color: #aaa; }
+.btn-summary-submit {
+  background: var(--accent, #c33); color: #fff;
+  border: none; border-radius: 6px;
+  padding: 10px 22px; font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn-summary-submit:hover { opacity: 0.85; }
+.my-summary-checklist {
+  margin-top: 1.5rem; padding: 14px 16px;
+  background: #fff8e6; border-radius: 8px;
+  border-left: 3px solid #f0b400;
+}
+.my-summary-checklist-title { font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+.my-summary-checklist label {
+  display: block; margin: 6px 0; font-size: 0.88rem;
+  cursor: pointer; color: #555;
+}
+.my-summary-checklist input { margin-right: 8px; }
+.my-summary-side-by-side {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-top: 1.2rem;
+}
+.my-summary-col {
+  background: #fafafa; border: 1px solid #eee;
+  border-radius: 6px; padding: 14px;
+}
+.my-summary-col-title {
+  font-weight: 600; margin-bottom: 8px;
+  font-size: 0.85rem; color: #555;
+  border-bottom: 1px solid #eee; padding-bottom: 6px;
+}
+.my-summary-col-content {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.92rem; line-height: 1.7; color: #2a2a2a;
+}
+.my-summary-saved-note {
+  margin-top: 12px; font-size: 0.78rem; color: #888;
+}
+
+/* ═══ 写作素材库 ═══ */
+.materials-section { max-width: 980px; margin: 24px auto; padding: 0 24px; }
+.materials-inner { padding: 1rem 0; }
+.materials-tabs {
+  display: flex; gap: 6px; border-bottom: 2px solid #eee;
+  margin: 1rem 0 1.5rem 0;
+}
+.materials-tab-btn {
+  padding: 10px 22px; background: none; border: none;
+  font-size: 0.95rem; color: #888; cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.materials-tab-btn.active {
+  color: var(--ink, #2a2a2a); font-weight: 600;
+  border-bottom-color: var(--accent, #c33);
+}
+.materials-content { display: none; }
+.materials-content.active { display: block; }
+.material-card {
+  background: #fff; padding: 18px 20px;
+  border: 1px solid #ececec; border-radius: 8px;
+  margin-bottom: 14px; line-height: 1.7;
+}
+.material-card-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; flex-wrap: wrap;
+}
+.material-phrase {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.1rem; font-weight: 600; color: #2a2a2a;
+}
+.material-chinese {
+  color: #555; font-size: 0.9rem; margin: 4px 0;
+}
+.material-def {
+  color: #777; font-size: 0.85rem; font-style: italic;
+  margin-bottom: 8px;
+}
+.material-usage {
+  background: #f5f1ea; padding: 8px 12px; border-radius: 4px;
+  font-size: 0.83rem; color: #555; margin: 8px 0;
+}
+.material-example {
+  font-size: 0.85rem; color: #555;
+  padding: 6px 10px; border-left: 2px solid #ddd;
+  margin: 6px 0;
+}
+.material-source {
+  margin-top: 10px; font-size: 0.75rem; color: #999;
+  border-top: 1px dashed #eee; padding-top: 8px;
+}
+.material-pattern-tip {
+  background: #fff8e6; padding: 12px 16px; border-radius: 6px;
+  border-left: 3px solid #f0b400; line-height: 1.7;
+  font-size: 0.92rem; margin-bottom: 12px;
+}
+.material-pattern-example {
+  background: #fafafa; padding: 12px 16px; border-radius: 6px;
+}
+.material-pattern-label {
+  font-size: 0.75rem; color: #999; text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.material-pattern-sentence {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.95rem; color: #2a2a2a; line-height: 1.7;
+}
+.material-grammar { margin: 10px 0; font-size: 0.85rem; }
+.grammar-tag {
+  display: inline-block; background: #eef3f8; color: #356;
+  padding: 2px 8px; border-radius: 3px; margin: 2px 4px 2px 0;
+  font-size: 0.78rem;
+}
+
+/* ═══ 复习模式 ═══ */
+.review-section { max-width: 760px; margin: 40px auto; padding: 0 24px; }
+.review-stats {
+  display: flex; gap: 14px; margin: 1.5rem 0 2rem 0; flex-wrap: wrap;
+}
+.stat-pill {
+  background: #f5f1ea; padding: 8px 16px; border-radius: 20px;
+  font-size: 0.88rem; color: #555;
+}
+.stat-pill.stat-due { background: #ffe6cc; color: #b56300; }
+.stat-pill strong { font-size: 1.2rem; color: #2a2a2a; margin-right: 4px; }
+.review-modes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.review-mode-card {
+  background: #fff; border: 2px solid #eee; border-radius: 10px;
+  padding: 22px 18px; cursor: pointer; text-align: left;
+  transition: border-color 0.15s, transform 0.15s;
+  font-family: inherit;
+}
+.review-mode-card:hover { border-color: var(--accent, #c33); transform: translateY(-2px); }
+.review-mode-icon {
+  font-size: 1.3rem; font-weight: 600; margin-bottom: 8px;
+}
+.review-mode-desc { font-size: 0.82rem; color: #888; line-height: 1.5; }
+.ghost-btn {
+  background: #f0ebe0; color: #555; border: none;
+  padding: 9px 16px; border-radius: 5px; font-size: 0.85rem;
+  cursor: pointer; margin: 0 6px 6px 0;
+}
+.ghost-btn:hover { background: #e6dfd0; }
+
+/* 复习会话 */
+.review-progress-bar {
+  position: relative; height: 6px; background: #eee; border-radius: 3px;
+  margin-bottom: 1.5rem; overflow: visible;
+}
+.review-progress-fill {
+  height: 100%; background: var(--accent, #c33);
+  border-radius: 3px; transition: width 0.3s;
+}
+.review-progress-text {
+  position: absolute; right: 0; top: -22px;
+  font-size: 0.78rem; color: #888;
+}
+.review-card {
+  background: #fff; border: 1px solid #ececec; border-radius: 12px;
+  padding: 60px 40px; min-height: 280px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+}
+.review-card-prompt .big-word {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 3rem; font-weight: 600; color: #2a2a2a;
+}
+.review-card-prompt .big-chinese {
+  font-size: 2rem; color: #2a2a2a; font-weight: 500;
+}
+.review-card-prompt .big-listen {
+  font-size: 4rem; cursor: pointer;
+}
+.review-card-answer {
+  margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed #ddd;
+  width: 100%;
+}
+.answer-word {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.8rem; font-weight: 600; margin-bottom: 8px;
+}
+.answer-chinese { font-size: 1.1rem; color: #444; line-height: 1.6; }
+.answer-example {
+  margin-top: 12px; padding: 10px;
+  background: #faf7f2; border-radius: 4px;
+  font-size: 0.88rem; color: #666; font-style: italic;
+}
+.review-card-actions { margin-top: 1.5rem; }
+.review-flip-btn {
+  background: var(--accent, #c33); color: #fff;
+  border: none; padding: 12px 32px; border-radius: 6px;
+  font-size: 0.95rem; cursor: pointer;
+}
+.review-card-rate {
+  display: flex; gap: 10px; margin-top: 1.5rem; width: 100%;
+}
+.rate-btn {
+  flex: 1; padding: 14px 8px; border: none; border-radius: 6px;
+  cursor: pointer; font-size: 0.88rem; line-height: 1.4; font-family: inherit;
+}
+.rate-btn small { color: rgba(255,255,255,0.7); font-size: 0.72rem; }
+.rate-again { background: #d9534f; color: #fff; }
+.rate-hard  { background: #f0ad4e; color: #fff; }
+.rate-good  { background: #5cb85c; color: #fff; }
+.rate-easy  { background: #5bc0de; color: #fff; }
+.rate-btn:hover { opacity: 0.85; }
+.review-quit-btn {
+  margin-top: 1rem; background: none; border: none;
+  color: #888; cursor: pointer; font-size: 0.82rem;
+}

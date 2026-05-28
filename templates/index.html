@@ -24,11 +24,17 @@
         <button class="nav-btn active" data-view="home" onclick="showView('home')">
           <span class="nav-icon">◈</span> 全部精读
         </button>
-        <button class="nav-btn" data-view="starred" onclick="showView('starred')">
-          <span class="nav-icon">&#9733;</span> 我的收藏
+        <button class="nav-btn" data-view="materials" onclick="showView('materials')">
+          <span class="nav-icon">✦</span> 写作素材
         </button>
         <button class="nav-btn" data-view="vocabulary" onclick="showView('vocabulary')">
           <span class="nav-icon">▤</span> 生词本
+        </button>
+        <button class="nav-btn" data-view="review" onclick="showView('review')">
+          <span class="nav-icon">↻</span> 复习
+        </button>
+        <button class="nav-btn" data-view="starred" onclick="showView('starred')">
+          <span class="nav-icon">&#9733;</span> 我的收藏
         </button>
       </nav>
     </div>
@@ -86,6 +92,50 @@
           <div class="reader-meta" id="reader-meta"></div>
         </header>
         <div class="reader-body" id="reader-body"></div>
+
+        <!-- 我的概要模块 -->
+        <section class="my-summary-section" id="my-summary-section" style="display:none">
+          <div class="my-summary-toggle" onclick="toggleSummarySection()">
+            <span class="my-summary-icon">✎</span>
+            <span class="my-summary-label">我的概要 <span style="color:#888;font-weight:normal">— 通读全文后,用英文 80–150 词概括核心论点</span></span>
+            <span class="my-summary-chevron" id="my-summary-chevron">▾</span>
+          </div>
+          <div class="my-summary-body" id="my-summary-body" style="display:none">
+            <p class="my-summary-hint">
+              先不要看参考概要,在下方写出你对本文核心论点 + 论证脉络 + 作者结论的英文概括。提交后会与参考概要并排对照。
+            </p>
+            <textarea id="my-summary-text" class="my-summary-textarea" rows="6"
+              placeholder="In this article, the author argues that..."></textarea>
+            <div class="my-summary-meta">
+              <span id="my-summary-wordcount">0 词</span>
+              <span class="my-summary-hint-inline">目标 80–150 词</span>
+            </div>
+            <button class="btn-summary-submit" onclick="submitMySummary()">✓ 提交对照</button>
+
+            <div id="my-summary-compare" style="display:none">
+              <div class="my-summary-checklist">
+                <div class="my-summary-checklist-title">自检清单(对照参考概要,勾选你做到的)</div>
+                <label><input type="checkbox"> 抓到了文章的核心论点(thesis)</label>
+                <label><input type="checkbox"> 提到了关键论证 / 例证 / 数据</label>
+                <label><input type="checkbox"> 涵盖了作者的结论 / 立场</label>
+                <label><input type="checkbox"> 语言精炼,无冗余信息</label>
+              </div>
+              <div class="my-summary-side-by-side">
+                <div class="my-summary-col">
+                  <div class="my-summary-col-title">📝 我的概要</div>
+                  <div class="my-summary-col-content" id="my-summary-mine"></div>
+                </div>
+                <div class="my-summary-col">
+                  <div class="my-summary-col-title">📖 参考概要(Reference)</div>
+                  <div class="my-summary-col-content" id="my-summary-reference"></div>
+                </div>
+              </div>
+              <p class="my-summary-saved-note">
+                ✓ 已保存到本地。每次重新打开本文都能看到你之前写的概要。
+              </p>
+            </div>
+          </div>
+        </section>
       </article>
 
       <aside class="reader-analysis" id="reader-analysis">
@@ -120,6 +170,79 @@
             <p>还没有收藏的词汇</p>
             <p class="empty-hint">在精读文章时，点击词汇卡片上的「收藏」按钮即可添加</p>
           </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ 写作素材库 ═══ -->
+  <main id="view-materials" class="view">
+    <section class="materials-section">
+      <div class="materials-inner">
+        <h2 class="section-title">写作素材库</h2>
+        <p class="section-desc">汇集所有精读文章中的高级词组和句型模板,IELTS / 考研写作直接套用</p>
+        <div class="materials-tabs">
+          <button class="materials-tab-btn active" data-mtab="phrases" onclick="switchMaterialsTab('phrases')">高级词组</button>
+          <button class="materials-tab-btn" data-mtab="patterns" onclick="switchMaterialsTab('patterns')">句型模板</button>
+        </div>
+        <div id="materials-phrases" class="materials-content active">
+          <div class="loading-state"><div class="loader"></div><p>加载中...</p></div>
+        </div>
+        <div id="materials-patterns" class="materials-content">
+          <div class="loading-state"><div class="loader"></div><p>加载中...</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ 复习模式 ═══ -->
+  <main id="view-review" class="view">
+    <section class="review-section">
+      <div class="review-inner">
+        <div id="review-home">
+          <h2 class="section-title">生词复习</h2>
+          <p class="section-desc">基于间隔重复原理,从生词本里抽测最该复习的词</p>
+          <div class="review-stats" id="review-stats"></div>
+          <div class="review-modes">
+            <button class="review-mode-card" onclick="startReview('en-zh')">
+              <div class="review-mode-icon">英 → 中</div>
+              <div class="review-mode-desc">看英文单词,在脑中回忆中文释义</div>
+            </button>
+            <button class="review-mode-card" onclick="startReview('zh-en')">
+              <div class="review-mode-icon">中 → 英</div>
+              <div class="review-mode-desc">看中文释义,在脑中回忆英文单词</div>
+            </button>
+            <button class="review-mode-card" onclick="startReview('listen')">
+              <div class="review-mode-icon">🔊 听音辨词</div>
+              <div class="review-mode-desc">听英文发音,猜中文意思</div>
+            </button>
+          </div>
+          <div style="margin-top:2rem;border-top:1px solid #eee;padding-top:1.5rem">
+            <h3 style="font-size:0.95rem;margin-bottom:0.8rem">导出生词本</h3>
+            <button class="ghost-btn" onclick="exportVocab('csv')">📥 导出 CSV(Excel/Quizlet)</button>
+            <button class="ghost-btn" onclick="exportVocab('anki')">📥 导出 Anki 卡片(.txt)</button>
+            <p class="empty-hint" style="margin-top:0.8rem">导出后可导入 Anki / Quizlet / Excel 等任何复习工具</p>
+          </div>
+        </div>
+        <div id="review-session" style="display:none">
+          <div class="review-progress-bar">
+            <div class="review-progress-fill" id="review-progress-fill"></div>
+            <span class="review-progress-text" id="review-progress-text"></span>
+          </div>
+          <div class="review-card">
+            <div class="review-card-prompt" id="review-prompt"></div>
+            <div class="review-card-answer" id="review-answer" style="display:none"></div>
+            <div class="review-card-actions" id="review-actions">
+              <button class="review-flip-btn" onclick="flipReviewCard()">显示答案 (空格键)</button>
+            </div>
+            <div class="review-card-rate" id="review-rate" style="display:none">
+              <button class="rate-btn rate-again" onclick="rateReview(0)">忘了<br><small>1 分钟后</small></button>
+              <button class="rate-btn rate-hard" onclick="rateReview(1)">有印象<br><small>2 天后</small></button>
+              <button class="rate-btn rate-good" onclick="rateReview(2)">记住了<br><small>5 天后</small></button>
+              <button class="rate-btn rate-easy" onclick="rateReview(3)">很熟<br><small>14 天后</small></button>
+            </div>
+          </div>
+          <button class="review-quit-btn" onclick="quitReview()">退出复习</button>
         </div>
       </div>
     </section>
