@@ -2,8 +2,22 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>外刊精读 — Foreign Journal Reader</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#c13533">
+  <meta name="description" content="真外刊精读 · 英式发音 · 写作素材 · 间隔重复">
+
+  <!-- iOS PWA 元标签 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FR Reader">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16.png">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -371,6 +385,46 @@
     <p>外刊精读 — 每日一篇，积少成多</p>
   </footer>
 
+  <!-- PWA 「加到主屏」轻提示(仅 iOS Safari 非 standalone 时显示一次) -->
+  <div id="pwa-ios-banner" class="pwa-banner" style="display:none">
+    <div class="pwa-banner-icon">
+      <img src="/static/icons/icon-192.png" alt="FR">
+    </div>
+    <div class="pwa-banner-text">
+      <strong>把 FR Reader 加到主屏幕</strong>
+      <span>点击下方 <span class="ios-share-icon">⬆︎</span> 分享按钮 → <strong>添加到主屏幕</strong></span>
+    </div>
+    <button class="pwa-banner-close" onclick="dismissPwaBanner()">✕</button>
+  </div>
+
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+  <!-- PWA 注册 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('[PWA] SW registered, scope:', reg.scope))
+          .catch(err => console.warn('[PWA] SW failed:', err));
+      });
+    }
+
+    // iOS Safari 「加到主屏」提示
+    (function() {
+      const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const isStandalone = window.navigator.standalone === true;
+      const dismissed = localStorage.getItem('pwa-banner-dismissed');
+      if (isIOS && !isStandalone && !dismissed) {
+        // 延迟 2 秒避免打扰首屏加载
+        setTimeout(() => {
+          document.getElementById('pwa-ios-banner').style.display = 'flex';
+        }, 2000);
+      }
+    })();
+    function dismissPwaBanner() {
+      document.getElementById('pwa-ios-banner').style.display = 'none';
+      localStorage.setItem('pwa-banner-dismissed', '1');
+    }
+  </script>
 </body>
 </html>

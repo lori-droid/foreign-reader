@@ -105,6 +105,29 @@ def index():
     return render_template("index.html")
 
 
+# PWA: 在根目录暴露 manifest 和 service worker
+@app.route("/manifest.json")
+def manifest():
+    from flask import send_from_directory
+    return send_from_directory("static", "manifest.json", mimetype="application/manifest+json")
+
+
+@app.route("/sw.js")
+def service_worker():
+    from flask import send_from_directory, make_response
+    resp = make_response(send_from_directory("static", "sw.js", mimetype="application/javascript"))
+    # 不缓存 SW 本体,确保新版能尽快生效
+    resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    resp.headers["Service-Worker-Allowed"] = "/"
+    return resp
+
+
+@app.route("/favicon.ico")
+def favicon():
+    from flask import send_from_directory
+    return send_from_directory("static/icons", "favicon-32.png")
+
+
 @app.route("/api/daily-articles")
 @login_required
 def daily_articles():

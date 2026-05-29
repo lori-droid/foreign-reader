@@ -981,3 +981,72 @@ body {
 }
 .strategy-recommend strong { color: var(--accent, #c33); display: block; margin-bottom: 4px; }
 .strategy-reason { color: #777; }
+
+/* ═══ PWA「加到主屏」轻提示横幅 ═══ */
+.pwa-banner {
+  position: fixed; left: 12px; right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.18);
+  padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+  z-index: 200;
+  max-width: 480px; margin: 0 auto;
+  animation: slideUp 0.35s ease-out;
+}
+@keyframes slideUp {
+  from { transform: translateY(120%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.pwa-banner-icon img {
+  width: 44px; height: 44px; border-radius: 8px; display: block;
+}
+.pwa-banner-text {
+  flex: 1; font-size: 0.8rem; line-height: 1.4; color: #333;
+}
+.pwa-banner-text strong { display: block; font-size: 0.88rem; margin-bottom: 2px; }
+.pwa-banner-text span { color: #666; }
+.ios-share-icon {
+  display: inline-block; padding: 0 4px;
+  border: 1px solid #007aff; border-radius: 3px;
+  color: #007aff; font-size: 0.78rem;
+}
+.pwa-banner-close {
+  background: none; border: none; font-size: 1.1rem;
+  color: #999; cursor: pointer; padding: 4px 8px;
+  align-self: flex-start;
+}
+
+/* iOS 安全区适配(刘海/Home Indicator) */
+@supports (padding: env(safe-area-inset-top)) {
+  .site-header { padding-top: calc(env(safe-area-inset-top) + 12px); }
+  .site-footer { padding-bottom: calc(env(safe-area-inset-bottom) + 16px); }
+}
+
+/* PWA standalone 模式去除浏览器多余间距 */
+@media (display-mode: standalone) {
+  body { overscroll-behavior-y: none; }  /* 禁用上拉刷新 */
+}
+
+/* 小屏适配(iPhone) */
+@media (max-width: 640px) {
+  .header-inner { flex-wrap: wrap; }
+  .header-search { width: 100%; margin: 8px 0 0 0; padding-left: 0; }
+  .header-search input { width: 100% !important; box-sizing: border-box; }
+  .header-nav { flex-wrap: wrap; gap: 4px; }
+  .nav-btn { font-size: 0.78rem; padding: 6px 10px; }
+  .articles-section { padding: 0 14px; }
+  .reader-container { padding: 0 14px; }
+  .reader-analysis { width: 100% !important; position: static !important; max-height: none !important; }
+  .my-summary-side-by-side { grid-template-columns: 1fr; }
+  .today-progress-inner { gap: 12px; }
+  .tp-link { width: 100%; text-align: right; }
+  .review-card { padding: 30px 20px; }
+  .review-card-prompt .big-word { font-size: 2.2rem; }
+  .review-card-prompt .big-chinese { font-size: 1.5rem; }
+  .stats-card-grid { grid-template-columns: repeat(2, 1fr); }
+  .hm-grid { font-size: 0; }
+  .hm-cell { width: 11px; height: 11px; }
+  .hm-month-label { width: 11px; }
+  .search-overlay-inner { width: 96%; }
+}
