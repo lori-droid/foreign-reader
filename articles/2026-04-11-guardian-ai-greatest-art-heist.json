@@ -1,0 +1,807 @@
+{
+  "title": "Is AI the greatest art heist in history?",
+  "source": "The Guardian",
+  "source_icon": "📰",
+  "category": "culture",
+  "category_label": "文化艺术",
+  "summary": "艺术家 Molly Crabapple 痛斥生成式 AI 是「史上最大艺术劫案」。她回顾 2022 年首次在网上看到自己作品被 AI 仿冒——数十亿张图像在未署名、未付酬、甚至未经同意的情况下被爬取喂给机器。AI 公司用「不可避免」的叙事胁迫媒体和创作者就范,把人与人之间的摩擦、惊喜与情感连根铲除。文章把当代艺术家的抗争类比为工业革命时期的卢德分子——后者并非愚昧的破坏者,而是被剥夺合法抗争渠道的熟练工匠。作者警告:这场战争不只关乎插画行业,更关乎水、能源、文化、教育、理智乃至想象力本身。",
+  "summary_en": "Artist Molly Crabapple denounces generative AI as \"the greatest art heist in history\", recalling how in 2022 she first saw uncanny knock-offs of her own work circulating online. Billions of images, she argues, were harvested from the internet without credit, compensation, or consent, while AI companies wielded a narrative of inevitability to coerce newsrooms and creators into complying in advance. She rejects the parallel that tech boosters draw between today's resistance and the Luddites as primitive machine-smashers — pointing out that the Luddites were skilled artisans crushed not by progress but by state force. The piece closes with a warning that the war over scraping has expanded to encompass water, carbon, minerals, culture and imagination itself, and that the tech lords' dystopia leaves nothing for the rest of us.",
+  "link": "https://www.theguardian.com/culture",
+  "published": "2026-04-11",
+  "has_full_text": true,
+  "full_text": "In 2026, it's easy to see why generative AI is bad. The internet has nicknamed its excretions \"slop\". The CEOs of AI companies prance about on stage like supervillains, bragging that their products will eliminate vast swathes of work. Generative AI requires sacrificing the world's water to feed its hideous data centres. Around the globe, chatbots induce schizophrenic delusions and urge teens to kill themselves – all while turning users' brains to mush.\n\nWho could have predicted this? Artists, that's who.\n\nI am an artist, and 2022 was the year when I first started to see knock-offs of my work. It was not my work exactly. It was instead a strange facsimile, as if done by a none-too-talented teenager on tranquilisers, all my lines and blotches reduced to rote. I quickly learned the reason. AI image generators had scraped my entire body of work off the internet and fed it to their bots, to be excreted out as a product. And it wasn't just my work; it was everyone's. Billions of images harvested from the internet without credit, without compensation, without even consent. I saw it as the greatest art heist in history.\n\nThe tech lords knew what they were doing. Back in 2023, venture capitalist Marc Andreessen claimed that enforcing copyright law would \"kill\" the entire industry. Tech companies would do what they always did – move fast and break things. The things they were breaking would be us.\n\nEven worse, people seemed utterly unprepared to question it. I remember the 2023 Perugia journalism festival, where the leading lights of our industry go to opine, drink Aperol spritzes and cut their deals. That year the festival was chock full of shills for the tech industry. One after another, they got on stage before massive audiences, and said that newsrooms would have to adopt their employers' products, or else the newsrooms would be left behind like the proverbial horse-drawn carriage makers. (Walking the Perugia hills on breaks from the conference, I heard these same people tell each other that AI in journalism would eliminate writers, whether they liked it or not, but they did not mention this in their presentations.) At Perugia, I was scheduled to give a speech about using my own art to document war zones. Instead, I devoted much of it to the threat generative AI companies posed to creative people. I spoke about how they shame their critics as stupid and backward, about how their narrative of inevitability is a way of getting people to comply in advance. Nothing humans do is inevitable, I said. It is all determined by politics, money and power. And if we lacked money and power, perhaps we had politics.\n\nSeeking to fight the tech industry's narrative, journalist Marisa Mazria Katz and I launched an open letter, with the humble demand to keep AI-generated images out of newsrooms. It attracted thousands of signatures from around the world. Other artists fought back in more powerful ways. In January 2023, three illustrators launched a lawsuit against leading image-generation companies Midjourney and Stability AI. Sarah Andersen, Kelly McKernan and Karla Ortiz had all seen the internet flooded with knockoffs of their work. Their complaint claimed that the two companies \"violated the rights of millions of artists\". (The lawsuit is contested and is still ongoing.)\n\nNot only were we creatives seeing our work taken, it was being taken by some of the richest people on the planet, with open contempt. In 2024, OpenAI's chief technology officer Mira Murati told an interviewer that the creative jobs destroyed by her company's product maybe \"shouldn't have been there in the first place\".\n\nSuch attacks on art only reveal the deep anti-humanism of the tech elite. They are a class that shuns human interaction, with its serendipities, annoyances and joys. It represents friction. Learning to make art is also friction. Never mind the fact that friction is the basis of all pleasure, whether you mean the friction of a pen against a piece of paper, or the friction of a lover's lips against your own.\n\nIt has been three years since Marisa and I launched our open letter. AI has torn through the already fragile illustration industry. Many of my colleagues are out of work. Worse, the entry-level illustration gigs where young artists once learned their trade have been annihilated. The same process is taking place in countless creative industries. We are replaced by digital homunculi, trained on our stolen creations. And no, the work is not good, but that scarcely matters. Generative AI is a tool to discipline, then eliminate, the human worker. The audience will just have to get used to it. This is sold as progress.\n\nWhen tech boosters want to demonise resistance, they invoke the luddites. By their telling, the luddites were primitive idiots, who smashed machines they were too stupid to understand. History though, tells a different story. As recounted by Brian Merchant's sublime work Blood in the Machine, luddites were skilled artisans, fighting for their way of life against the \"satanic mills\" – textile sweatshops powered by child semi-slaves. Forbidden from unionising, luddites smashed machines as a protest tactic. And they did not lose to the inevitable march of progress. They lost to physical force. The government called in troops, and the luddites were either executed or shipped to penal colonies in Australia.\n\nArtists too are fighting for a way of life. And if we are too disorganised to triumph, that will be everyone's loss. AI companies' inappropriate scraping may have started with the work of illustrators like me, but it has grown to encompass everything else. It extends to the billions of dollars that these companies squander each year, to the carbon they burn, to the rare minerals in their chips, to the land on which their data centres sit, to culture, education, sanity and our very imaginations. In return for the entirety of the human and non-human world, the tech lords can only offer us dystopia. Their fantasy future contains neither meaningful work nor real communities, just robots chattering to each other, leaving nothing for us.",
+  "annotations_vocab": [
+    {
+      "word": "excretion",
+      "phonetic": "/ɪkˈskriːʃn/",
+      "pos": "n.",
+      "definition": "a waste substance produced by the body or, by extension, something undesirable or worthless that an entity puts out",
+      "chinese": "排泄物;(贬)产出之物",
+      "linguistics": "源自拉丁语 excernere(ex- 出 + cernere 分离、筛),原指生理学的「排泄」。本文 nicknamed its excretions \"slop\" 用了高度修辞化的引申义——把 AI 的输出比作排泄物,带强烈贬义与厌恶色彩。注意区分:excretion(排出物)vs. secretion(分泌物,有用如唾液激素);拼写极易混。动词 excrete /ɪkˈskriːt/。",
+      "usage": "正式且修辞性强,通常出现在科普写作或政治/文化评论中作比喻贬词。本文是 opinion writing 经典「降格修辞」,把高科技产品贬到生理废物层级。IELTS 写作中要慎用,但读懂这种修辞色彩对 Task 1/2 阅读理解极有帮助。",
+      "examples": [
+        {
+          "text": "The kidneys are the body's main organ for the excretion of nitrogenous waste.",
+          "source": "Scientific American"
+        }
+      ],
+      "level": "考研 / IELTS 7.0"
+    },
+    {
+      "word": "prance",
+      "phonetic": "/prɑːns/",
+      "pos": "v.",
+      "definition": "to move or walk with high, exaggerated steps in a confident or arrogant manner",
+      "chinese": "(趾高气扬地)昂首阔步;(马)腾跃前行",
+      "linguistics": "中古英语 prauncen,本义指马匹高抬前蹄的腾跃步伐,引申到人则带贬义,描述「自鸣得意地走来走去」。注意 prance 与 strut(神气活现地走)、swagger(招摇地走)是 opinion writing 三大「贬义步态动词」,但 prance 多了一层「轻佻、可笑」的色彩。本文 prance about on stage 把 AI 公司 CEO 比作小丑般在舞台上蹦跶。",
+      "usage": "偏书面、文学化用词,讽刺评论高频。常见搭配:prance about/around;prance on stage。比起 walk 或 strut,prance 把对象矮化得更彻底。IELTS 写作中描述「某些人或政客自鸣得意地表演」时是极有力的动词。",
+      "examples": [
+        {
+          "text": "He pranced around the boardroom as if he had already secured the deal.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "swathe",
+      "phonetic": "/sweɪð/",
+      "pos": "n.",
+      "definition": "a broad strip or area of something; a large amount or portion",
+      "chinese": "大片;大量;一长条",
+      "linguistics": "古英语 swæð(脚印、足迹),原指收割时镰刀一挥割下的一长条庄稼,引申为「一整片、一大块」。注意拼写有两种:swathe(英式偏好)与 swath(美式偏好),意义相同;复数 swathes 极常见,固定搭配 vast/huge swathes of。同形动词 swathe 另有「包裹、缠绕」义(swathed in bandages)。",
+      "usage": "正式书面用词,新闻评论高频用于「大片土地、大量人群、大批工作岗位」等抽象集合。常见搭配:swathes of land/forest/the population/jobs/the economy。本文 eliminate vast swathes of work 是裁员/失业议题的经典套语,IELTS 写作中讨论 AI 取代就业可直接套用。",
+      "examples": [
+        {
+          "text": "Automation threatens to displace large swathes of the manufacturing workforce within a decade.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "facsimile",
+      "phonetic": "/fækˈsɪməli/",
+      "pos": "n.",
+      "definition": "an exact copy or reproduction of something, especially of writing or a picture",
+      "chinese": "摹本;复制品;传真件",
+      "linguistics": "源自拉丁短语 fac simile(\"make similar\")—— fac = 做,simile = 相似的。fax(传真)正是 facsimile 的缩写。注意发音:重音在第二音节 /sɪ/,而非首音节(易错点)。本文 a strange facsimile 用了贬义色彩——「一个怪异的赝品」,暗示 AI 生成物表面相似实则空洞。",
+      "usage": "偏正式书面,艺术、出版、法律语境常用。常见搭配:a facsimile of;facsimile edition(影印版);in facsimile(以摹本形式)。比 copy 更强调「逼真、严格复制」之意。IELTS 写作中讨论原作与仿作时是极有力的名词。",
+      "examples": [
+        {
+          "text": "The museum displays a perfect facsimile of the original manuscript, while the fragile parchment is kept in climate-controlled storage.",
+          "source": "The New York Times"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "scrape",
+      "phonetic": "/skreɪp/",
+      "pos": "v.",
+      "definition": "to drag a hard or sharp implement across (a surface) to remove dirt or unwanted matter; in computing, to extract data from websites in bulk, typically without permission",
+      "chinese": "刮、擦;(网络)爬取(数据)",
+      "linguistics": "古英语 scrapian(用爪挠、刮),本义指物理「刮擦」。21 世纪互联网兴起后衍生新义「web scraping」即「网络爬取」,本文 scraped my entire body of work off the internet 即此义,带有「未经授权地搜刮」的贬义暗示。注意短语动词:scrape together(勉强凑齐)、scrape by(勉强度日)、scrape through(勉强通过)。",
+      "usage": "本义日常用语;科技/新闻语境中「爬取数据」是高频专业义。常见搭配:scrape data/content/images from a website;data scraping。AI 版权讨论的核心动词,IELTS 写作 task 2 关于 AI/数据隐私题目必备。本文用现在分词 scraping 描述 AI 公司行为,常带批判色彩。",
+      "examples": [
+        {
+          "text": "The startup was sued for scraping millions of LinkedIn profiles without users' knowledge.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "word": "harvest",
+      "phonetic": "/ˈhɑːvɪst/",
+      "pos": "v.",
+      "definition": "to gather (a crop); by extension, to collect or accumulate (data, information) in large quantities",
+      "chinese": "收割;(数据)大批采集",
+      "linguistics": "古英语 hærfest,本义「秋季收成」,与德语 Herbst(秋天)同源。词义从「收割庄稼」隐喻延伸到「采集数据/信息」(harvest data),与 scrape 一同成为 AI/数据议题的核心动词。本文 Billions of images harvested 用过去分词形式,与 harvest 的农业原义形成讽刺对比——把人类创作当作庄稼一样割掉。",
+      "usage": "本义农业;隐喻义在科技、生物医学语境中极常用。常见搭配:harvest data/information/personal details/organs/cells。带有「大规模、系统性获取」的暗示,常含批判意味。IELTS 写作隐私题极佳动词,比 collect 更生动有力。",
+      "examples": [
+        {
+          "text": "Tech companies routinely harvest user data through tracking cookies and embedded scripts.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "compensation",
+      "phonetic": "/ˌkɒmpenˈseɪʃn/",
+      "pos": "n.",
+      "definition": "something, typically money, awarded to someone in recognition of loss, suffering, or injury; also: salary/wages",
+      "chinese": "补偿;赔偿;报酬",
+      "linguistics": "源自拉丁语 compensare(com- 一起 + pensare 称量),原意「共同称量、平衡」,引申为「等价补偿」。注意三大义项:法律「赔偿」(claim compensation)、雇佣「薪酬」(executive compensation)、心理学「补偿心理」(compensatory behaviour)。形容词 compensatory,动词 compensate。",
+      "usage": "正式用词,法律、商业、新闻报道核心术语。常见搭配:claim/receive/demand/seek compensation for;compensation package。本文 without compensation 是版权/AI 议题的标准表达——「未获报酬」。IELTS 写作讨论劳动者权益、版权争议时必备。",
+      "examples": [
+        {
+          "text": "Victims of the data breach are entitled to claim compensation for any financial loss they suffered.",
+          "source": "BBC News"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "word": "heist",
+      "phonetic": "/haɪst/",
+      "pos": "n.",
+      "definition": "a robbery, especially one involving careful planning of a high-value target",
+      "chinese": "(精心策划的)抢劫案;大盗案",
+      "linguistics": "20 世纪美国俚语,被认为是 hoist(举起、偷盗)的口语化变体。专指「大手笔、有计划的抢劫」,比 robbery、theft 多一层「电影感、戏剧化」色彩。常见复合:heist movie(劫案片)、bank heist、art heist、jewel heist。本文标题 the greatest art heist in history 极具传播力,把 AI 训练数据问题包装成一桩「世纪艺术劫案」。",
+      "usage": "略偏新闻/文学化,常用于标题党或评论以增强戏剧张力。常见搭配:pull off a heist;an art/bank/jewel heist;daring heist。IELTS 写作 task 2 中如讨论 AI 与版权,套用 \"the greatest data/art heist in history\" 句式既精准又有冲击力。",
+      "examples": [
+        {
+          "text": "The thieves pulled off the biggest jewel heist in European history, vanishing with gems worth over $100m.",
+          "source": "Reuters"
+        }
+      ],
+      "level": "考研 / IELTS 7.0"
+    },
+    {
+      "word": "enforce",
+      "phonetic": "/ɪnˈfɔːs/",
+      "pos": "v.",
+      "definition": "to compel observance of or compliance with (a law, rule, or obligation)",
+      "chinese": "执行、强制实施(法律/规则)",
+      "linguistics": "由 en-(使...具有)+ force(力量)构成,字面「赋予强制力」。注意搭配规律:主语通常是政府、机构、法官;宾语是 law/rule/regulation/policy/contract。区分易混词:enforce(强制实施法律)vs. reinforce(强化、加固,如 reinforce a wall/argument);两词词根都含 force,但前缀和语义截然不同。名词 enforcement。",
+      "usage": "正式用词,法律、政治评论核心动词。常见搭配:enforce a law/ban/sanction/rule;strictly enforce;rigorously/loosely enforced。本文 enforcing copyright law 是版权议题的固定表达。IELTS 写作 task 2 讨论法律执行力、监管力度时必备。",
+      "examples": [
+        {
+          "text": "Brussels has warned member states that it will rigorously enforce new emissions rules from January.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-4 / IELTS 6.0"
+    },
+    {
+      "word": "proverbial",
+      "phonetic": "/prəˈvɜːbiəl/",
+      "pos": "adj.",
+      "definition": "(of a phrase, image, or thing) referred to in or as if in a proverb; well known and often spoken about",
+      "chinese": "众所周知的;谚语中所说的",
+      "linguistics": "由名词 proverb(谚语、格言)+ -ial(形容词后缀)构成。提示读者「这是大家都熟悉的比喻」,常用来软化或自嘲一个本应陌生的意象。本文 the proverbial horse-drawn carriage makers 即「众所周知那种被时代淘汰的马车制造商」——指代「跟不上时代而被淘汰的行业」这一标准比喻。",
+      "usage": "正式偏书面,常用于评论文章作「修辞缓冲」,提示读者「下面是个标准比喻」。常见搭配:the proverbial + 名词(如 proverbial straw、proverbial elephant in the room)。IELTS 写作中引出比喻时极雅致——比直接抛出比喻更显文笔老练。",
+      "examples": [
+        {
+          "text": "The latest scandal was the proverbial straw that broke the camel's back for the prime minister's tottering coalition.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "shill",
+      "phonetic": "/ʃɪl/",
+      "pos": "n.",
+      "definition": "a person who pretends to give an impartial endorsement of something in which they themselves are interested, especially one paid to promote a product or service",
+      "chinese": "(冒充顾客的)托儿;吹捧者;枪手",
+      "linguistics": "20 世纪美国俚语,源自 shillaber(嘉年华里的「假顾客」,被雇佣假装购买以吸引真顾客)。语义已扩展至广义的「替某利益方鼓吹却假装客观的人」。强烈贬义,常用于揭露行业内的利益输送。动词 shill for sb(替某人吹捧)。本文 chock full of shills for the tech industry 即「挤满了替科技业吹哨的托儿」。",
+      "usage": "贬义俚语,新闻评论、社交媒体高频。常见搭配:a shill for + 行业/品牌/政客;corporate shill;paid shill。比 mouthpiece 更口语、更刻薄。IELTS 写作中作正式语体偏俚,慎用;但读懂这种攻击性词汇对理解 opinion writing 立场极重要。",
+      "examples": [
+        {
+          "text": "Critics accused the influencer of being little more than a paid shill for the cryptocurrency exchange.",
+          "source": "The New York Times"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "inevitability",
+      "phonetic": "/ɪnˌevɪtəˈbɪləti/",
+      "pos": "n.",
+      "definition": "the quality of being certain to happen and unable to be avoided or prevented",
+      "chinese": "必然性;不可避免性",
+      "linguistics": "由形容词 inevitable + -ity 名词化构成。词根来自拉丁语 evitabilis(可避免的)的否定式——in-(不)+ evitare(避开)。注意三层词族:inevitable(adj. 不可避免的)、inevitably(adv. 不可避免地)、inevitability(n.)。本文 their narrative of inevitability is a way of getting people to comply 直击科技业修辞策略——「制造『不可避免』的叙事来让人提前服从」,是科技批评文章的经典论点。",
+      "usage": "正式书面,哲学、政治、科技评论高频。常见搭配:the inevitability of;sense of inevitability;an air of inevitability。IELTS 写作 task 2 中讨论技术、全球化、变革等议题时是绝佳名词化表达——比 \"X will inevitably happen\" 更显学术。",
+      "examples": [
+        {
+          "text": "Politicians often invoke the inevitability of globalisation to justify policies that primarily benefit capital over labour.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "comply",
+      "phonetic": "/kəmˈplaɪ/",
+      "pos": "v.",
+      "definition": "to act in accordance with a wish, command, rule, or request",
+      "chinese": "遵从;服从;依从",
+      "linguistics": "源自拉丁语 complere(填满、完成),原意「完成对方的意愿」。固定搭配 comply with(与...一致、遵从),注意:comply 后必须接 with,不能直接接宾语(错:comply the rule;对:comply with the rule)。区分:comply with(被动服从)vs. obey(主动服从)vs. abide by(自愿遵守)。名词 compliance,形容词 compliant。",
+      "usage": "正式用词,法律、商业、合规评论核心动词。常见搭配:comply with regulations/standards/the law/an order;fail to comply。本文 comply in advance 是政治哲学家 Timothy Snyder 在 On Tyranny 中提出的概念——「提前服从」,即在被强制前就主动屈服。IELTS 写作中讨论权力、自由议题时极有思想深度。",
+      "examples": [
+        {
+          "text": "Companies that fail to comply with the new data-protection rules will face fines of up to 4% of global turnover.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "word": "contempt",
+      "phonetic": "/kənˈtempt/",
+      "pos": "n.",
+      "definition": "the feeling that a person or a thing is beneath consideration, worthless, or deserving of scorn",
+      "chinese": "蔑视;轻蔑;鄙视",
+      "linguistics": "源自拉丁语 contemnere(com- 强调 + temnere 蔑视)。注意两大义项分流:情感义「鄙视」(open contempt for);法律义「藐视(法庭)」(contempt of court)。固定搭配:with contempt、hold sb in contempt、beneath contempt(不屑一顾)。形容词 contemptuous(轻蔑的) vs. contemptible(可鄙的)——一字之差,意义相反。",
+      "usage": "正式用词,新闻评论、文学高频。常见搭配:open/utter/barely concealed/thinly veiled contempt;treat sb with contempt;hold sb in contempt。本文 with open contempt 是「毫不掩饰的蔑视」,极具情感冲击力。IELTS 写作描述阶级矛盾、权力压制时极有力。",
+      "examples": [
+        {
+          "text": "The billionaire's barely concealed contempt for ordinary workers was on full display in the leaked memo.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "shun",
+      "phonetic": "/ʃʌn/",
+      "pos": "v.",
+      "definition": "to persistently avoid, ignore, or reject (someone or something) through antipathy or caution",
+      "chinese": "(刻意)回避;摒弃;躲避",
+      "linguistics": "古英语 scunian(畏惧、回避)。注意拼写规则:shun 是 CVC 短词,过去式/进行时双写末辅音 → shunned/shunning。比近义词 avoid 更强烈,带有「主动厌恶并保持距离」的色彩;比 reject 更被动(reject 强调拒绝接受,shun 强调避而远之)。本文 a class that shuns human interaction 用 shun 精确刻画科技精英对人际接触的厌恶。",
+      "usage": "正式偏书面,新闻评论、文学常用。常见搭配:shun publicity/the limelight/society/contact with sb。IELTS 写作中描述某群体/政策刻意回避某事时,比 avoid 更精准有力,适合描写社会分化、阶级隔离类话题。",
+      "examples": [
+        {
+          "text": "Once a regular on the talk-show circuit, the reclusive author now shuns all media appearances.",
+          "source": "The New Yorker"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "serendipity",
+      "phonetic": "/ˌserənˈdɪpəti/",
+      "pos": "n.",
+      "definition": "the occurrence and development of events by chance in a happy or beneficial way; a fortunate accident",
+      "chinese": "意外发现的惊喜;机缘巧合;偶然之喜",
+      "linguistics": "1754 年由作家 Horace Walpole 杜撰,取自波斯童话 The Three Princes of Serendip(锡兰三王子)——故事中三位王子总能凭意外发现宝物。无确切词根,纯文学典故衍生词。形容词 serendipitous。本文复数 serendipities 与 annoyances、joys 并列,描述「人际互动中的意外之喜」,是英语极优雅的修辞名词之一。",
+      "usage": "正式书面、文学化用词,常出现在书评、科学随笔、文化评论中。常见搭配:by serendipity;a happy serendipity;serendipitous discovery/encounter。IELTS 写作中描述科学发现、人际邂逅、创意来源时是高分加分词——比 chance 或 luck 优雅得多。",
+      "examples": [
+        {
+          "text": "Many great scientific breakthroughs, from penicillin to microwaves, owe their existence to pure serendipity.",
+          "source": "Nature"
+        }
+      ],
+      "level": "考研 / IELTS 8.0"
+    },
+    {
+      "word": "friction",
+      "phonetic": "/ˈfrɪkʃn/",
+      "pos": "n.",
+      "definition": "the resistance that one surface or object encounters when moving over another; figuratively, conflict or disagreement between people with differing views",
+      "chinese": "摩擦(力);人际/观念上的摩擦、不和",
+      "linguistics": "源自拉丁语 fricare(摩擦),与 fricative(摩擦音)同源。三大义项分流:物理学「摩擦力」(coefficient of friction)、人际「摩擦/冲突」(friction between colleagues)、科技/经济新词「阻力」(friction in the user journey)。本文连续四次出现,作者用反复修辞把「friction」从负面贬义提升为「人性的本质」——这是 opinion writing 的高级反转修辞。",
+      "usage": "正式偏书面,适用范围极广。常见搭配:cause/create/reduce friction;friction between X and Y;frictionless(无摩擦的,科技用语)。IELTS 写作中讨论组织管理、人际关系、UX 设计都极常用。本文用法极具启发——同一个词通过反复使用获得新内涵。",
+      "examples": [
+        {
+          "text": "Persistent friction between the chief executive and the board ultimately led to his resignation.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "word": "annihilate",
+      "phonetic": "/əˈnaɪəleɪt/",
+      "pos": "v.",
+      "definition": "to destroy utterly; to obliterate; to defeat overwhelmingly",
+      "chinese": "彻底消灭;歼灭;(比赛)横扫",
+      "linguistics": "源自拉丁语 ad-(向)+ nihil(无)+ -ate,字面「化为乌有」。注意词根 nihil(无)还衍生出 nihilism(虚无主义)、annihilation(歼灭)。语气极强,比 destroy 更彻底、更绝对——多用于军事、自然灾害或体育/选举上的「碾压式」胜负。本文 entry-level illustration gigs ... have been annihilated 用此词把入门级插画岗位的消亡描绘得无比惨烈。",
+      "usage": "正式书面、修辞强烈,新闻评论、战争报道高频。常见搭配:annihilate the enemy/opposition/competition/an industry/jobs。IELTS 写作中描述「彻底消灭某行业/某群体」时是极有冲击力的动词,比 destroy/eliminate 更夸张、更具情感张力。",
+      "examples": [
+        {
+          "text": "Cheap imports have annihilated what remained of the country's once-thriving textile industry.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "discipline",
+      "phonetic": "/ˈdɪsəplɪn/",
+      "pos": "v.",
+      "definition": "to train (someone) to obey rules using punishment to correct disobedience; to bring under control through enforced behaviour",
+      "chinese": "训练、规训;惩戒;使服从",
+      "linguistics": "源自拉丁语 disciplina(教导、训练),与 disciple(门徒)同源。注意三大义项:动词「惩戒/规训」(discipline a child/an employee)、动词「自律」(discipline oneself)、名词「学科/纪律/自律」。本文 a tool to discipline, then eliminate, the human worker 借用了 Foucault 的「规训」(discipline)概念——先驯服再消灭,极具批判理论色彩。",
+      "usage": "正式用词,管理、教育、社会批评核心动词。常见搭配:discipline employees/students/oneself;be disciplined for misconduct。IELTS 写作 task 2 讨论管理、教育、权力议题时极有思想深度——尤其用 Foucault 式「规训」义,瞬间提升论述层级。",
+      "examples": [
+        {
+          "text": "Two officers were disciplined for breaching the force's social-media guidelines.",
+          "source": "BBC News"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "demonise",
+      "phonetic": "/ˈdiːmənaɪz/",
+      "pos": "v.",
+      "definition": "to portray (someone or something) as wicked, threatening, or evil",
+      "chinese": "妖魔化;把…说成洪水猛兽",
+      "linguistics": "由 demon(恶魔)+ -ise(英式动词后缀)构成,字面「使变成恶魔」。美式拼写为 demonize。注意词族:demon(n.)、demonic(adj. 恶魔般的)、demonisation(n.)。本文 demonise resistance 即「妖魔化反抗者」,是政治和社会评论中分析话语权操纵时的核心动词。",
+      "usage": "正式书面,新闻评论、社会学论文高频。常见搭配:demonise minorities/immigrants/the opposition/resistance/a movement;be demonised as + N。IELTS 写作 task 2 讨论媒体偏见、政治话语、社会污名化时必备——比 criticise/attack 更深入,直指「话语暴力」层面。",
+      "examples": [
+        {
+          "text": "Tabloid coverage has systematically demonised refugees as a drain on public resources.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "invoke",
+      "phonetic": "/ɪnˈvəʊk/",
+      "pos": "v.",
+      "definition": "to cite or appeal to (someone or something) as an authority for an action or in support of an argument; to call on (a deity or spirit) in prayer",
+      "chinese": "援引、援用;搬出(权威/先例);祈求",
+      "linguistics": "源自拉丁语 invocare(in- 向 + vocare 呼唤),字面「向上呼唤」。三大义项分流:法律「援引(条款/法律)」(invoke article 50)、修辞「搬出(权威/先例)」(invoke the founding fathers)、宗教「祈求(神灵)」(invoke divine protection)。注意区分:invoke(援引)vs. evoke(唤起);两词同源、形近,但 invoke 强调主动援引以支持论点,evoke 强调被动唤起感受/记忆。",
+      "usage": "正式书面,法律、政治评论、学术写作高频。常见搭配:invoke a law/clause/precedent/principle/spirit of;repeatedly invoked。本文 they invoke the luddites 即「他们搬出卢德分子(作为反面教材)」。IELTS 写作中作为引经据典动词比 use/cite 更优雅。",
+      "examples": [
+        {
+          "text": "Defenders of the policy repeatedly invoke national security to justify the lack of public oversight.",
+          "source": "The New York Times"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "artisan",
+      "phonetic": "/ˌɑːtɪˈzæn/",
+      "pos": "n.",
+      "definition": "a skilled worker who makes things by hand, especially using traditional techniques",
+      "chinese": "工匠;手艺人",
+      "linguistics": "源自意大利语 artigiano(从事 arte 即「技艺」的人),与 art、artist 同源。区分:artisan(手工艺人,强调实用技艺)vs. artist(艺术家,强调审美创作)vs. craftsman(工匠,与 artisan 几乎同义但更英式)。21 世纪 \"artisan\" 被消费主义重新包装(artisan bread/coffee),带「手工精品」的营销色彩,但本文 luddites were skilled artisans 用的是其本源义——传统熟练手工业者。",
+      "usage": "正式书面,历史、社会经济评论常用;当代消费/营销语境亦高频(artisan bakery)。常见搭配:skilled artisans;artisan workshop/baker/cheese。IELTS 写作 task 2 中讨论传统手工业、全球化对地方文化冲击时是关键名词。",
+      "examples": [
+        {
+          "text": "Mass production decimated communities of skilled artisans who had honed their craft over generations.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "sweatshop",
+      "phonetic": "/ˈswetʃɒp/",
+      "pos": "n.",
+      "definition": "a factory or workshop, especially in the clothing industry, where manual workers are employed at very low wages for long hours and under poor conditions",
+      "chinese": "血汗工厂",
+      "linguistics": "复合词 sweat(汗水)+ shop(作坊),19 世纪英国劳工运动中诞生的术语,字面「让工人流汗的作坊」。形容词 sweatshop labour(血汗劳动力)。注意与 factory 的语义差:factory 中性,sweatshop 强烈贬义,专指压榨劳工的恶劣车间。本文 textile sweatshops powered by child semi-slaves 把工业革命的工厂与现代血汗工厂连接起来。",
+      "usage": "新闻、社会评论高频。常见搭配:sweatshop labour/conditions/workers;run/operate a sweatshop。IELTS 写作 task 2 讨论全球化、劳工权益、快时尚伦理时必备——尤其在 critique 跨国公司供应链的题目中。",
+      "examples": [
+        {
+          "text": "Investigators uncovered sweatshop conditions at three suppliers used by the high-street fashion brand.",
+          "source": "BBC News"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "unionise",
+      "phonetic": "/ˈjuːniənaɪz/",
+      "pos": "v.",
+      "definition": "to organise (workers) into a labour union; to become members of a trade union",
+      "chinese": "组建工会;加入工会",
+      "linguistics": "由 union(联合、工会)+ -ise(英式动词后缀)构成。美式拼写 unionize。词族:union(n.)、unionised(adj.)、unionisation(n.)。本文 Forbidden from unionising 即「被禁止组建工会」——揭示卢德分子选择砸机器是因为合法抗争渠道被堵死。",
+      "usage": "正式用词,劳工/政治新闻高频。常见搭配:the right to unionise;workers voted to unionise;newly unionised workforce。IELTS 写作 task 2 中讨论劳工权益、gig economy、平台经济(如 Uber/Amazon 工人)的关键动词。",
+      "examples": [
+        {
+          "text": "Warehouse workers at the Staten Island facility voted to unionise, dealing a historic blow to Amazon's anti-union stance.",
+          "source": "The New York Times"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "penal",
+      "phonetic": "/ˈpiːnl/",
+      "pos": "adj.",
+      "definition": "relating to, used for, or prescribing the punishment of offenders under the legal system",
+      "chinese": "刑罚的;受刑罚的;(殖民地)流放罪犯的",
+      "linguistics": "源自拉丁语 poena(惩罚),与 penalty(罚款/惩罚)、punish(惩罚)同源。注意常见搭配:penal code(刑法典)、penal system(刑罚制度)、penal colony(流放殖民地)、penal reform(刑制改革)。本文 shipped to penal colonies in Australia 是英国 18-19 世纪向澳洲流放犯人的历史指涉——卢德分子被押往植民地服刑。",
+      "usage": "正式书面,法律、历史、政治评论核心形容词。常见搭配:penal code/system/colony/institution/reform/sanctions。IELTS 写作 task 2 讨论刑罚制度、司法改革题目必备。",
+      "examples": [
+        {
+          "text": "Campaigners argue that the current penal system focuses too heavily on punishment and too little on rehabilitation.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "triumph",
+      "phonetic": "/ˈtraɪʌmf/",
+      "pos": "v.",
+      "definition": "to achieve a great victory or success; to prevail over (an opponent or obstacle)",
+      "chinese": "获得胜利;战胜;(over)凯旋",
+      "linguistics": "源自拉丁语 triumphus(古罗马凯旋仪式),与 trophy(战利品/奖杯)同源。注意动词、名词同形:triumph(n. 重大胜利);triumph over(v. 战胜)。形容词 triumphant(胜利的、得意洋洋的)与 triumphal(凯旋的,正式仪式义)语气有别——前者描述心情,后者描述场合(triumphal arch 凯旋门)。",
+      "usage": "正式书面、文学化用词。常见搭配:triumph over adversity/the odds/opponents;triumph in;ultimately triumph。比 win 更宏大、更具史诗感。IELTS 写作中讨论历史性胜利、克服逆境时极佳。本文 too disorganised to triumph 把艺术家与 AI 公司的对抗提升为史诗级斗争。",
+      "examples": [
+        {
+          "text": "The grassroots campaign ultimately triumphed over a multimillion-pound corporate lobbying effort.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "encompass",
+      "phonetic": "/ɪnˈkʌmpəs/",
+      "pos": "v.",
+      "definition": "to surround and have or hold within; to include comprehensively (a wide range of things)",
+      "chinese": "包含、涵盖;包围",
+      "linguistics": "由 en-(使...在内)+ compass(范围、罗盘)构成,字面「把...纳入范围内」。注意两层义:具体义「包围」(mountains encompassing the valley)较少见;抽象义「涵盖」(encompass a wide range of topics)极常用。比 include 更强调「全面性、包罗万象」,比 cover 更书面。",
+      "usage": "正式书面,学术、政策、商业写作高频。常见搭配:encompass a wide range of/all aspects of/everything from X to Y;come to encompass。IELTS 写作 task 2 中描述某概念/政策的广泛影响范围时,比 include/cover 更高级。本文 grown to encompass everything else 用此词凸显问题的扩散性。",
+      "examples": [
+        {
+          "text": "The new sustainability framework will encompass everything from supply-chain emissions to workforce diversity.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "word": "squander",
+      "phonetic": "/ˈskwɒndə/",
+      "pos": "v.",
+      "definition": "to waste (something, especially money or time) in a reckless and foolish manner; to fail to take advantage of (an opportunity)",
+      "chinese": "挥霍;浪费;白白错过(机会)",
+      "linguistics": "16 世纪英语,词源不明,可能与中古英语 squander(分散)有关。两层语义:浪费资源(squander money/resources/energy)和错失机会(squander a chance/opportunity/lead)。比 waste 更强调「肆意、愚蠢地浪费」,带强烈批判色彩。常见过去分词作形容词 squandered(被白白浪费掉的)。",
+      "usage": "正式书面,评论、商业新闻、体育报道高频。常见搭配:squander money/resources/time/talent/an opportunity/a lead;a squandered chance。IELTS 写作 task 2 中讨论资源浪费、机会成本时极有冲击力——比 waste 更具情感张力。",
+      "examples": [
+        {
+          "text": "Critics accuse the government of having squandered a once-in-a-generation opportunity to reform the tax system.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "word": "dystopia",
+      "phonetic": "/dɪsˈtəʊpiə/",
+      "pos": "n.",
+      "definition": "an imagined state or society in which there is great suffering or injustice, typically a totalitarian or post-apocalyptic one; the opposite of utopia",
+      "chinese": "反乌托邦;敌托邦",
+      "linguistics": "由希腊语 dys-(坏)+ topos(地方)构成,字面「坏地方」,是 utopia(乌托邦,源自 ou-「不」+ topos「地方」即「乌有之乡」)的对立词。形容词 dystopian(反乌托邦式的)。文学经典:Orwell 的 1984、Huxley 的 Brave New World 都是 dystopian novels。本文 the tech lords can only offer us dystopia 把硅谷的「未来愿景」一棒打成反乌托邦。",
+      "usage": "正式书面,文学评论、科技批评、社会评论高频。常见搭配:a dystopia of;descend into dystopia;dystopian future/vision/novel。IELTS 写作 task 2 讨论技术、监控、社会走向时是极有思想色彩的名词——比 nightmare 或 bleak future 更学术、更具文学厚度。",
+      "examples": [
+        {
+          "text": "Black Mirror imagines a near-future dystopia in which technology amplifies rather than alleviates our worst impulses.",
+          "source": "The Atlantic"
+        }
+      ],
+      "level": "考研 / IELTS 8.0"
+    },
+    {
+      "word": "chatter",
+      "phonetic": "/ˈtʃætə/",
+      "pos": "v.",
+      "definition": "to talk informally about unimportant matters, especially rapidly and continuously; (of teeth) to click together repeatedly from cold or fear",
+      "chinese": "(快速)闲聊;喋喋不休;(牙齿)打颤",
+      "linguistics": "拟声词,模仿快速、轻巧的说话声。注意三大义项:人「闲聊」(chatter about)、动物「啁啾」(birds chattering)、牙齿「打颤」(teeth chattering with cold)。本文 robots chattering to each other 描绘一种荒诞场景——没有人、只有机器人互相喋喋不休,极具反乌托邦冷峻感。",
+      "usage": "中性偏口语化动词,文学描写常用。常见搭配:chatter away;chatter excitedly/incessantly;teeth chatter。IELTS 写作中较少用,但在文学性较强的段落里可作生动动词。本文用法值得借鉴——以机器的拟人化「闲聊」反讽虚空的未来。",
+      "examples": [
+        {
+          "text": "The two engineers chattered excitedly about the prototype as they walked back to the lab.",
+          "source": "The New Yorker"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    }
+  ],
+  "annotations_phrases": [
+    {
+      "phrase": "knock-off",
+      "definition": "a cheap, inferior copy or imitation of a popular product or work",
+      "chinese": "(廉价)仿冒品;山寨货",
+      "linguistics": "源自动词短语 knock off(快速做出、草草制作),名词化后专指「廉价快速复制的仿品」。可单数 knock-off 或复数 knock-offs,有时拼作 knockoff(美式偏好);本文两种拼法都出现了(knock-offs of my work 与 internet flooded with knockoffs)。带贬义,常用于服装、奢侈品、艺术品的盗版语境。",
+      "usage": "口语+评论文章高频。常见搭配:cheap/Chinese/designer knock-offs;a knock-off of + 品牌/作品。IELTS 写作中讨论知识产权、品牌仿冒、AI 复制时极生动。比 copy/imitation 更口语化、更具贬义冲击力。",
+      "examples": [
+        {
+          "text": "Customs officers seized over 2,000 knock-off handbags bearing counterfeit Louis Vuitton logos.",
+          "source": "Reuters"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "phrase": "chock full of",
+      "definition": "completely filled with; packed full of",
+      "chinese": "塞满了;充斥着",
+      "linguistics": "16 世纪习语,chock(原意「楔块」)+ full,字面「楔到满」,即「填得没空隙」。也拼作 chock full of 或 chockful of。注意发音 /tʃɒk fʊl/,chock 与 chuck 不同。比 full of 多一层「拥挤、堵塞」的具象感。本文 chock full of shills 极具画面感——「会场被托儿挤爆了」。",
+      "usage": "口语+评论文章常用。常见搭配:chock-full of + N(信息/人/食物等具体或抽象事物)。IELTS 写作中作生动短语,描述「某场合塞满了某类人/物」时比 full of 更地道、更有感染力,但比 packed with 更口语。",
+      "examples": [
+        {
+          "text": "The latest budget statement was chock-full of pre-election giveaways aimed at swing constituencies.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "phrase": "move fast and break things",
+      "definition": "a Silicon Valley ethos urging rapid innovation even at the cost of damaging existing systems, norms, or institutions",
+      "chinese": "「快速行动,打破常规」(硅谷信条)",
+      "linguistics": "Facebook 创始人 Mark Zuckerberg 2009 年提出的内部口号,后成为硅谷文化代名词。本文 do what they always did – move fast and break things 是 opinion writing 中常见的「引语戏仿」——把对方的口号原封不动搬过来,再加一句 The things they were breaking would be us(他们要打破的就是我们),完成反讽闭环。极具修辞张力。",
+      "usage": "新闻评论、科技批评核心引语。常见搭配:the 'move fast and break things' ethos/mentality/culture/era。IELTS 写作 task 2 中批判科技公司无序扩张时可直接套用,带文化典故色彩。",
+      "examples": [
+        {
+          "text": "The 'move fast and break things' mentality has cost users their privacy and democracies their stability.",
+          "source": "The Atlantic"
+        }
+      ],
+      "level": "考研 / IELTS 7.5"
+    },
+    {
+      "phrase": "left behind",
+      "definition": "failing to keep up with progress, change, or competitors; abandoned or neglected by social or economic advancement",
+      "chinese": "被甩在身后;被时代/社会抛弃",
+      "linguistics": "短语动词 leave behind 的被动分词形式。物理义「遗落」(left behind keys)与抽象义「跟不上、被落下」(left behind by globalisation)分流;本文用抽象义。社会学经典短语 the left-behind(被抛弃的群体,常指脱欧/特朗普选民等被全球化遗弃的工薪阶层)。",
+      "usage": "新闻评论、社会经济分析高频。常见搭配:get/be left behind by progress/globalisation/technology;the left-behind communities/towns/workers。IELTS 写作 task 2 讨论技术鸿沟、地区差距、教育公平时必备。",
+      "examples": [
+        {
+          "text": "Many former industrial towns feel they have been left behind by decades of London-centric economic policy.",
+          "source": "BBC News"
+        }
+      ],
+      "level": "CET-6 / IELTS 6.5"
+    },
+    {
+      "phrase": "comply in advance",
+      "definition": "to submit to authority or expectations before being explicitly required or coerced, often anticipating control",
+      "chinese": "提前服从;预先就范",
+      "linguistics": "由动词 comply(服从)+ in advance(提前)组成,作为政治哲学术语由 Timothy Snyder 在 On Tyranny: Twenty Lessons from the Twentieth Century(2017)第一课提出——\"Do not obey in advance\"。本文沿用此思想,把 AI 公司「不可避免」的叙事策略揭示为诱导人提前服从。",
+      "usage": "政治评论、文化批评高频。常见搭配:comply/obey in advance;refuse to comply in advance。IELTS 写作 task 2 讨论权力运作、民主衰落、自由议题时是极具思想性的短语——能瞬间拉高论述层级。",
+      "examples": [
+        {
+          "text": "Snyder warns that the gravest threat to liberty is not coercion itself but our willingness to comply in advance.",
+          "source": "The New York Review of Books"
+        }
+      ],
+      "level": "考研 / IELTS 8.0"
+    },
+    {
+      "phrase": "fight back",
+      "definition": "to defend oneself when attacked; to resist or counterattack",
+      "chinese": "反击;还击;奋起抵抗",
+      "linguistics": "短语动词 fight + 副词 back。注意三种用法:作不及物动词(workers fought back)、作及物动词带 against(fight back against oppression)、名词 fightback(反击,英式;美式 comeback 更常见)。本文 fought back in more powerful ways 描述艺术家「以更有力方式反击」。",
+      "usage": "新闻、社会评论核心短语动词。常见搭配:fight back against + N;fight back tears(忍住眼泪,另一固定义)。IELTS 写作 task 2 中描述抗争、维权、反抗压力时是基础但极有力的短语。",
+      "examples": [
+        {
+          "text": "Local communities are fighting back against plans to build the controversial pipeline through protected land.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-4 / IELTS 6.0"
+    },
+    {
+      "phrase": "out of work",
+      "definition": "unemployed; without paid employment",
+      "chinese": "失业;没工作",
+      "linguistics": "介词短语作表语形容词。注意 out of work(失业,持续状态)与 lose one's job(失去工作,动作)及 unemployed(adj. 失业的,正式)三者的语体差。out of work 偏口语+新闻评论。本文 Many of my colleagues are out of work 是普通但极有力的失业描述。",
+      "usage": "口语+新闻常用。常见搭配:be/get/find oneself out of work;out-of-work + N(out-of-work actor/miner)。比 unemployed 更口语、更有人情味。IELTS 写作中描述就业困境时可作 unemployed 的近义替换。",
+      "examples": [
+        {
+          "text": "Tens of thousands of miners were thrown out of work when the last collieries closed in the 1990s.",
+          "source": "BBC News"
+        }
+      ],
+      "level": "CET-4 / IELTS 5.5"
+    },
+    {
+      "phrase": "entry-level",
+      "definition": "of the most basic or lowest grade in a job, product range, or industry, typically suitable for beginners",
+      "chinese": "入门级的;初级的",
+      "linguistics": "复合形容词 entry(进入)+ level(级别)。注意带连字符 entry-level 是定语形容词形式(entry-level job/position/salary);不带连字符 entry level 通常作名词。语义双轨:就业语境「初级岗位」、消费品语境「入门款」(entry-level smartphone)。本文 entry-level illustration gigs 即「插画行业的入门级散工」。",
+      "usage": "商业/HR/消费评测语境核心形容词。常见搭配:entry-level position/job/salary/role/product/model。IELTS 写作 task 2 讨论青年就业、职业晋升、行业断层时必备——尤其在描述 AI 取代初级岗位的讨论中。",
+      "examples": [
+        {
+          "text": "Generative AI is eroding entry-level positions in fields from coding to copywriting, leaving graduates with fewer rungs on the ladder.",
+          "source": "The Economist"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "phrase": "get used to",
+      "definition": "to gradually become familiar with or accustomed to (something new or difficult)",
+      "chinese": "习惯于;渐渐适应",
+      "linguistics": "固定结构 get/be used to + N/V-ing(注意 to 是介词不是不定式,后接动名词)。常见混淆点:get used to(渐渐习惯,描述过程)vs. be used to(已经习惯,描述状态)vs. used to do(过去常常,描述过去习惯)。三者形似义不同,IELTS 听力/口语高频考点。",
+      "usage": "中性日常+评论文章常用。常见搭配:get used to the idea/the noise/working;you'll get used to it。本文 The audience will just have to get used to it 极冷峻——「观众必须学会习惯(被替代)」,用最日常的短语承载最辛辣的批判。",
+      "examples": [
+        {
+          "text": "Remote workers have had to get used to a degree of digital surveillance that would have seemed dystopian a decade ago.",
+          "source": "Financial Times"
+        }
+      ],
+      "level": "CET-4 / IELTS 5.5"
+    },
+    {
+      "phrase": "sold as",
+      "definition": "presented or marketed (often misleadingly) as something it may not truly be",
+      "chinese": "被包装/标榜/吹捧为",
+      "linguistics": "被动结构 be sold as + N。原义为商业「作为...出售」,引申为修辞「被包装/标榜为...」,常带怀疑或讽刺色彩——暗示「实际并非如此,只是被这么卖给你」。与 marketed as、billed as 近义但 sold as 更突出「商业话术」感。",
+      "usage": "新闻评论高频。常见搭配:sold as a solution/breakthrough/innovation/the future;was sold to us as。本文 This is sold as progress 是 opinion writing 经典批判句式——三个字精确刺穿「进步」叙事的虚伪。IELTS 写作 task 2 批判政策/技术的虚假宣传时极有力。",
+      "examples": [
+        {
+          "text": "Austerity was sold to the public as a temporary necessity, but its effects have lingered for a decade.",
+          "source": "The Guardian"
+        }
+      ],
+      "level": "CET-6 / IELTS 7.0"
+    },
+    {
+      "phrase": "way of life",
+      "definition": "the customs, traditions, and patterns of daily living that characterise a person, group, or community",
+      "chinese": "生活方式;生计;过日子的方法",
+      "linguistics": "固定名词短语,语义比 lifestyle 更厚重——lifestyle 偏个人消费选择(healthy lifestyle),way of life 偏群体性、文化性、生存性。本文连续两次出现:fighting for their way of life 和 Artists too are fighting for a way of life——把卢德分子的工业革命抗争与今日艺术家的 AI 抗争并置。",
+      "usage": "正式书面,社会学、人类学、政治评论高频。常见搭配:traditional/ancient/rural/nomadic way of life;fight for/preserve/threaten a way of life。IELTS 写作 task 2 讨论传统文化保护、全球化冲击、行业消亡时核心短语。",
+      "examples": [
+        {
+          "text": "Indigenous communities fear that the mining project would destroy a way of life sustained over centuries.",
+          "source": "Reuters"
+        }
+      ],
+      "level": "CET-4 / IELTS 6.0"
+    },
+    {
+      "phrase": "march of progress",
+      "definition": "the seemingly unstoppable forward movement of social, technological, or economic advancement",
+      "chinese": "进步的洪流;时代前进的脚步",
+      "linguistics": "比喻短语,把抽象的「进步」拟人化为「行军」。march(行军)暗含「整齐、不可阻挡、单向」的意味,故 the march of progress 常带「不容质疑、势不可挡」的色彩——也因此常被批评者(本文即是)拿来反讽,挑战这种「进步必然」的叙事。固定形容词搭配 inevitable/relentless/onward march of progress。",
+      "usage": "正式书面,历史、政治、科技评论高频。常见搭配:the inevitable/relentless march of progress;resist/challenge/embrace the march of progress。IELTS 写作 task 2 讨论技术发展、社会变革时是极具修辞色彩的短语——但要注意立场,作者用此短语往往是为了反讽。",
+      "examples": [
+        {
+          "text": "Romantic poets bitterly resisted what they saw as the soulless march of progress unleashed by the Industrial Revolution.",
+          "source": "The Atlantic"
+        }
+      ],
+      "level": "考研 / IELTS 8.0"
+    }
+  ],
+  "annotations_sentences": [
+    {
+      "sentence": "Billions of images harvested from the internet without credit, without compensation, without even consent.",
+      "highlight_key": "Billions of images harvested",
+      "translation": "数十亿张图像被从互联网上搜刮而去——没有署名,没有报酬,甚至没有征得同意。",
+      "breakdown": "句式结构:省略句(完整应为 Billions of images were harvested...),省略系动词 were 以加快节奏。主语 Billions of images + 过去分词短语 harvested from the internet 作后置定语;紧随三个 without 引导的介词短语,构成三段递进式平行结构(without credit / without compensation / without even consent)。语法分析:三个 without 平行排列,最后一个加 even 强化语气,将「未经同意」推为最严重的越界——这是英文 opinion writing 的「递进式平行」技法。修饰成分:harvested(收割)比 collected/taken 更狠,暗示「像庄稼一样被割掉」;credit(署名)、compensation(报酬)、consent(同意)三个 c 开头的抽象名词构成头韵,加强句子的节奏与控诉力度。",
+      "grammar_points": [
+        "省略句",
+        "过去分词作后置定语",
+        "三段平行结构",
+        "without + N 介词短语",
+        "递进强调 even"
+      ],
+      "writing_tip": "IELTS 写作中控诉某行为侵犯权利的有力句式:[N] [were/are/have been] taken/used/exploited [from somewhere], without [基本权利1], without [基本权利2], without even [最关键的权利]。如:Personal data has been harvested from billions of users, without notice, without consent, without even the pretence of regulation."
+    },
+    {
+      "sentence": "Tech companies would do what they always did – move fast and break things.",
+      "highlight_key": "Tech companies would do what they always",
+      "translation": "科技公司还是会重操旧业——快速行动,打破常规。",
+      "breakdown": "句式结构:主句 Tech companies would do what they always did,后接破折号引出同位语 move fast and break things(对前文 do what they always did 的具体说明)。语法分析:would 在此表「过去习惯/惯常行为」(类似 used to),不是虚拟语气;what they always did 是 do 的宾语从句,what 兼作主语和宾语。修饰成分:破折号是 opinion writing 的「点睛」标点——前面铺垫一个含糊的「他们一贯做派」,破折号后引爆具体内容(Facebook 的著名口号),实现语义反转。这种「悬念—引爆」结构是评论文章的高级修辞节奏。",
+      "grammar_points": [
+        "would 表过去习惯",
+        "what 引导名词性从句",
+        "破折号引出同位语",
+        "引语戏仿",
+        "祈使句作同位语"
+      ],
+      "writing_tip": "IELTS 写作中揭露某主体一贯行为的有力句式:[Subject] would [verb] what [they/it] always [did/has done] – [具体行为的精炼概括]。如:Big polluters would do what they always did – externalise the costs and pocket the gains."
+    },
+    {
+      "sentence": "Nothing humans do is inevitable, I said. It is all determined by politics, money and power.",
+      "highlight_key": "Nothing humans do is inevitable",
+      "translation": "人类所做的一切并非不可避免——我这样说道。一切都由政治、金钱和权力决定。",
+      "breakdown": "句式结构:两句并列。第一句 Nothing humans do is inevitable 主语 Nothing 后接省略 that 的定语从句 (that) humans do,系动词 is + 形容词 inevitable;插入 I said 表来源。第二句 It is all determined by... 是被动句,主语 It 指代「一切人类行为」,by + 三个名词并列(politics, money, power)揭示真正的决定因素。语法分析:Nothing... is inevitable 是英语经典「否定开头 + 抽象主语」的论断式句型,极有思想力度。修饰成分:三个名词 politics, money and power 构成铿锵的三联结尾(tricolon),与西方修辞传统(如 \"life, liberty, and the pursuit of happiness\")一脉相承。",
+      "grammar_points": [
+        "Nothing 作主语",
+        "省略 that 的定语从句",
+        "插入语 I said",
+        "被动语态 + by 引出施事",
+        "三联式名词并列"
+      ],
+      "writing_tip": "IELTS 写作中驳斥「某事不可避免」的有力句式:Nothing [we/humans/societies] [do/build/destroy] is inevitable. It is all determined by [因素1], [因素2] and [因素3]. 这是反对决定论、强调人类能动性的核心论证模板,适用于讨论技术、气候、社会变革等议题。"
+    },
+    {
+      "sentence": "Not only were we creatives seeing our work taken, it was being taken by some of the richest people on the planet, with open contempt.",
+      "highlight_key": "Not only were we creatives seeing",
+      "translation": "我们这些创作者不仅眼睁睁看着作品被夺走——夺走它的还是这个星球上最富有的一群人,带着毫不掩饰的蔑视。",
+      "breakdown": "句式结构:Not only... 引出的倒装句 + 后接进一步说明的并列分句。Not only were we creatives seeing 是否定副词前置触发的部分倒装(助动词 were 提到主语前)。语法分析:see + 宾语 + 过去分词(our work taken)是「感官动词 + 宾语 + 过去分词」结构表「目睹某事被做」;后半句 it was being taken 是过去进行时被动语态,凸显「正在被掠夺」的进行性。修饰成分:with open contempt 是状语介词短语,open(公然的)修饰 contempt(蔑视)——一个 open 把整句的批判重量翻了一倍:不仅抢夺,还毫不遮掩地蔑视被抢者。",
+      "grammar_points": [
+        "Not only 引导部分倒装",
+        "see + O + V-ed 感官动词结构",
+        "过去进行时被动 was being done",
+        "with + N 状语短语",
+        "递进+并列"
+      ],
+      "writing_tip": "IELTS 写作中表达「不仅遭受,更被以蔑视的方式遭受」的复合控诉句式:Not only were [群体] [v-ing] [其权益] [v-ed], [it/they] [was/were] being [v-ed] by [更恶劣的施动方], with [一个强烈的态度名词如 contempt/impunity/indifference]。"
+    },
+    {
+      "sentence": "Such attacks on art only reveal the deep anti-humanism of the tech elite.",
+      "highlight_key": "Such attacks on art only reveal",
+      "translation": "这种对艺术的攻击,只不过暴露出科技精英深植骨髓的反人道主义。",
+      "breakdown": "句式结构:简单句。主语 Such attacks on art(such 回指上文所述的攻击)+ 谓语 reveal + 宾语 the deep anti-humanism of the tech elite。语法分析:副词 only 限制 reveal,意为「仅仅、不过是」——给后面定性留足空间,起到「轻描淡写式定性」的修辞效果。anti-humanism 是 anti-(反)+ humanism(人道主义/人本主义)构成的复合名词,直击对方的道德要害。修饰成分:deep(深植的)+ anti-humanism(反人道主义)+ of the tech elite(科技精英的)层层定语堆叠,把抽象指控做成了一句结实的批判。",
+      "grammar_points": [
+        "such + N 回指前文",
+        "only 限定副词",
+        "of + N 后置定语",
+        "复合名词 anti-humanism",
+        "评论性定性句"
+      ],
+      "writing_tip": "IELTS 写作中对某现象做总结性定性的有力句式:Such [行为/现象] only reveal(s) the deep [负面抽象品质] of [主体]。如:Such evictions only reveal the deep indifference of policymakers towards the most vulnerable. 适合做段落收尾的论点强化。"
+    },
+    {
+      "sentence": "Generative AI is a tool to discipline, then eliminate, the human worker.",
+      "highlight_key": "Generative AI is a tool to discipline",
+      "translation": "生成式 AI 是一种工具——先规训人类劳动者,再将其消灭。",
+      "breakdown": "句式结构:简单系表句 Generative AI is a tool,后接不定式短语 to discipline, then eliminate, the human worker 作 tool 的后置定语(说明工具的用途)。语法分析:两个动词 discipline 和 eliminate 并列共享一个宾语 the human worker,中间插入 then 表示时间先后顺序——这种「两个动词 + 共用宾语」的极简结构是英文论断句的标志性技法。修饰成分:逗号 + then + 逗号 把第二个动词隔成插入式分句,强化「先驯服,再清除」的两阶段心理冲击。discipline 借用 Foucault 的「规训」概念,把句子从单纯批判提升到批判理论高度。",
+      "grammar_points": [
+        "系表结构 N is a tool",
+        "不定式作后置定语",
+        "两动词并列共用宾语",
+        "then 表时间承接",
+        "插入式逗号结构"
+      ],
+      "writing_tip": "IELTS 写作中精准定性某技术/政策真实意图的二段式句型:[Technology/Policy] is a tool to [先做的事 verb1], then [最终目的 verb2], [共同宾语]。如:Mass surveillance is a tool to monitor, then silence, dissenting voices. 这种「先柔后狠」的二段定性极具修辞张力。"
+    },
+    {
+      "sentence": "When tech boosters want to demonise resistance, they invoke the luddites.",
+      "highlight_key": "When tech boosters want to demonise",
+      "translation": "每当科技吹捧者想要把反抗者妖魔化,他们就搬出卢德分子(作反面教材)。",
+      "breakdown": "句式结构:复合句。When 引导的时间状语从句 + 主句。从句 When tech boosters want to demonise resistance 主语 tech boosters + want to + V;主句 they invoke the luddites 主谓宾结构。语法分析:When 在此不是「在...时候」的字面时间,而是表「每当」的条件式时间(相当于 whenever)——揭示一种反复出现的话语模式。修饰成分:tech boosters(科技吹捧者)是 booster(助推器/吹捧者)的妙用——既有「推动者」中性义,又暗含「啦啦队」式贬义。demonise(妖魔化)+ invoke(援引)两个高级动词支撑整句的论述厚度。",
+      "grammar_points": [
+        "When 引导条件式时间状语从句",
+        "动词不定式 to + V",
+        "贬义复合名词 tech boosters",
+        "主谓宾基本结构",
+        "话语分析句式"
+      ],
+      "writing_tip": "IELTS 写作中分析某方话语策略的精炼句式:When [对方群体] want to [负面动作 verb1] [对手], they invoke [某历史/概念/类比]。这是 discourse analysis 类论述的核心模板,适用于讨论媒体偏见、政治话术、公关策略。如:When governments want to justify austerity, they invoke the household budget analogy."
+    },
+    {
+      "sentence": "And they did not lose to the inevitable march of progress.",
+      "highlight_key": "And they did not lose to the inevitable",
+      "translation": "他们并不是输给了所谓「不可阻挡的时代进步」。",
+      "breakdown": "句式结构:简单句,以 And 开头连接上下文。主语 they(指卢德分子)+ 谓语 did not lose to + 宾语 the inevitable march of progress。语法分析:lose to sb/sth(输给...)是固定搭配,后接「击败方」。否定 did not 直接颠覆历史叙事(「他们并不是输给了进步」)。修饰成分:the inevitable march of progress 三个词层层叠加——the(定冠词暗示「众所周知的那个」)+ inevitable(不可避免的)+ march of progress(进步的洪流)——而 did not 一下把这三层修饰全部驳倒。这是 opinion writing 的「先夯实对方立论,再一锤击穿」的强辩论技巧。",
+      "grammar_points": [
+        "lose to sb/sth 固定搭配",
+        "否定句驳论",
+        "the + adj + N 三层定语堆叠",
+        "And 起句的承接",
+        "比喻性集合名词"
+      ],
+      "writing_tip": "IELTS 写作中反驳「某结果是大势所趋」的有力句式:And [主体] did not lose to the inevitable [比喻性概念,如 march of progress / tide of change / wave of modernisation]. They lost to [真正的原因]。这种「破而后立」的双句结构在 task 2 反驳决定论时极有冲击力。"
+    },
+    {
+      "sentence": "Their fantasy future contains neither meaningful work nor real communities, just robots chattering to each other, leaving nothing for us.",
+      "highlight_key": "Their fantasy future contains neither",
+      "translation": "他们幻想中的未来,既没有有意义的工作,也没有真实的社群——只剩机器人彼此喋喋不休,什么都不留给我们。",
+      "breakdown": "句式结构:复杂句。主句 Their fantasy future contains neither meaningful work nor real communities;后接同位语 just robots chattering to each other(现在分词短语作 robots 的后置定语);最后是分词短语 leaving nothing for us 作结果状语。语法分析:neither... nor... 是关联连词,平行连接两个名词短语(meaningful work / real communities);just 引导对比,把上面的「既无...也无...」转换为「只剩...」;现在分词 chattering 修饰 robots,leaving 表自然结果。修饰成分:fantasy(幻想的)是定性形容词,提前给「未来」打上贬义标签;meaningful(有意义的)和 real(真实的)分别修饰两类被剥夺之物;chattering 拟人化呼应 dystopia 主题——只有机器的空话,没有真人。",
+      "grammar_points": [
+        "neither... nor... 关联连词",
+        "现在分词作后置定语",
+        "分词短语作结果状语",
+        "just 引出对比补充",
+        "三段式句子结构"
+      ],
+      "writing_tip": "IELTS 写作收束反乌托邦愿景的高级句式:Their [vision/future/promise] contains neither [应有之物 1] nor [应有之物 2], just [冷峻的替代物],leaving [总结性结果]。如:Their growth model contains neither shared prosperity nor environmental stewardship, just billionaires hoarding the gains, leaving everyone else to pick up the bill."
+    },
+    {
+      "sentence": "I spoke about how they shame their critics as stupid and backward, about how their narrative of inevitability is a way of getting people to comply in advance.",
+      "highlight_key": "I spoke about how they shame their critics",
+      "translation": "我谈到他们如何把批评者羞辱成愚蠢落后的人,谈到他们关于「不可避免」的叙事其实是诱导人们提前就范的伎俩。",
+      "breakdown": "句式结构:复合句。主语 I + 谓语 spoke about + 两个并列的 how 引导的宾语从句(由两个 about how 结构平行展开)。第一个从句:how they shame their critics as stupid and backward;第二个从句:how their narrative of inevitability is a way of getting people to comply in advance。语法分析:shame sb as + adj 是「把某人羞辱/定性为...」的句型;a way of doing 表「做某事的方法」,其中 getting people to comply 是 of 的宾语,to comply 是 get sb to do 结构中的不定式。修饰成分:两个 about how 并行结构构成「平行宾语」,使一个长句承载两层批判论点,节奏整齐。narrative of inevitability(不可避免的叙事)是政治话语分析的核心术语,与 comply in advance(提前服从)呼应,直击话语操控本质。",
+      "grammar_points": [
+        "spoke about how 引导宾语从句",
+        "两个 about how 并行结构",
+        "shame sb as + adj",
+        "get sb to do 使役结构",
+        "of + N 后置定语"
+      ],
+      "writing_tip": "IELTS 写作中分析对方双重话语策略的复合句式:I/The author argues that [主体] [verb1] [对象 1] as [负面定性], and that [主体] [verb2] [对象 2] as a way of [真实意图 V-ing]。这种「揭一层、再揭一层」的句式适合 task 2 中批判某种叙事策略,论述厚度感强。"
+    }
+  ]
+}
