@@ -2180,3 +2180,289 @@ async function exportVocab(format) {
     notify('导出失败: ' + e.message, 'error');
   }
 }
+
+// ═════════════════════════════════════════════════════════════
+// P2: 学习数据 / 打卡 / 热力图 / 难度分析 / 全文搜索
+// ═════════════════════════════════════════════════════════════
+
+// — 注册新的 view —
+const _origShowView = showView;
+showView = function(viewName) {
+  _origShowView(viewName);
+  if (viewName === 'stats') loadStats();
+  if (viewName === 'home') loadTodayProgress();
+};
+
+// — 首页今日打卡小部件 —
+async function loadTodayProgress() {
+  try {
+    const res = await fetch('/api/today-progress');
+    const data = await res.json();
+    if (!data.success) return;
+    const p = data.progress;
+    const section = document.getElementById('today-progress-section');
+    if (!section) return;
+    section.style.display = 'block';
+
+    // articles 环
+    const aPct = Math.min(1, p.today_articles / Math.max(p.target_articles, 1));
+    const aOff = 163.4 * (1 - aPct);
+    document.getElementById('tp-ring-articles').setAttribute('stroke-dashoffset', aOff);
+    document.getElementById('tp-articles-label').textContent = p.today_articles + '/' + p.target_articles;
+    if (aPct >= 1) document.getElementById('tp-ring-articles').setAttribute('stroke', '#f0ad4e');
+
+    // reviews 环
+    const rPct = Math.min(1, p.today_reviews / Math.max(p.target_reviews, 1));
+    const rOff = 163.4 * (1 - rPct);
+    document.getElementById('tp-ring-reviews').setAttribute('stroke-dashoffset', rOff);
+    document.getElementById('tp-reviews-label').textContent = p.today_reviews + '/' + p.target_reviews;
+    if (rPct >= 1) document.getElementById('tp-ring-reviews').setAttribute('stroke', '#f0ad4e');
+
+    // streak 数(从 /api/stats 拿)
+    const sres = await fetch('/api/stats');
+    const sdata = await sres.json();
+    if (sdata.success) {
+      document.getElementById('tp-streak').textContent = sdata.stats.current_streak;
+    }
+  } catch (e) { /* ignore */ }
+}
+
+// — 学习数据 page —
+async function loadStats() {
+  try {
+    const [statsR, actR, goalsR] = await Promise.all([
+      fetch('/api/stats').then(r => r.json()),
+      fetch('/api/activity').then(r => r.json()),
+      fetch('/api/goals').then(r => r.json()),
+    ]);
+    if (!statsR.success) throw new Error('stats failed');
+    _renderStatsOverview(statsR.stats);
+    _renderGoals(goalsR.goals);
+    _renderHeatmap(actR.activity || {});
+  } catch (e) {
+    document.getElementById('stats-overview').innerHTML = '<div class="empty-state"><p>加载失败</p></div>';
+  }
+}
+
+function _renderStatsOverview(s) {
+  document.getElementById('stats-overview').innerHTML = `
+    <div class="stats-card-grid">
+      <div class="stats-card"><div class="stats-card-num">${s.total_articles}</div><div class="stats-card-label">总精读篇数</div></div>
+      <div class="stats-card"><div class="stats-card-num">${s.total_words.toLocaleString()}</div><div class="stats-card-label">累计阅读词数</div></div>
+      <div class="stats-card"><div class="stats-card-num">${s.total_vocab}</div><div class="stats-card-label">收藏生词</div></div>
+      <div class="stats-card stats-card-highlight"><div class="stats-card-num">${s.mastered_vocab}</div><div class="stats-card-label">已掌握</div></div>
+      <div class="stats-card"><div class="stats-card-num">🔥 ${s.current_streak}</div><div class="stats-card-label">连续打卡</div></div>
+      <div class="stats-card"><div class="stats-card-num">${s.total_active_days}</div><div class="stats-card-label">累计学习天数</div></div>
+      <div class="stats-card"><div class="stats-card-num">${s.this_week_articles}</div><div class="stats-card-label">本周阅读</div></div>
+      <div class="stats-card"><div class="stats-card-num">${s.this_month_articles}</div><div class="stats-card-label">本月阅读</div></div>
+    </div>
+  `;
+}
+
+function _renderGoals(g) {
+  document.getElementById('stats-goals-display').innerHTML = `
+    <div class="goals-row">
+      <span class="goal-item">📖 每日阅读 <strong>${g.articles_per_day}</strong> 篇</span>
+      <span class="goal-item">🔁 每日复习 <strong>${g.reviews_per_day}</strong> 个词</span>
+    </div>
+  `;
+}
+
+function openGoalsEditor() {
+  fetch('/api/goals').then(r => r.json()).then(d => {
+    if (d.success) {
+      document.getElementById('goal-articles').value = d.goals.articles_per_day;
+      document.getElementById('goal-reviews').value = d.goals.reviews_per_day;
+      document.getElementById('goals-modal').style.display = 'flex';
+    }
+  });
+}
+function closeGoalsModal() { document.getElementById('goals-modal').style.display = 'none'; }
+async function saveGoals() {
+  const body = {
+    articles_per_day: parseInt(document.getElementById('goal-articles').value) || 1,
+    reviews_per_day: parseInt(document.getElementById('goal-reviews').value) || 10,
+  };
+  const res = await fetch('/api/goals', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  const data = await res.json();
+  if (data.success) { _renderGoals(data.goals); closeGoalsModal(); notify('已保存', 'success'); }
+}
+
+// — 热力图 (GitHub-style) —
+function _renderHeatmap(activity) {
+  const container = document.getElementById('stats-heatmap');
+  const today = new Date();
+  const start = new Date(today); start.setDate(start.getDate() - 364);
+  // 让起点对齐周日
+  while (start.getDay() !== 0) start.setDate(start.getDate() - 1);
+
+  const cells = [];
+  let monthLabels = [];
+  let lastMonth = -1;
+  const day = new Date(start);
+  while (day <= today) {
+    const ds = day.toISOString().slice(0, 10);
+    const score = (activity[ds] || {}).score || 0;
+    let level = 0;
+    if (score >= 1) level = 1;
+    if (score >= 4) level = 2;
+    if (score >= 8) level = 3;
+    if (score >= 15) level = 4;
+    cells.push({ date: ds, level, score, info: activity[ds] || {} });
+    day.setDate(day.getDate() + 1);
+  }
+  // 切分为周列
+  const weeks = [];
+  for (let i = 0; i < cells.length; i += 7) {
+    weeks.push(cells.slice(i, i + 7));
+  }
+  // 月份标签
+  const monthHtml = weeks.map(w => {
+    const d = new Date(w[0].date);
+    const m = d.getMonth();
+    if (m !== lastMonth && d.getDate() <= 7) {
+      lastMonth = m;
+      return '<div class="hm-month-label">' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m] + '</div>';
+    }
+    return '<div class="hm-month-label"></div>';
+  }).join('');
+
+  const gridHtml = weeks.map(w => {
+    const colHtml = Array.from({length: 7}).map((_, i) => {
+      const c = w[i];
+      if (!c) return '<div class="hm-cell hm-empty"></div>';
+      const tip = c.date + ': ' +
+        (c.info.opened ? c.info.opened + ' 篇阅读 ' : '') +
+        (c.info.vocab_added ? c.info.vocab_added + ' 新词 ' : '') +
+        (c.info.vocab_reviewed ? c.info.vocab_reviewed + ' 复习' : '') ||
+        c.date + ' 无活动';
+      return `<div class="hm-cell hm-l${c.level}" title="${tip}"></div>`;
+    }).join('');
+    return '<div class="hm-week">' + colHtml + '</div>';
+  }).join('');
+
+  container.innerHTML = `
+    <div class="hm-months-row">${monthHtml}</div>
+    <div class="hm-grid">${gridHtml}</div>
+  `;
+}
+
+// — 全文搜索 —
+async function doGlobalSearch() {
+  const q = document.getElementById('header-search-input').value.trim();
+  if (!q || q.length < 2) { notify('请输入至少 2 个字符', 'info'); return; }
+  document.getElementById('search-query').textContent = q;
+  document.getElementById('search-overlay').style.display = 'flex';
+  document.getElementById('search-results').innerHTML = '<div class="loading-state"><div class="loader"></div></div>';
+  try {
+    const res = await fetch('/api/search?q=' + encodeURIComponent(q));
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || '搜索失败');
+    _renderSearchResults(data);
+  } catch (e) {
+    document.getElementById('search-results').innerHTML = '<div class="empty-state"><p>' + e.message + '</p></div>';
+  }
+}
+
+function _renderSearchResults(data) {
+  const container = document.getElementById('search-results');
+  if (!data.hits.length && !data.saved.length) {
+    container.innerHTML = '<div class="empty-state"><p>没有找到匹配</p></div>';
+    return;
+  }
+  // 按文章分组
+  const byArticle = {};
+  data.hits.forEach(h => {
+    (byArticle[h.article_id] = byArticle[h.article_id] || { title: h.title, source: h.source, hits: [] }).hits.push(h);
+  });
+  let html = '<div class="search-summary">在 ' + data.total + ' 处文章正文中找到, ' + data.saved.length + ' 个收藏匹配</div>';
+  if (data.saved.length) {
+    html += '<div class="search-saved-section"><div class="search-section-title">📒 你的生词本</div>';
+    html += data.saved.map(v => `<div class="search-saved-item"><strong>${escapeHtml(v.word)}</strong> — ${escapeHtml(v.definition || '')}</div>`).join('');
+    html += '</div>';
+  }
+  html += '<div class="search-section-title">📖 文章正文命中</div>';
+  Object.entries(byArticle).forEach(([aid, info]) => {
+    html += `<div class="search-article-group">
+      <div class="search-article-title" onclick="openArticleById('${aid}')">${escapeHtml(info.title)} <span class="search-source">— ${escapeHtml(info.source || '')}</span></div>
+      ${info.hits.slice(0, 5).map(h => `<div class="search-snippet">${_hlSnippet(h.snippet)}</div>`).join('')}
+      ${info.hits.length > 5 ? `<div class="search-more">... 还有 ${info.hits.length - 5} 处命中</div>` : ''}
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+function _hlSnippet(s) {
+  return escapeHtml(s).replace(/&lt;&lt;&lt;/g, '<mark>').replace(/&gt;&gt;&gt;/g, '</mark>');
+}
+
+function closeSearchOverlay() { document.getElementById('search-overlay').style.display = 'none'; }
+
+async function openArticleById(aid) {
+  closeSearchOverlay();
+  try {
+    const res = await fetch('/api/article/' + aid);
+    const d = await res.json();
+    if (d.success && d.article) {
+      d.article._id = aid;
+      openArticle(d.article);
+    }
+  } catch (e) { notify('打开失败', 'error'); }
+}
+
+// — 阅读页难度分析 + 推荐策略 —
+async function loadArticleStats(articleId) {
+  if (!articleId) return;
+  try {
+    const res = await fetch('/api/article-stats/' + articleId);
+    const data = await res.json();
+    if (!data.success) return;
+    const s = data.stats;
+    const total = Object.values(s.level_distribution).reduce((a,b) => a+b, 0) || 1;
+    const dist = s.level_distribution;
+    const colors = {
+      'CET-4': '#9bc4e2', 'CET-6': '#6aa3d4',
+      'IELTS 7.0+': '#f0ad4e', '考研/IELTS 7.5+': '#d9534f', '其他': '#aaa'
+    };
+    const bar = Object.entries(dist).filter(([_, v]) => v > 0).map(([k, v]) =>
+      `<span class="lvl-seg" style="flex:${v};background:${colors[k]||'#999'}" title="${k}: ${v} 词"></span>`
+    ).join('');
+
+    const el = document.getElementById('reader-strategy');
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div class="strategy-row">
+        <div class="strategy-stat"><span class="ss-label">字数</span><span class="ss-val">${s.word_count}</span></div>
+        <div class="strategy-stat"><span class="ss-label">平均句长</span><span class="ss-val">${s.avg_sentence_length} 词</span></div>
+        <div class="strategy-stat"><span class="ss-label">长难句</span><span class="ss-val">${s.complex_sentence_count} (${s.complex_sentence_density}%)</span></div>
+      </div>
+      <div class="lvl-bar">${bar}</div>
+      <div class="lvl-bar-legend">
+        ${Object.entries(dist).filter(([_,v])=>v>0).map(([k,v]) =>
+          `<span><span class="lvl-dot" style="background:${colors[k]||'#999'}"></span>${k} ${v}</span>`
+        ).join('')}
+      </div>
+      <div class="strategy-recommend">
+        <strong>📚 推荐策略:${s.recommended_strategy}</strong>
+        <span class="strategy-reason">${s.strategy_reason}</span>
+      </div>
+    `;
+  } catch (e) { /* ignore */ }
+}
+
+// 挂到 openArticle 完成后
+const _origOpenArticle = openArticle;
+openArticle = async function(article, idx) {
+  await _origOpenArticle(article, idx);
+  if (article._id) loadArticleStats(article._id);
+};
+
+// 启动时加载首页今日打卡
+document.addEventListener('DOMContentLoaded', loadTodayProgress);
+// ESC 关闭搜索浮层
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeSearchOverlay();
+    closeGoalsModal();
+  }
+});

@@ -761,3 +761,223 @@ body {
   margin-top: 1rem; background: none; border: none;
   color: #888; cursor: pointer; font-size: 0.82rem;
 }
+
+/* ═══ P2: 学习数据 / 打卡 / 热力图 / 搜索 / 难度分析 ═══ */
+
+/* 顶部搜索框 */
+.header-search { margin-left: auto; padding-left: 18px; }
+.header-search input {
+  width: 220px; padding: 6px 12px; border-radius: 16px;
+  border: 1px solid #ddd; font-size: 0.82rem; background: #fafafa;
+}
+.header-search input:focus {
+  outline: none; border-color: var(--accent, #c33);
+  background: #fff; width: 280px;
+  transition: width 0.2s;
+}
+
+/* 首页今日打卡 */
+.today-progress-section {
+  max-width: 980px; margin: -1rem auto 1.5rem auto; padding: 0 24px;
+}
+.today-progress-inner {
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+  background: #fff; padding: 16px 22px;
+  border-radius: 10px; border: 1px solid #ececec;
+}
+.tp-streak {
+  font-size: 1rem; font-weight: 600; color: #b56300;
+  background: #fff3e0; padding: 8px 14px; border-radius: 18px;
+}
+.tp-ring-wrap { text-align: center; }
+.tp-ring { position: relative; width: 60px; height: 60px; }
+.tp-ring-label {
+  position: absolute; inset: 0; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 600; color: #2a2a2a;
+}
+.tp-ring-title { font-size: 0.72rem; color: #888; margin-top: 4px; }
+.tp-link {
+  margin-left: auto; color: #888; font-size: 0.85rem;
+  text-decoration: none;
+}
+.tp-link:hover { color: var(--accent, #c33); }
+
+/* 学习数据页 */
+.stats-section { max-width: 980px; margin: 24px auto; padding: 0 24px; }
+.stats-inner h3 {
+  margin: 1.8rem 0 0.8rem 0; font-size: 1rem;
+  color: #2a2a2a; font-weight: 600;
+}
+.stats-card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px; margin-top: 1rem;
+}
+.stats-card {
+  background: #fff; border: 1px solid #ececec; border-radius: 8px;
+  padding: 18px 16px; text-align: left;
+}
+.stats-card-highlight {
+  background: linear-gradient(135deg, #fff8e6, #fff);
+  border-color: #f0ad4e;
+}
+.stats-card-num {
+  font-size: 1.8rem; font-weight: 700; color: #2a2a2a;
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+.stats-card-label {
+  font-size: 0.78rem; color: #888; margin-top: 4px;
+}
+.stats-goals {
+  margin-top: 2rem; padding: 18px 20px;
+  background: #fafafa; border-radius: 8px;
+}
+.stats-goals-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.stats-goals-header h3 { margin: 0; }
+.goals-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.goal-item {
+  font-size: 0.9rem; color: #555;
+  background: #fff; padding: 6px 14px; border-radius: 4px;
+}
+.goal-item strong { color: var(--accent, #c33); font-size: 1.05rem; margin: 0 2px; }
+
+/* 热力图 */
+.stats-heatmap-wrap { margin-top: 2.5rem; }
+.hm-months-row {
+  display: flex; padding-left: 0; gap: 3px;
+  margin-bottom: 4px; font-size: 0.68rem; color: #888;
+}
+.hm-month-label {
+  width: 13px; flex-shrink: 0; height: 14px;
+}
+.hm-grid { display: flex; gap: 3px; overflow-x: auto; padding-bottom: 6px; }
+.hm-week { display: flex; flex-direction: column; gap: 3px; }
+.hm-cell {
+  width: 13px; height: 13px; border-radius: 2px;
+  background: #ebedf0;
+}
+.hm-l0 { background: #ebedf0; }
+.hm-l1 { background: #c6e48b; }
+.hm-l2 { background: #7bc96f; }
+.hm-l3 { background: #239a3b; }
+.hm-l4 { background: #196127; }
+.hm-empty { background: transparent; }
+.heatmap-legend {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; color: #888; margin-top: 12px;
+}
+
+/* 搜索浮层 */
+.search-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 60px;
+}
+.search-overlay-inner {
+  background: #fff; width: 92%; max-width: 720px;
+  max-height: 80vh; border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.search-overlay-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; border-bottom: 1px solid #eee;
+  position: sticky; top: 0; background: #fff; z-index: 1;
+}
+.search-overlay-title { font-weight: 600; font-size: 0.95rem; }
+.search-overlay-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.2rem; color: #888;
+}
+#search-results { padding: 12px 22px 22px 22px; }
+.search-summary { color: #888; font-size: 0.82rem; margin-bottom: 14px; }
+.search-section-title {
+  font-size: 0.85rem; font-weight: 600; color: #555;
+  margin: 16px 0 8px 0;
+}
+.search-article-group {
+  border-left: 3px solid #eee; padding-left: 14px;
+  margin-bottom: 18px;
+}
+.search-article-title {
+  font-weight: 600; cursor: pointer; color: var(--accent, #c33);
+  margin-bottom: 6px;
+}
+.search-article-title:hover { text-decoration: underline; }
+.search-source { color: #999; font-weight: normal; font-size: 0.82rem; }
+.search-snippet {
+  font-size: 0.85rem; line-height: 1.6; color: #555;
+  padding: 6px 0; border-bottom: 1px dashed #f0f0f0;
+}
+.search-snippet mark {
+  background: #fff3a0; padding: 0 2px; border-radius: 2px;
+}
+.search-more {
+  font-size: 0.78rem; color: #999; padding-top: 4px;
+}
+.search-saved-section {
+  background: #fff8e6; padding: 12px 16px; border-radius: 6px;
+  margin-bottom: 16px;
+}
+.search-saved-item {
+  font-size: 0.85rem; padding: 4px 0;
+}
+
+/* 目标编辑弹窗 */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 110;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-box {
+  background: #fff; padding: 24px 28px;
+  border-radius: 10px; width: 320px;
+}
+.modal-box h3 { margin: 0 0 16px 0; }
+.modal-box label {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 12px 0; font-size: 0.9rem;
+}
+.modal-box input[type=number] {
+  width: 80px; padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px;
+  text-align: center;
+}
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: 8px;
+  margin-top: 16px;
+}
+
+/* 阅读页难度分析 */
+.reader-strategy {
+  background: #faf7f2; padding: 16px 20px;
+  border-radius: 8px; margin-top: 12px;
+}
+.strategy-row {
+  display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.strategy-stat { display: flex; flex-direction: column; }
+.ss-label { font-size: 0.72rem; color: #888; }
+.ss-val { font-size: 1rem; font-weight: 600; color: #2a2a2a; }
+.lvl-bar {
+  display: flex; height: 10px; border-radius: 5px; overflow: hidden;
+  margin: 8px 0;
+}
+.lvl-seg { height: 100%; }
+.lvl-bar-legend {
+  display: flex; gap: 14px; font-size: 0.75rem; color: #666;
+  flex-wrap: wrap; margin-bottom: 12px;
+}
+.lvl-dot {
+  display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; margin-right: 4px;
+}
+.strategy-recommend {
+  padding-top: 10px; border-top: 1px solid #eee;
+  font-size: 0.85rem; line-height: 1.7; color: #555;
+}
+.strategy-recommend strong { color: var(--accent, #c33); display: block; margin-bottom: 4px; }
+.strategy-reason { color: #777; }

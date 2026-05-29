@@ -36,7 +36,13 @@
         <button class="nav-btn" data-view="starred" onclick="showView('starred')">
           <span class="nav-icon">&#9733;</span> 我的收藏
         </button>
+        <button class="nav-btn" data-view="stats" onclick="showView('stats')">
+          <span class="nav-icon">▣</span> 学习数据
+        </button>
       </nav>
+      <div class="header-search">
+        <input type="text" id="header-search-input" placeholder="🔍 搜索任意词/词组..." onkeydown="if(event.key==='Enter') doGlobalSearch()">
+      </div>
     </div>
   </header>
 
@@ -47,6 +53,38 @@
         <p class="hero-date" id="today-date"></p>
         <h2 class="hero-title">Foreign Journal Reader</h2>
         <p class="hero-subtitle">真外刊 · 精读笔记 · 英式发音</p>
+      </div>
+    </section>
+    <section class="today-progress-section" id="today-progress-section" style="display:none">
+      <div class="today-progress-inner">
+        <div class="tp-streak" title="连续打卡天数">🔥 <span id="tp-streak">0</span> 天</div>
+        <div class="tp-ring-wrap">
+          <div class="tp-ring">
+            <svg viewBox="0 0 60 60" width="60" height="60">
+              <circle cx="30" cy="30" r="26" fill="none" stroke="#eee" stroke-width="6"/>
+              <circle id="tp-ring-articles" cx="30" cy="30" r="26" fill="none"
+                      stroke="#5cb85c" stroke-width="6"
+                      stroke-dasharray="163.4" stroke-dashoffset="163.4"
+                      transform="rotate(-90 30 30)"/>
+            </svg>
+            <div class="tp-ring-label" id="tp-articles-label">0/1</div>
+          </div>
+          <div class="tp-ring-title">今日阅读</div>
+        </div>
+        <div class="tp-ring-wrap">
+          <div class="tp-ring">
+            <svg viewBox="0 0 60 60" width="60" height="60">
+              <circle cx="30" cy="30" r="26" fill="none" stroke="#eee" stroke-width="6"/>
+              <circle id="tp-ring-reviews" cx="30" cy="30" r="26" fill="none"
+                      stroke="#5bc0de" stroke-width="6"
+                      stroke-dasharray="163.4" stroke-dashoffset="163.4"
+                      transform="rotate(-90 30 30)"/>
+            </svg>
+            <div class="tp-ring-label" id="tp-reviews-label">0/10</div>
+          </div>
+          <div class="tp-ring-title">今日复习</div>
+        </div>
+        <a class="tp-link" href="#" onclick="event.preventDefault(); showView('stats')">查看完整数据 →</a>
       </div>
     </section>
     <section class="articles-section">
@@ -90,6 +128,7 @@
           <span class="reader-source" id="reader-source"></span>
           <h1 class="reader-title" id="reader-title"></h1>
           <div class="reader-meta" id="reader-meta"></div>
+          <div class="reader-strategy" id="reader-strategy" style="display:none"></div>
         </header>
         <div class="reader-body" id="reader-body"></div>
 
@@ -247,6 +286,67 @@
       </div>
     </section>
   </main>
+
+  <!-- ═══ 学习数据 ═══ -->
+  <main id="view-stats" class="view">
+    <section class="stats-section">
+      <div class="stats-inner">
+        <h2 class="section-title">学习数据</h2>
+        <p class="section-desc">追踪你的精读旅程</p>
+
+        <div class="stats-overview" id="stats-overview">
+          <div class="loading-state"><div class="loader"></div></div>
+        </div>
+
+        <div class="stats-goals">
+          <div class="stats-goals-header">
+            <h3>每日目标</h3>
+            <button class="ghost-btn" onclick="openGoalsEditor()">⚙ 调整目标</button>
+          </div>
+          <div id="stats-goals-display"></div>
+        </div>
+
+        <div class="stats-heatmap-wrap">
+          <h3>学习日历 — 过去一年</h3>
+          <p class="empty-hint" style="margin-bottom:1rem">每个方块代表一天,颜色越深当天活动越多(阅读 + 加生词 + 复习)</p>
+          <div id="stats-heatmap"></div>
+          <div class="heatmap-legend">
+            <span>少</span>
+            <span class="hm-cell hm-l0"></span>
+            <span class="hm-cell hm-l1"></span>
+            <span class="hm-cell hm-l2"></span>
+            <span class="hm-cell hm-l3"></span>
+            <span class="hm-cell hm-l4"></span>
+            <span>多</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ 全文搜索结果浮层 ═══ -->
+  <div id="search-overlay" class="search-overlay" style="display:none">
+    <div class="search-overlay-inner">
+      <div class="search-overlay-header">
+        <span class="search-overlay-title">搜索 "<span id="search-query"></span>"</span>
+        <button class="search-overlay-close" onclick="closeSearchOverlay()">✕</button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- ═══ 目标编辑弹窗 ═══ -->
+  <div id="goals-modal" class="modal-overlay" style="display:none">
+    <div class="modal-box">
+      <h3>设定每日目标</h3>
+      <label>每天阅读篇数 <input type="number" id="goal-articles" min="1" max="10" value="1"></label>
+      <label>每天复习词数 <input type="number" id="goal-reviews" min="1" max="100" value="10"></label>
+      <div class="modal-actions">
+        <button class="ghost-btn" onclick="closeGoalsModal()">取消</button>
+        <button class="btn-summary-submit" onclick="saveGoals()">保存</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══ POPUP TOOLTIP ═══ -->
   <div class="word-tooltip" id="word-tooltip" style="display:none">
