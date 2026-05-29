@@ -385,16 +385,8 @@
     <p>外刊精读 — 每日一篇，积少成多</p>
   </footer>
 
-  <!-- PWA 「加到主屏」轻提示(仅 iOS Safari 非 standalone 时显示一次) -->
-  <div id="pwa-ios-banner" class="pwa-banner" style="display:none">
-    <div class="pwa-banner-icon">
-      <img src="/static/icons/icon-192.png" alt="FR">
-    </div>
-    <div class="pwa-banner-text">
-      <strong>把 FR Reader 加到主屏幕</strong>
-      <span>点击下方 <span class="ios-share-icon">⬆︎</span> 分享按钮 → <strong>添加到主屏幕</strong></span>
-    </div>
-    <button class="pwa-banner-close" onclick="dismissPwaBanner()">✕</button>
+  <!-- PWA 「加到主屏」轻提示已暂时关闭(手机端 UX 待重做) -->
+  <div id="pwa-ios-banner" class="pwa-banner" style="display:none !important">
   </div>
 
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
